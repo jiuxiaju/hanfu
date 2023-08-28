@@ -1,0 +1,4 @@
+<view a:for="{{list}}">
+  <view a:if="{{item.type === 'text'}}">{{item.value}}</view>
+  <image a:elif="{{item.type === 'image'}}">{{item.value}}</image>
+</view>

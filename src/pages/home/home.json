@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel"
+  }
+}

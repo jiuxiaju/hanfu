@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "moduleResolution": "node",
+    "declaration": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "module": "ES2015",
+    "strict": true,
+    "lib": ["DOM", "ES2015"],
+    "skipLibCheck": true,
+    "types": ["@mini-types/alipay"]
+  },
+  "paths": {
+    "tdesign-miniprogram/*":["/node_modules/tdesign-miniprogram/*"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

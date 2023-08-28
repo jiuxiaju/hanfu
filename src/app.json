@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/shop/shop",
+    "pages/my/my",
+    "pages/sports/sports",
+    "pages/pageNotFound/pageNotFound", "pages/todos/todos", "pages/add-todo/add-todo"],
+  "window": {
+    "backgroundColor": "#F9F9F9",
+    "defaultTitle": "九霞裾",
+    "titleBarColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "textColor": "#000000",
+    "selectedColor": "#A86600",
+    "backgroundColor": "#FFFFFF",
+    "items": [
+      {
+        "pagePath": "pages/home/home",
+        "name": "首页",
+        "icon": "assets/home.png",
+        "activeIcon": "assets/home.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "name": "店铺",
+        "icon": "assets/shop.png",
+        "activeIcon": "assets/shop.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "name": "九霞裾",
+        "icon": "assets/my.png",
+        "activeIcon": "assets/my.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents"
+}

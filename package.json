@@ -1,0 +1,80 @@
+{
+  "name": "hanfu",
+  "version": "1.0.0",
+  "description": "汉服科普工具",
+  "author": "林淡 <chenyuge.gcy@alibaba-inc.com>",
+  "homepage": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joygcy/hanfu.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist .mor dist",
+    "dev": "mor compile -w",
+    "mock": "mor compile --mock",
+    "build": "mor compile --production",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@ali/mor-core": "2",
+    "tdesign-miniprogram": "^1.1.8",
+    "tslib": "2"
+  },
+  "devDependencies": {
+    "@ali/commitlint-config-kobex": "^1.0.8",
+    "@ali/eslint-alsc-parser": "^1.2.13",
+    "@ali/eslint-plugin-alsc-base": "^1.2.9",
+    "@ali/eslint-plugin-alsc-miapp": "^1.1.5",
+    "@ali/miniapp-eslint-parser": "^1.0.12",
+    "@ali/mor-cli": "2",
+    "@mini-types/alipay": "^2.0.0",
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.2.4",
+    "eslint-module-utils": "^2.7.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-order": "^5.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{ts,js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "alsc-miniapp-type": "alsc-mor",
+  "multiCompileDist配置请参考": "https://aliyuque.antfin.com/workcenter/manual/miniapp-build#l6V2i",
+  "multiCompileDist": {
+    "ALIPAY": "dist/alipay",
+    "TAOBAO": "dist/taobao",
+    "ELE": "dist/alipay",
+    "BYTEDANCE": "dist/bytedance",
+    "WECHAT": "dist/wechat"
+  }
+}

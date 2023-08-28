@@ -1,0 +1,68 @@
+<t-swiper
+  navigation="{{ { type: 'dots' } }}"
+  list="{{swiperList}}"
+>
+</t-swiper>
+<view class='menu-container'>
+  <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
+  <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'popularization'}}" />
+</view>
+
+<!-- 近期活动 -->
+<view class="activity-container">
+  <view class="activity-header">
+    <view>近期活动</view>
+    <view class="activity-header-button" data-path="activity" onTap="jump2Page">查看全部<t-icon name="caret-right-small" size="16px" /></view>
+  </view>
+
+  <view a:for="{{activityList}}" class="activity-item" data-path="activity-detail" onTap="jump2Page">
+    <view class="activity-desc">
+      <view class="activity-title">{{item.title}}</view>
+      <view>{{item.desc}}</view>
+      <view>{{item.rangeDate}}</view>
+    </view>
+    <t-image src="{{item.url}}" mode="aspectFill" width="74" height="74" />
+  </view>
+</view>
+
+<!-- 文章推荐 -->
+<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange">
+  <template
+    is="article-tab-panel-item"
+    data="{{label: '推荐', value: '0', articles: articleMap.keykey0}}"
+  />
+  <template
+    is="article-tab-panel-item"
+    data="{{label: '穿搭', value: '1', articles: articleMap.keykey1}}"
+  />
+  <template
+    is="article-tab-panel-item"
+    data="{{label: '妆造', value: '2', articles: articleMap.keykey2}}"
+  />
+</t-tabs>
+
+<template name="article-tab-panel-item">
+  <t-tab-panel label="{{label}}" value="{{value}}">
+    <view a:for="{{articles}}" class="activity-item" data-path="article-detail" onTap="jump2Page">
+      <view class="activity-desc">
+        <view class="activity-title">{{item.title}}</view>
+        <view>{{item.desc}}</view>
+        <view a:if="{{item.readingAmount !== undefined}}">阅读量：{{item.readingAmount}}</view>
+      </view>
+      <t-image a:if="{{item.url}}" src="{{item.url}}" mode="aspectFill" width="74" height="74" />
+    </view>
+    <view a:if="{{!articles || articles.length === 0}}" class="empty-list">还没有推荐的文章哦~</view>
+  </t-tab-panel>
+</template>
+
+<template name="menu-item">
+  <view class="menu-item" data-path="{{key}}" onTap="jump2Page">
+    <view class="menu-logo">
+      <t-image src="/assets/{{logo}}.png" mode="aspectFill" width="40" height="40" />
+    </view>
+    <view>
+      <view class="menu-title">{{title}}</view>
+      <view class="menu-desc">{{desc}}</view>
+    </view>
+  </view>
+</template>
