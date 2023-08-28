@@ -1,0 +1,5 @@
+<view class="custom-nav" style="height:{{titleBarHeight + statusBarHeight}}px">
+  <view class="custom-title-bar" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;padding-bottom: 8px" >
+    <t-input prefixIcon="search" placeholder="请输入" borderless />
+  </view>
+</view>

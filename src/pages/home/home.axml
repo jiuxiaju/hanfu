@@ -1,3 +1,4 @@
+<custom-navigation-bar />
 <t-swiper
   navigation="{{ { type: 'dots' } }}"
   list="{{swiperList}}"

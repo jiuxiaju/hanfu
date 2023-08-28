@@ -1,5 +1,12 @@
 {
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "defaultTitle": " ",
+  "titleBarColor": "#ffffff",
+  "navigationStyle": "custom",
+  "showBackButton": "false",
   "usingComponents": {
+    "custom-navigation-bar": "../../components/custom-navigation-bar/custom-navigation-bar",
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-image": "tdesign-miniprogram/image/image",
