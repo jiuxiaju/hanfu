@@ -4,7 +4,10 @@
     "pages/shop/shop",
     "pages/my/my",
     "pages/sports/sports",
-    "pages/pageNotFound/pageNotFound", "pages/todos/todos", "pages/add-todo/add-todo"],
+    "pages/pageNotFound/pageNotFound",
+    "pages/todos/todos",
+    "pages/add-todo/add-todo"
+  ],
   "window": {
     "backgroundColor": "#F9F9F9",
     "defaultTitle": "九霞裾",
@@ -19,19 +22,19 @@
         "pagePath": "pages/home/home",
         "name": "首页",
         "icon": "assets/home.png",
-        "activeIcon": "assets/home.png"
+        "activeIcon": "assets/home-active.png"
       },
       {
         "pagePath": "pages/shop/shop",
         "name": "店铺",
         "icon": "assets/shop.png",
-        "activeIcon": "assets/shop.png"
+        "activeIcon": "assets/shop-active.png"
       },
       {
         "pagePath": "pages/my/my",
         "name": "九霞裾",
         "icon": "assets/my.png",
-        "activeIcon": "assets/my.png"
+        "activeIcon": "assets/my-active.png"
       }
     ]
   },
