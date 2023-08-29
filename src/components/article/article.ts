@@ -1,7 +1,8 @@
-import { aComponent } from '@ali/mor-core'
+import { aComponent } from '@ali/mor-core';
 
 aComponent({
   props: {
+    className: '',
     list: [],
   },
 });

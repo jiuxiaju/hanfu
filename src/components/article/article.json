@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image"
+  }
 }

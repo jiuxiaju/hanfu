@@ -1,6 +1,5 @@
 <view class="page-title">
   汉服运动
 </view>
-<!-- <view>
-  <article list=""
-</view> -->
+<article a:for="{{articles}}" className="sports-article" list="{{item}}" />
+

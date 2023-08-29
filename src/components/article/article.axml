@@ -1,4 +1,7 @@
-<view a:for="{{list}}">
-  <view a:if="{{item.type === 'text'}}">{{item.value}}</view>
-  <image a:elif="{{item.type === 'image'}}">{{item.value}}</image>
+<view class="article-container {{className}}">
+  <block a:for="{{list}}" a:key="index">
+    <view a:if="{{item.type === 'title'}}" class="article-title">{{item.value}}</view>
+    <view a:elif="{{item.type === 'text'}}" class="article-text">{{item.value}}</view>
+    <t-image a:elif="{{item.type === 'image'}}" src="{{item.value}}" mode="widthFix" width="100%" />
+  </block>
 </view>
