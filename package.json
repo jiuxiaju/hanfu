@@ -7,7 +7,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/joygcy/hanfu.git"
+    "url": "https://github.com/jiuxiaju/hanfu.git"
   },
   "scripts": {
     "clean": "rm -rf dist .mor dist",
