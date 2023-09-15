@@ -1,0 +1,8 @@
+<view class="page-title">
+  汉服运动
+</view>
+<t-tabs defaultValue="all" space-evenly="{{false}}" bind:change="onTabsChange">
+  <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}">
+    hello
+  </t-tab-panel>
+</t-tabs>

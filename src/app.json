@@ -4,6 +4,7 @@
     "pages/shop/shop",
     "pages/my/my",
     "pages/sports/sports",
+    "pages/population-list/population-list",
     "pages/pageNotFound/pageNotFound",
     "pages/todos/todos",
     "pages/add-todo/add-todo"
@@ -21,19 +22,19 @@
       {
         "pagePath": "pages/home/home",
         "name": "首页",
-        "icon": "assets/home.png",
+        "icon": "assets/home-active.png",
         "activeIcon": "assets/home-active.png"
       },
       {
         "pagePath": "pages/shop/shop",
         "name": "店铺",
-        "icon": "assets/shop.png",
+        "icon": "assets/shop-active.png",
         "activeIcon": "assets/shop-active.png"
       },
       {
         "pagePath": "pages/my/my",
         "name": "九霞裾",
-        "icon": "assets/my.png",
+        "icon": "assets/my-active.png",
         "activeIcon": "assets/my-active.png"
       }
     ]

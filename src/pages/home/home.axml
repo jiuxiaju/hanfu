@@ -6,7 +6,7 @@
 </t-swiper>
 <view class='menu-container'>
   <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
-  <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'popularization'}}" />
+  <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'population-list'}}" />
 </view>
 
 <!-- 近期活动 -->
