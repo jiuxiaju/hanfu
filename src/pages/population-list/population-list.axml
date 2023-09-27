@@ -1,8 +1,8 @@
 <view class="page-title">
-  汉服运动
+  汉服科普
 </view>
-<t-tabs defaultValue="all" space-evenly="{{false}}" bind:change="onTabsChange">
+<t-tabs defaultValue="all" space-evenly="{{false}}">
   <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}">
-    hello
+    <card a:for="{{dataSource[item.value]}}" a:for-item="cardInfo" info="{{cardInfo}}" onClick="onTap" />
   </t-tab-panel>
 </t-tabs>

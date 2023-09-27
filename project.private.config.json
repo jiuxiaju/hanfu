@@ -19,6 +19,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "汉服科普列表",
+          "pathName": "pages/population-list/population-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
