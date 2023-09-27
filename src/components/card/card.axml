@@ -1,0 +1,9 @@
+<view class="card-container" onTap="onTapCard">
+  <view class="card-container-left">
+    <view class="card-title">{{info.title}}</view>
+    <view class="card-desc">{{info.desc}}</view>
+  </view>
+  <view class="card-container-right">
+    <t-image src="{{info.src}}" mode="aspectFill" height="100%" width="100%" />
+  </view>
+</view>
