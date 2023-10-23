@@ -1,0 +1,20 @@
+<view class="activity-detail" a-if="{{}}">
+  <view class="activity-detail-title">
+    {{ name }}
+  </view>
+  <view class="activity-detail-content">
+    <view class="content-info">
+      <view a:for="{{infoList}}" class="content-info-item">
+        <view class="content-info-item-label">{{item.label}}：</view>
+        <view class="content-info-item-value">{{item.value}}</view>
+      </view>
+    </view>
+    <view class="activity-detail-require" a-if="{{require}}">活动要求:{{require}}</view>
+  </view>
+  <view class="activity-detail-content">
+    <view a-if="{{detail}}">
+      <view class="content-detail-label">详情:</view>
+      <rich-text nodes="{{detail}}" onTap="tap"></rich-text>
+    </view>
+  </view>
+</view>

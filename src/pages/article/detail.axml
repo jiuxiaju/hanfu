@@ -1,0 +1,8 @@
+<view class="article-detail">
+  <view class="article-detail-title">
+    {{ headline }}
+  </view>
+  <view class="article-detail-content">
+    <rich-text nodes="{{article}}" onTap="tap"></rich-text>
+  </view>
+</view>

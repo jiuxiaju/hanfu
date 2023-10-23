@@ -7,7 +7,11 @@
     "pages/population-list/population-list",
     "pages/pageNotFound/pageNotFound",
     "pages/todos/todos",
-    "pages/add-todo/add-todo"
+    "pages/add-todo/add-todo",
+    "pages/article/detail",
+    "pages/population/detail",
+    "pages/activity/detail",
+    "pages/my/center"
   ],
   "window": {
     "backgroundColor": "#F9F9F9",
@@ -39,5 +43,6 @@
       }
     ]
   },
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "embeddedAppIdList": ["wx8abaf00ee8c3202e"]
 }

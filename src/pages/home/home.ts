@@ -19,14 +19,7 @@ aPage({
     articleMap: {},
   },
   onLoad() {
-    // 获取近期活动
-    post('/home/getActivities').then(activityList => {
-      this.setData({activityList})
-    });
-    // 获取文章
-    post('/home/getArticles').then(articleMap => {
-      this.setData({articleMap})
-    })
+    
   },
   jump2Page(e:any) {
     const path = e.currentTarget.dataset.path;

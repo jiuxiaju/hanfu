@@ -1,3 +1,17 @@
-<view>
-  New Page
+<view class="mine">
+  <view class="mine-header">
+    <image class="mine-header-logo" src="" mode="aspectFit"></image>
+    <view class="mine-header-info">
+      <view class="mine-header-info-title">欢迎你同袍</view>
+      <view class="mine-header-info-desc">岂曰无衣，与子同袍。</view>
+    </view>
+  </view>
+  <view class="mine-list">
+    <block a:for="{{jumpList}}">
+      <view  data-path="{{item.path}}" data-detailkey="{{item.key}}" onTap="jump2Page" class="mine-list-item">
+        <view>{{item.text}}</view>
+        <image src="" class="mine-list-item-arrow"></image>
+      </view>
+    </block>
+  </view>
 </view>
