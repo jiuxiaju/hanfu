@@ -1,16 +1,19 @@
-import { dbTest } from './database';
-const collectionKonwLedge = dbTest.collection('knowledge_set');
+import { dbTest } from './database'
+const collection = dbTest.collection('activity_set')
 
+// 查询前2条活动
+export const getActivities = async (params: any) => {
+  const res = collection
+    .where({})
+    .orderBy('startTime', 'desc')
+    .limit(2)
+    .get()
+    .then((res) => {
+      return res.data
+    })
+  return res
+}
 
-// todo any
-export const getActivities = async(params: any) => {
-    const { type } = params;
-
-    const res = collectionKonwLedge.where({
-    }).get().then((res) => {
-        console.log("🚀 ~ file: home.ts:12 ~ res ~ res:", res)
-        return res
-    });
-
-    return res;
+export default {
+  getActivities,
 }
