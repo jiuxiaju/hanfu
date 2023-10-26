@@ -1,5 +1,3 @@
-import activities from '../../mock/request/home/getActivities'
-import articles from '../../mock/request/home/getArticles'
 import sportsArticles from '../../mock/request/sports/getArticles'
 import populationList from '../../mock/request/population/list'
 import home from './home'
@@ -9,8 +7,9 @@ import activity from './activity'
 import mine from './mine'
 
 const map: any = {
+  '/home/getBannerImgs': home.getBannerImgs,
   '/home/getActivities': home.getActivities,
-  '/home/getArticles': articles,
+  '/home/getArticles': home.getRecommendArticles,
   '/sports/getArticles': sportsArticles,
   '/article/detail': article.getArticleById,
   '/population/detail': population.getPopulationById,

@@ -16,6 +16,7 @@
     <view class="activity-header-button" data-path="activity" onTap="jump2Page">查看全部<t-icon name="caret-right-small" size="16px" /></view>
   </view>
 
+  <view a:if="{{!activityList.length}}" class="empty-list">最近没有活动呢~</view>
   <view a:for="{{activityList}}" class="activity-item" data-path="activity-detail" onTap="jump2Page">
     <view class="activity-desc">
       <view class="activity-title">{{item.title}}</view>
@@ -30,15 +31,15 @@
 <t-tabs class="articles" defaultValue="0" bind:change="onTabsChange">
   <template
     is="article-tab-panel-item"
-    data="{{label: '推荐', value: '0', articles: articleMap.keykey0}}"
+    data="{{label: '推荐', value: '0', articles: recommendArticles[0]}}"
   />
   <template
     is="article-tab-panel-item"
-    data="{{label: '穿搭', value: '1', articles: articleMap.keykey1}}"
+    data="{{label: '穿搭', value: '1', articles: recommendArticles[1]}}"
   />
   <template
     is="article-tab-panel-item"
-    data="{{label: '妆造', value: '2', articles: articleMap.keykey2}}"
+    data="{{label: '妆造', value: '2', articles: recommendArticles[2]}}"
   />
 </t-tabs>
 
@@ -46,8 +47,8 @@
   <t-tab-panel label="{{label}}" value="{{value}}">
     <view a:for="{{articles}}" class="activity-item" data-path="article-detail" onTap="jump2Page">
       <view class="activity-desc">
-        <view class="activity-title">{{item.title}}</view>
-        <view>{{item.desc}}</view>
+        <view class="activity-title">{{item.headline}}</view>
+        <view>{{item.article}}</view>
         <view a:if="{{item.readingAmount !== undefined}}">阅读量：{{item.readingAmount}}</view>
       </view>
       <t-image a:if="{{item.url}}" src="{{item.url}}" mode="aspectFill" width="74" height="74" />

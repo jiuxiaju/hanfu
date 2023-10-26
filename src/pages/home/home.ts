@@ -1,25 +1,23 @@
 import { aPage } from '@ali/mor-core'
 import { post, get } from '../../services'
+
 import dayjs from 'dayjs'
 
 // 获取全局 app 实例
 const app = getApp()
-const imageCdn = 'https://tdesign.gtimg.com/miniprogram/images'
-const swiperList = [
-  `${imageCdn}/swiper1.png`,
-  `${imageCdn}/swiper2.png`,
-  `${imageCdn}/swiper1.png`,
-  `${imageCdn}/swiper2.png`,
-  `${imageCdn}/swiper1.png`,
-]
 
 aPage({
   data: {
-    swiperList,
+    swiperList: [],
     activityList: [],
-    articleMap: {},
+    recommendArticles: [],
   },
   onLoad() {
+    // 获取广告位图片
+    get('/home/getBannerImgs').then((data) => {
+      this.setData({ swiperList: data.map((o: any) => o.url) })
+    })
+
     // 获取近期活动
     get('/home/getActivities', {}).then((data) => {
       this.setData({
@@ -32,6 +30,12 @@ aPage({
           )}`,
         })),
       })
+    })
+
+    // 获取推荐文章
+    get('/home/getArticles').then((recommendArticles) => {
+      console.log('=====  data', recommendArticles)
+      this.setData({ recommendArticles })
     })
   },
   jump2Page(e: any) {
