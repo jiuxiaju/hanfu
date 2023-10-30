@@ -1,0 +1,22 @@
+<view class="filter-container">
+  <t-dropdown-menu>
+    <t-dropdown-item options="{{type}}" label="类型" value="{{filter.type}}" bindchange="onChangeTypeFilter" />
+    <t-dropdown-item options="{{status}}" label="状态" value="{{filter.status}}" bindchange="onChangeStatusFilter" />
+    <t-dropdown-item label="地区选择">
+      <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{filter.area}}" bindchange="onChangeAreaFilter" />
+      <view class="area-tree-button-container">
+        <t-button theme="primary" block variant="outline" onTap="defaultTap">重置</t-button>
+        <t-button theme="primary" block onTap="primaryTap">确认</t-button>
+      </view>
+    </t-dropdown-item>
+  </t-dropdown-menu>
+</view>
+
+<view>
+  <card a:for="{{infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity">
+    <view class="activity-list-card-desc" slot="desc">
+      <view>地址：{{item.region}}</view>
+      <view>日期：{{item.rangeDate}}</view>
+    </view>
+  </card>
+</view>

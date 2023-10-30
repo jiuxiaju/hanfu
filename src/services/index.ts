@@ -14,6 +14,7 @@ const map: any = {
   '/article/detail': article.getArticleById,
   '/population/detail': population.getPopulationById,
   '/activity/detail': activity.getActivityById,
+  '/activity/list': activity.getActivityList,
   '/my/center/detail': mine.getMyCenterdetailById,
   '/population/list': populationList,
 }

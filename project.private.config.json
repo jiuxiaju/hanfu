@@ -26,6 +26,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "活动列表",
+          "pathName": "pages/activity-list/activity-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

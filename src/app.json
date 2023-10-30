@@ -11,6 +11,7 @@
     "pages/article/detail",
     "pages/population/detail",
     "pages/activity/detail",
+    "pages/activity-list/activity-list",
     "pages/my/center"
   ],
   "window": {
