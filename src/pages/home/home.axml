@@ -2,6 +2,7 @@
 <t-swiper
   navigation="{{ { type: 'dots' } }}"
   list="{{swiperList}}"
+  bind:click="onTapSwiper"
 >
 </t-swiper>
 <view class='menu-container'>
@@ -13,11 +14,11 @@
 <view class="activity-container">
   <view class="activity-header">
     <view>近期活动</view>
-    <view class="activity-header-button" data-path="activity" onTap="jump2Page">查看全部<t-icon name="caret-right-small" size="16px" /></view>
+    <view class="activity-header-button" data-path="activity-list" onTap="jump2Page">查看全部<t-icon name="caret-right-small" size="16px" /></view>
   </view>
 
   <view a:if="{{!activityList.length}}" class="empty-list">最近没有活动呢~</view>
-  <view a:for="{{activityList}}" class="activity-item" data-path="activity-detail" onTap="jump2Page">
+  <view a:for="{{activityList}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ActivityDetailPage">
     <view class="activity-desc">
       <view class="activity-title">{{item.title}}</view>
       <view>{{item.desc}}</view>
@@ -45,10 +46,10 @@
 
 <template name="article-tab-panel-item">
   <t-tab-panel label="{{label}}" value="{{value}}">
-    <view a:for="{{articles}}" class="activity-item" data-path="article-detail" onTap="jump2Page">
+    <view a:for="{{articles}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ArticleDetailPage">
       <view class="activity-desc">
         <view class="activity-title">{{item.headline}}</view>
-        <view>{{item.article}}</view>
+        <view><rich-text nodes="{{item.article}}"></rich-text></view>
         <view a:if="{{item.readingAmount !== undefined}}">阅读量：{{item.readingAmount}}</view>
       </view>
       <t-image a:if="{{item.url}}" src="{{item.url}}" mode="aspectFill" width="74" height="74" />
