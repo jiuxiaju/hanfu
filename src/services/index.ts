@@ -5,6 +5,7 @@ import article from './article'
 import population from './population'
 import activity from './activity'
 import mine from './mine'
+import sports from './sports'
 
 const map: any = {
   '/home/getBannerImgs': home.getBannerImgs,
@@ -17,6 +18,7 @@ const map: any = {
   '/activity/list': activity.getActivityList,
   '/my/center/detail': mine.getMyCenterdetailById,
   '/population/list': populationList,
+  '/sports/getSports': sports.getSportsInfo,
 }
 export const post = (url: string, params?: any) => {
   return Promise.resolve(map[url]?.data)

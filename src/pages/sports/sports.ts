@@ -1,13 +1,14 @@
-import { aPage } from '@ali/mor-core';
-import { post } from '../../services';
+import { aPage } from '@ali/mor-core'
+import { get } from '../../services'
 
 aPage({
   data: {
-    articles: []
+    articles: {},
   },
   onLoad() {
-    post('/sports/getArticles').then(articles => {
-      this.setData({articles});
-    });
+    get('/sports/getSports').then((articles) => {
+      console.log('=====  articles', articles)
+      this.setData({ articles: articles[0] })
+    })
   },
-});
+})
