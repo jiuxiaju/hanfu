@@ -31,6 +31,7 @@ const jumpList = [
 aPage({
   data: {
     jumpList,
+    tIconClass: ['my-icon'],
   },
   onLoad() {
   },

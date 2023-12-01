@@ -1,8 +1,17 @@
 <view class="article-detail">
-  <view class="article-detail-title">
-    {{ headline }}
-  </view>
-  <view class="article-detail-content">
-    <rich-text nodes="{{article}}" onTap="tap"></rich-text>
-  </view>
+  <block a:if="{{article}}">
+    <view class="article-detail-title">
+      {{ headline }}
+    </view>
+    <view class="article-detail-content">
+      <rich-text nodes="{{article}}" onTap="tap"></rich-text>
+      <view class="article-detail-read-count">阅读量 {{read_count || 0}}</view>
+    </view>
+  </block>
+  <exception
+    errMsg="{{errConfig.errMsg}}"
+    errType="{{errConfig.errType}}"
+    a:if="{{errConfig.errType}}"
+    onRefresh="onRefresh"
+  />
 </view>

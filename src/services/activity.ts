@@ -9,8 +9,7 @@ const collectionActivity = dbTest.collection('activity_set')
  * @returns
  */
 export const getActivityById = async (params: any) => {
-  const { activityId } = params
-  console.log('🚀 ~ file: activity.ts:14 ~ getActivityById ~ activityId:', activityId)
+  const { activityId } = params;
 
   return collectionActivity
     .where({

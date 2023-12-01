@@ -18,7 +18,6 @@ export const getMyCenterdetailById = async(params: IParamsProps) => {
   return collectionMyCenter.where({
       _id: id,
   }).get().then((res) => {
-      console.log("🚀 ~ file: home.ts:12 ~ res ~ res:", res)
       let data = get(res, 'data.0');
       if (data) {
           return {

@@ -10,7 +10,7 @@
     <block a:for="{{jumpList}}">
       <view  data-path="{{item.path}}" data-detailkey="{{item.key}}" onTap="jump2Page" class="mine-list-item">
         <view>{{item.text}}</view>
-        <image src="" class="mine-list-item-arrow"></image>
+        <t-icon name="chevron-right" size="32rpx" external-classes="{{['t-class']}}" />
       </view>
     </block>
   </view>

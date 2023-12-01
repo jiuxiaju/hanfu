@@ -1,0 +1,5 @@
+<view class="exception">
+  <image a:if="{{errImg}}" src="{{ errImg }}" mode="aspectFit" class="exception-image"></image>
+  <view class="exception-msg">{{ message || 'hahahaha' }}</view>
+  <view class="exception-refresh-btn" onTap="onRefresh">{{ btnText}}</view>
+</view>

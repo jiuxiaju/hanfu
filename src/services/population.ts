@@ -15,7 +15,6 @@ export const getPopulationById = async(params: any) => {
     return collectionKonwLedge.where({
         _id: id,
     }).get().then((res) => {
-        console.log("🚀 ~ file: home.ts:12 ~ res ~ res:", res)
 
         return {
             success: true,

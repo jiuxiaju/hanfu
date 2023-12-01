@@ -1,3 +1,6 @@
 {
-  "defaultTitle": "文章详情"
+  "defaultTitle": "文章详情",
+  "usingComponents": {
+    "exception": "/components/exception/index"
+  }
 }

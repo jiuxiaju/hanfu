@@ -19,6 +19,7 @@ const map: any = {
   '/my/center/detail': mine.getMyCenterdetailById,
   '/population/list': populationList,
   '/sports/getSports': sports.getSportsInfo,
+  '/article/updateArticleCReadNum': article.updateArticleCReadNum,
 }
 export const post = (url: string, params?: any) => {
   return Promise.resolve(map[url]?.data)

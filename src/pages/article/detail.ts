@@ -8,22 +8,50 @@ aPage({
   data: {
     headline: '',
     article: '',
+    errConfig: {},
+    read_count: 0,
   },
   onLoad(options) {
     const { articleId } = options;
     if (articleId) {
-      this.getArticleDetail(articleId);
+      this.articleId = articleId;
+      this.getArticleDetail();
     }
   },
 
-  getArticleDetail(articleId: string | number) {
-    get('/article/detail', { articleId }).then(res => {
-      const { data } = res;
-      const { headline, article, } = data;
-      this.setData({
-        headline,
-        article: app.convertRichText(article),
-      });
+  getArticleDetail() {
+    get('/article/detail', { articleId: this.articleId }).then(res => {
+      const { data = {}, success } = res;
+      const { headline, article, ...remainData } = data;
+      if (success && article) {
+        this.setData({
+          headline,
+          article: app.convertRichText(article),
+          ...remainData,
+          errConfig: {},
+        });
+        this.updateArticleCReadNum();
+      } else {
+        const errConfig = {
+          errType: 1,
+        }
+        this.setData({
+          errConfig,
+        });
+      }
     });
+  },
+
+  onRefresh() {
+    console.log('##### onrefresh')
+    this.getArticleDetail();
+  },
+
+  /**
+   * 更新阅读量
+   * @param articleId 
+   */
+  updateArticleCReadNum() {
+    get('/article/updateArticleCReadNum', { articleId: this.articleId });
   },
 })
