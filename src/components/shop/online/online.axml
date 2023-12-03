@@ -1,0 +1,16 @@
+<view class="online">
+  <t-dropdown-menu>
+    <t-dropdown-item label="{{sourceLabel}}" >
+      <t-checkbox-group value="{{source}}" bindchange="handleSourceChange" options="{{options}}" />
+    </t-dropdown-item>
+    <t-dropdown-item
+      label="形制"
+      optionsColumns="2"
+      options="{{styleOptions}}"
+      bindchange="handleStyleChange"
+      value="{{style}}"
+      multiple
+    />
+  </t-dropdown-menu>
+  <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
+</view> 

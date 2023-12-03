@@ -1,0 +1,12 @@
+<view class="offline">
+  <t-dropdown-menu>
+    <t-dropdown-item label="{{supportLabel}}" >
+      <t-checkbox-group value="{{support}}" bindchange="handleSupportChange" options="{{options}}" />
+    </t-dropdown-item>
+    <t-dropdown-item label="{{areaLabel}}" >
+      <region onSelect="handleRegionChange" />
+    </t-dropdown-item>
+  </t-dropdown-menu>
+  <no-data  a:if="{{!list.length}}" />
+  <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
+</view> 

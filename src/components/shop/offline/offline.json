@@ -1,0 +1,12 @@
+{
+    "component": true,
+    "usingComponents": {
+        "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+        "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+        "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+        "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+        "region": "/components/shop/region/region",
+        "shop": "/components/shop/shop",
+        "no-data": "/components/shop/no-data/no-data"
+    }
+}

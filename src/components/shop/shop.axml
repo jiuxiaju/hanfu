@@ -1,0 +1,23 @@
+<view class="shop" onTap="onTapCard">
+    <view class="shop-info">
+      <view class="shop-title">{{data.shop_name}}
+            <view class="shop-tabs">
+                <view a:for="{{data.supports}}" a:for-item="item"  a:key="item" class="shop-tab-offline">{{item}}</view>
+            </view>
+        </view>
+        <view class="shop-desc">
+          <rich-text nodes="{{data.shop_brief}}"></rich-text>
+        </view>
+        <view class="shop-tabs">
+            <view a:for="{{data.style}}" a:key="item" a:for-item="item" class="shop-tab-online">{{item}}</view>
+        </view>
+        <view a:if="{{data.store}}" class="shop-source">店铺来源：
+            <t-image class="shop-source-icon" a:if="{{data.store.icon}}" src="{{data.store.icon}}" mode="aspectFill" height="12" width="12" />
+            {{data.store.label}}
+          </view>
+    </view>
+    <view class="shop-cover">
+      <t-image a:if="{{data.logo}}" src="{{data.logo}}" mode="aspectFill" height="74" width="74" />
+      <view class="shop-cover-text" a:else>{{data.shop_name[0]}}</view>
+    </view>
+  </view>

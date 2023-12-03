@@ -1,0 +1,2 @@
+<t-tree-select options="{{options}}" value="{{value}}" bind:change="onChange" />
+<t-button theme="primary" block variant="outline" onTap="reset">重置</t-button>
