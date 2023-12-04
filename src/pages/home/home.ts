@@ -22,7 +22,7 @@ aPage({
         activityList: data.map((o: any) => ({
           ...o,
           title: o.name,
-          desc: o.detail.replace('<p>', '').replace('</p>', ''),
+          desc: this.getRitch(o.detail),
           url: o.cover,
           rangeDate: `${dayjs(o.startTime).format('MM月DD日')}~${dayjs(o.emdTime).format(
             'MM月DD日'
@@ -32,8 +32,14 @@ aPage({
     })
 
     // 获取推荐文章
-    get('/home/getArticles').then((recommendArticles) => {
-      this.setData({ recommendArticles })
+    get('/home/getArticles').then((data:any) => {
+      const data0 = data[0].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const data1 = data[1].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const data2 = data[2].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const recommendArticles:any = [data0, data1, data2];
+      this.setData({
+        recommendArticles
+      })
     })
   },
   onTapSwiper(e: any) {
@@ -51,6 +57,13 @@ aPage({
       default:
         break
     }
+  },
+  getRitch(rich:any) {
+    if (!rich) {
+      return ''
+    }
+    const richClone = rich.replace(/<[^>]*>/g, "")
+    return richClone;
   },
   // 跳转页面的统一函数
   jump2Page(e: any) {

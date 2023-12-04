@@ -74,6 +74,17 @@ page {
       font-size: 14px;
       color: #000000d9;
     }
+    .activity-title2 {
+      position: relative;
+      height: 40px;
+      overflow: hidden;
+    }
+    .activity-title2::after {
+      content: '...';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
   }
 
   .activity-desc > view {

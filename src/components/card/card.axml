@@ -7,4 +7,7 @@
   <view class="card-container-right">
     <t-image a:if="{{info.src}}" src="{{info.src}}" mode="aspectFill" height="100%" width="100%" />
   </view>
+  <view class="card-tag">
+  <slot name="tag" />
+  </view>
 </view>
