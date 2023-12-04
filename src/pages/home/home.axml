@@ -49,10 +49,10 @@
     <view a:for="{{articles}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ArticleDetailPage">
       <view class="activity-desc">
         <view class="activity-title">{{item.headline}}</view>
-        <view><rich-text nodes="{{item.article}}"></rich-text></view>
-        <view a:if="{{item.readingAmount !== undefined}}">阅读量：{{item.readingAmount}}</view>
+        <view>{{item.article2}}</view>
+        <view a:if="{{item.read_count !== undefined}}">阅读量：{{item.read_count}}</view>
       </view>
-      <t-image a:if="{{item.url}}" src="{{item.url}}" mode="aspectFill" width="74" height="74" />
+      <t-image a:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" width="74" height="74" />
     </view>
     <view a:if="{{!articles || articles.length === 0}}" class="empty-list">还没有推荐的文章哦~</view>
   </t-tab-panel>

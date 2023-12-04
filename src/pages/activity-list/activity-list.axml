@@ -18,5 +18,6 @@
       <view>地址：{{item.region}}</view>
       <view>日期：{{item.rangeDate}}</view>
     </view>
+    <view class="activity-list-card-tag activity-list-card-tag{{item.statusKey}}" slot="tag">{{item.status}}</view>
   </card>
 </view>

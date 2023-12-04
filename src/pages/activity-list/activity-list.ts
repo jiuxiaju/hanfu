@@ -1,6 +1,8 @@
 import { aPage } from '@ali/mor-core'
 import { get } from '../../services'
 import dayjs from 'dayjs'
+import area from './area'
+import { TRGNodeAny } from 'XrFrame/render-graph/RGNode'
 
 // 获取全局 app 实例
 const app = getApp()
@@ -29,6 +31,12 @@ const generateTree = function (deep = 0, count = 10, prefix?: any) {
   }
 
   return ans
+}
+
+const STATUS_KEY_MAP:any = {
+  '已结束': 3,
+  '未开始': 1,
+  '进行中': 2,
 }
 
 aPage({
@@ -88,22 +96,15 @@ aPage({
   },
 
   getArea() {
-    const path = 'http://saturn.elemecdn.com/model/china.json'
-    wx.request({
-      url: path,
-      header: { 'content-type': 'application/json' },
-      success: (res: any) => {
-        const provinceList = res.data.provinceList.map((province: any) => ({
-          label: province.fullName,
-          value: province.fullName,
-          children: province.directCityList.map((city: any) => ({
-            label: city.fullName,
-            value: city.fullName,
-          })),
-        }))
-        this.setData({ provinceList })
-      },
-    })
+    const provinceList:any = area.provinceList.map((province: any) => ({
+      label: province.fullName,
+      value: province.fullName,
+      children: province.directCityList.map((city: any) => ({
+        label: city.fullName,
+        value: city.fullName,
+      })),
+    }))
+    this.setData({ provinceList });
   },
 
   getActivityList(filter?: any) {
@@ -130,6 +131,7 @@ aPage({
           rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.endTime).format(
             'YYYY-MM-DD'
           )}`,
+          statusKey: STATUS_KEY_MAP[o.status],
         })),
       })
     })
