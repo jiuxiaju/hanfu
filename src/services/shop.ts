@@ -1,7 +1,7 @@
 /*
  * @Author: 兼爱
  * @Date: 2023-11-02 02:26:08
- * @LastEditTime: 2023-12-02 18:11:30
+ * @LastEditTime: 2023-12-08 03:26:59
  * @LastEditors: 兼爱
  * @Description: 
  * @FilePath: /hanfu/src/services/shop.ts
@@ -94,7 +94,6 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
     }
     export const searchOnlineShop = async (params?: any) => {
         const { store_source, style, pageSize = 100, pageIndex = 1 } = params || {};
-        console.log(store_source)
         const query: any = {
             status: _.eq(true),
             store_source: store_source?.length ? _.in(store_source) : undefined,
@@ -115,3 +114,14 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
             }
             )
         }
+    export const searchShopStyle = async() => {
+        return dbTest.collection('knowledge_set').field({
+            style: true
+        }).get().then((res) => {
+            const data = res.data.map(item => item.style);
+            return Array.from(new Set(data)).map(item =>( {
+                value: item,
+                label: item,
+            }));
+        });
+    };

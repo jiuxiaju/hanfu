@@ -4,7 +4,7 @@
       <t-checkbox-group value="{{source}}" bindchange="handleSourceChange" options="{{options}}" />
     </t-dropdown-item>
     <t-dropdown-item
-      label="形制"
+      label="{{styleLabel}}"
       optionsColumns="2"
       options="{{styleOptions}}"
       bindchange="handleStyleChange"

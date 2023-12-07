@@ -1,14 +1,14 @@
 /*
  * @Author: 兼爱
  * @Date: 2023-10-24 01:56:21
- * @LastEditTime: 2023-11-16 05:39:12
+ * @LastEditTime: 2023-12-08 03:32:18
  * @LastEditors: 兼爱
  * @Description: 
  * @FilePath: /hanfu/src/components/shop/online/online.ts
  * 可以输入预定的版权声明、个性签名、空行等
  */
 import { aComponent } from '@ali/mor-core'
-import {  searchOnlineShop } from '../../../services/shop';
+import {  searchOnlineShop, searchShopStyle } from '../../../services/shop';
 const options = [
   {
     value: '1',
@@ -50,22 +50,15 @@ aComponent({
       {
         value: '衣裳',
         label: '衣裳'
-      },{
-        value: '123',
-        label: '123'
-      }, {
-        value: '3',
-        label: '3'
-      }, {
-        value: '测试',
-        label: '测试'
       }
     ],
     list: [],
     style: [],
-    sourceLabel: '店铺来源'
+    sourceLabel: '店铺来源',
+    styleLabel: '形制',
   },
   didMount() {
+    this.initStyle();
     this.onSearch();
   },
   methods: {
@@ -80,10 +73,19 @@ aComponent({
       this.onSearch();
     },
     handleStyleChange(event) {
+      const { value } = event.detail;
       this.setData({
-        style: event.detail.value,
+        style: value,
+        styleLabel: value?.length ? `形制(${value.length})`  : '形制'
       });
       this.onSearch();
+    },
+    initStyle() {
+      searchShopStyle().then(res => {
+        this.setData({
+          styleOptions: res,
+        })
+      })
     },
     onSearch() {
       const params: any = {
@@ -91,7 +93,6 @@ aComponent({
         style: this.data.style,
       }
       searchOnlineShop(params).then(res => {
-        console.log(res);
         if (res.success) {
           this.setData({
             list: res.data.map((item) => ({

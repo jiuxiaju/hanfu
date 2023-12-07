@@ -1,7 +1,7 @@
 /*
  * @Author: 兼爱
  * @Date: 2023-10-24 01:56:21
- * @LastEditTime: 2023-12-04 04:06:02
+ * @LastEditTime: 2023-12-08 03:32:23
  * @LastEditors: 兼爱
  * @Description: 
  * @FilePath: /hanfu/src/components/shop/offline/offline.ts
@@ -43,7 +43,6 @@ aComponent({
     },
     handleRegionChange(event) {
       const { value = [] } = event.detail || {};
-      console.log(event);
       const areaValue = value?.filter((item: any) => item);
       this.setData({
         region: value,
