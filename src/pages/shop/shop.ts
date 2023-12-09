@@ -34,4 +34,19 @@ aPage({
       currentTab: e.detail.value
     })
   },
+  //分享给好友
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '九霞裾'
+        })
+      }, 20)
+    })
+    return {
+      title: '九霞裾',
+      path: '/pages/shop',
+      promise 
+    }
+  },
 });

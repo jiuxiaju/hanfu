@@ -10,3 +10,4 @@
   <no-data  a:if="{{!list.length}}" />
   <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
 </view> 
+

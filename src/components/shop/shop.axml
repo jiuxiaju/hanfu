@@ -5,8 +5,9 @@
                 <view a:for="{{data.supports}}" a:for-item="item"  a:key="item" class="shop-tab-offline">{{item}}</view>
             </view>
         </view>
+        
         <view class="shop-desc">
-          <rich-text nodes="{{data.shop_brief}}"></rich-text>
+           <rich-text nodes="{{data.adress}}"></rich-text>
         </view>
         <view class="shop-tabs">
             <view a:for="{{data.style}}" a:key="item" a:for-item="item" class="shop-tab-online">{{item}}</view>

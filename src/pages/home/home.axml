@@ -1,3 +1,4 @@
+
 <custom-navigation-bar />
 <t-swiper
   navigation="{{ { type: 'dots' } }}"
@@ -29,11 +30,12 @@
 </view>
 
 <!-- 文章推荐 -->
-<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange">
+<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange" >
   <template
     is="article-tab-panel-item"
     data="{{label: '推荐', value: '0', articles: recommendArticles[0]}}"
   />
+  <!-- 配置文章属性 -->
   <template
     is="article-tab-panel-item"
     data="{{label: '穿搭', value: '1', articles: recommendArticles[1]}}"
@@ -41,6 +43,18 @@
   <template
     is="article-tab-panel-item"
     data="{{label: '妆造', value: '2', articles: recommendArticles[2]}}"
+  />
+  <template
+    is="article-tab-panel-item"
+    data="{{label: '文学', value: '3', articles: recommendArticles[3]}}"
+  />
+   <template
+    is="article-tab-panel-item"
+    data="{{label: '六艺', value: '4', articles: recommendArticles[4]}}"
+  />
+   <template
+    is="article-tab-panel-item"
+    data="{{label: '其他', value: '5', articles: recommendArticles[5]}}"
   />
 </t-tabs>
 
@@ -54,7 +68,7 @@
       </view>
       <t-image a:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" width="74" height="74" />
     </view>
-    <view a:if="{{!articles || articles.length === 0}}" class="empty-list">还没有推荐的文章哦~</view>
+    <view a:if="{{!articles || articles.length === 0}}" class="empty-list">还没有{{label}}的文章哦~</view>
   </t-tab-panel>
 </template>
 

@@ -31,16 +31,35 @@ aPage({
       })
     })
 
-    // 获取推荐文章
+    // 获取推荐文章/配置文章
+    //这里是把文章的推荐、分类放一个数组了，需要分开可以分开
     get('/home/getArticles').then((data:any) => {
       const data0 = data[0].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
       const data1 = data[1].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
       const data2 = data[2].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
-      const recommendArticles:any = [data0, data1, data2];
+      const data3 = data[3].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const data4 = data[4].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const data5 = data[5].map((o:any) => ({...o, article2: this.getRitch(o.article)}));
+      const recommendArticles:any = [data0, data1, data2, data3, data4, data5];
       this.setData({
         recommendArticles
       })
     })
+  },
+  //分享给好友
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '九霞裾'
+        })
+      }, 20)
+    })
+    return {
+      title: '九霞裾',
+      path: '/pages/home',
+      promise 
+    }
   },
   onTapSwiper(e: any) {
     const { jump, jump_link }: any = this.data.swiperData[e.detail.index]

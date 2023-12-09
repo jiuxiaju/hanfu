@@ -36,9 +36,9 @@ aPage({
   },
 
   handleDetailData(acData: any) {
-    const { startTime, endTime, address, sponsor, tele } = acData;
+    const { startTime, emdTime, address, sponsor, tele } = acData;
     const startTimeFormat = dayjs(startTime).format('YYYY-MM-DD HH:mm');
-    const endTimeFormat = dayjs(endTime).format('YYYY-MM-DD HH:mm');
+    const endTimeFormat = dayjs(emdTime).format('YYYY-MM-DD HH:mm');
 
     const infoList: Array<InfoList> = [
       {
@@ -47,7 +47,7 @@ aPage({
         key: 'sponsor',
       },
       {
-        value: `${startTimeFormat} - ${endTimeFormat}`,
+        value: `${startTimeFormat}-${endTimeFormat}`,
         label: '活动时间',
         key: 'time',
       },

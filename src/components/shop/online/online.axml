@@ -5,7 +5,7 @@
     </t-dropdown-item>
     <t-dropdown-item
       label="{{styleLabel}}"
-      optionsColumns="2"
+      optionsColumns="3"
       options="{{styleOptions}}"
       bindchange="handleStyleChange"
       value="{{style}}"

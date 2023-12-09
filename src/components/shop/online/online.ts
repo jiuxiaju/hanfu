@@ -8,7 +8,7 @@
  * 可以输入预定的版权声明、个性签名、空行等
  */
 import { aComponent } from '@ali/mor-core'
-import {  searchOnlineShop, searchShopStyle } from '../../../services/shop';
+import {  searchOnlineShop, searchShopStyle, } from '../../../services/shop';
 const options = [
   {
     value: '1',
@@ -80,7 +80,7 @@ aComponent({
       });
       this.onSearch();
     },
-    initStyle() {
+   initStyle () {
       searchShopStyle().then(res => {
         this.setData({
           styleOptions: res,
@@ -107,3 +107,75 @@ aComponent({
     }
   },
 })
+
+aComponent({
+  props: {
+    className: '',
+    data: {},
+    onClick: () => {},
+  },
+  data: {
+    source: [],
+    options,
+    styleOptions:[
+      {
+        value: '衣裳',
+        label: '衣裳'
+      }
+    ],
+    list: [],
+    style: [],
+    sourceLabel: '店铺来源',
+    styleLabel: '形制',
+  },
+  didMount() {
+    this.initStyle();
+    this.onSearch();
+  },
+  methods: {
+    onClick() {
+    },
+    handleSourceChange(event) {
+      const { value } = event.detail;
+      this.setData({
+        source: event.detail.value,
+        sourceLabel: value?.length ? `店铺来源(${value.length})`  : '店铺来源'
+      });
+      this.onSearch();
+    },
+    handleStyleChange(event) {
+      const { value } = event.detail;
+      this.setData({
+        style: value,
+        styleLabel: value?.length ? `形制(${value.length})`  : '形制'
+      });
+      this.onSearch();
+    },
+   initStyle () {
+      searchShopStyle().then(res => {
+        this.setData({
+          styleOptions: res,
+        })
+      })
+    },
+    onSearch() {
+      const params: any = {
+        store_source: this.data.source,
+        style: this.data.style,
+      }
+      searchOnlineShop(params).then(res => {
+        if (res.success) {
+          this.setData({
+            list: res.data.map((item) => ({
+              ...item,
+              store: options.find((i: any) => i?.value === item.store_source) || {
+                label: '其他'
+              }
+            })) as any,
+          });
+        }
+      })
+    }
+  },
+})
+

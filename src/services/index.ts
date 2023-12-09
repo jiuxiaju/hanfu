@@ -1,5 +1,4 @@
-import sportsArticles from '../../mock/request/sports/getArticles'
-import populationList from '../../mock/request/population/list'
+
 import home from './home'
 import article from './article'
 import population from './population'
@@ -11,13 +10,12 @@ const map: any = {
   '/home/getBannerImgs': home.getBannerImgs,
   '/home/getActivities': home.getActivities,
   '/home/getArticles': home.getRecommendArticles,
-  '/sports/getArticles': sportsArticles,
   '/article/detail': article.getArticleById,
   '/population/detail': population.getPopulationById,
   '/activity/detail': activity.getActivityById,
   '/activity/list': activity.getActivityList,
   '/my/center/detail': mine.getMyCenterdetailById,
-  '/population/list': populationList,
+  '/population/list': population.getpopulationList,
   '/sports/getSports': sports.getSportsInfo,
   '/article/updateArticleCReadNum': article.updateArticleCReadNum,
 }

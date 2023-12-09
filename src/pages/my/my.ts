@@ -35,6 +35,21 @@ aPage({
   },
   onLoad() {
   },
+    //分享给好友
+    onShareAppMessage() {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          resolve({
+            title: '九霞裾'
+          })
+        }, 20)
+      })
+      return {
+        title: '九霞裾',
+        path: '',
+        promise 
+      }
+    },
   jump2Page(e:any) {
     const { path, detailkey } = e.currentTarget.dataset || {};
     if (detailkey === 'suggest') {

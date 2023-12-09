@@ -114,14 +114,46 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
             }
             )
         }
-    export const searchShopStyle = async() => {
-        return dbTest.collection('knowledge_set').field({
-            style: true
-        }).get().then((res) => {
-            const data = res.data.map(item => item.style);
-            return Array.from(new Set(data)).map(item =>( {
-                value: item,
-                label: item,
-            }));
-        });
-    };
+    // export const searchShopStyle = async() => {
+    //     return dbTest.collection('knowledge_set').field({
+    //         style: true
+    //     }).get().then((res) => {
+    //         const data = res.data.map(item => item.style);
+    //         return Array.from(new Set(data)).map(item =>( {
+    //             value: item,
+    //             label: item,
+    //         }));
+    //     });
+    // };
+    export const searchShopStyle = async () => {
+  const batchSize = 10; // 每个批次的数据数量
+  let skipCount = 0; // 初始跳过的数据数量
+  const result = [];
+
+  while (true) {
+    const res = await dbTest
+      .collection('knowledge_set')
+      .field({
+        style: true,
+      })
+      .skip(skipCount)
+      .limit(batchSize)
+      .get();
+
+    const data = res.data.map((item) => item.style);
+    result.push(...data);
+
+    if (res.data.length < batchSize) {
+      break;
+    }
+
+    skipCount += batchSize;
+  }
+
+  const uniqueStyles = Array.from(new Set(result)).map((item) => ({
+    value: item,
+    label: item,
+  }));
+
+  return uniqueStyles;
+};

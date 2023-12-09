@@ -32,27 +32,60 @@ const getRecommendArticles = () => {
     collectionArticle
       .where({
         recommend: true,
+        status:true,
       })
       .orderBy('_createTime', 'desc')
-      .limit(3)
+      .limit(6)
       .get()
       .then((res) => res.data),
+//获取属性值为1的在线文章
     collectionArticle
       .where({
-        recommend: true,
+        status:true,
         type: '1',
       })
       .orderBy('_createTime', 'desc')
-      .limit(3)
+      .limit(6)
       .get()
       .then((res) => res.data),
+//获取属性值为2的在线文章
     collectionArticle
       .where({
-        recommend: true,
+        status:true,
         type: '2',
       })
       .orderBy('_createTime', 'desc')
-      .limit(3)
+      .limit(6)
+      .get()
+      .then((res) => res.data),
+//获取属性值为3的在线文章
+      collectionArticle
+      .where({
+        status:true,
+        type: '3',
+      })
+      .orderBy('_createTime', 'desc')
+      .limit(6)
+      .get()
+      .then((res) => res.data),
+//获取属性值为4的在线文章
+      collectionArticle
+      .where({
+        status:true,
+        type: '4',
+      })
+      .orderBy('_createTime', 'desc')
+      .limit(6)
+      .get()
+      .then((res) => res.data),
+      collectionArticle
+//获取属性值为5的在线文章
+      .where({
+        status:true,
+        type: '5',
+      })
+      .orderBy('_createTime', 'desc')
+      .limit(6)
       .get()
       .then((res) => res.data),
   ])
