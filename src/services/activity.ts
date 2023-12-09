@@ -15,6 +15,7 @@ export const getActivityById = async (params: any) => {
     .where({
       _id: activityId,
     })
+    
     .get()
     .then((res) => {
       console.log('🚀 ~ file: home.ts:12 ~ res ~ res:', res)
