@@ -32,6 +32,19 @@ const generateTree = function (deep = 0, count = 10, prefix?: any) {
 
   return ans
 }
+function calculateStatus(startTime, endTime) {
+  const now = dayjs();
+  const start = dayjs(startTime);
+  const end = dayjs(endTime);
+
+  if (now.isBefore(start)) {
+    return '未开始'; // 活动尚未开始
+  } else if (now.isAfter(end)) {
+    return '已结束'; // 活动已经结束
+  } else {
+    return '进行中'; // 活动正在进行中
+  }
+}
 
 const STATUS_KEY_MAP:any = {
   '已结束': 3,
@@ -127,6 +140,7 @@ aPage({
     }))
     this.setData({ provinceList });
   },
+  
 
   getActivityList(filter?: any) {
     const requestParam = filter || this.data.filter
@@ -152,7 +166,9 @@ aPage({
           rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.emdTime).format(
             'YYYY-MM-DD'
           )}`,
-          statusKey: STATUS_KEY_MAP[o.status],
+          // statusKey: STATUS_KEY_MAP[o.status],
+          status: calculateStatus(o.startTime, o.emdTime),
+          statusKey: STATUS_KEY_MAP[calculateStatus(o.startTime, o.emdTime)],
         })),
       })
     })
