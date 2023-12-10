@@ -54,6 +54,7 @@ aPage({
       }
     });
   },
+  
 
   handleDetailData(acData: any) {
     const { startTime, emdTime, address, sponsor, tele } = acData;

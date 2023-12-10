@@ -57,6 +57,10 @@ aPage({
         swiperList,
         detail: app.convertRichText(data.detail),
       });
+      // 使用形制名作为标题
+      // wx.setNavigationBarTitle({
+      //   title: this.data.style_name
+      // });
     });
   },
 

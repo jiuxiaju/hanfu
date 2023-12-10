@@ -17,8 +17,8 @@
       nextMargin="34px"
       t-class-nav="card-theme-nav"
       loop="{{true}}"
-      height="{{500}}"
-      width="{{300}}"
+      height="{{400}}"
+      width="{{200}}"
     />
   </view>
   <view class="population-detail-content">

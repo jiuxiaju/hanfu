@@ -91,8 +91,8 @@ aPage({
         infoList: data.map((o: any) => ({
           ...o,
           title: o.style_name,
-          src: o.pic_1   
-               
+          src: o.pic_1,
+          desc:this.getRitch(o.detail)
         })),
       });
     }).catch((error) => {
@@ -100,7 +100,13 @@ aPage({
       // 在这里处理错误，例如显示一个错误提示给用户
     });
   },
- 
+  getRitch(rich:any) {
+    if (!rich) {
+      return ''
+    }
+    const richClone = rich.replace(/<[^>]*>/g, "")
+    return richClone;
+  },
   
 
   onTapActivity(Populationobj: any) {
