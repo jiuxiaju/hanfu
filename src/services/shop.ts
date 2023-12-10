@@ -74,6 +74,7 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
             regexp: province
         }))
     }
+    
     return collectionShopOffline
         .where(query)
         .skip((pageIndex - 1) * pageSize)

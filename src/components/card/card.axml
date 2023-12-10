@@ -1,6 +1,6 @@
 <view class="card-container" onTap="onTapCard">
   <view class="card-container-left">
-    <view class="card-title">{{info.typename}}</view>
+    <view class="card-title">{{info.title}}</view>
     <slot name="desc"></slot>
     <view class="card-desc">{{info.desc}}</view>
   </view>

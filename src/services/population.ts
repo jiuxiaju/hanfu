@@ -10,11 +10,14 @@ const collectionKonwLedge = dbTest.collection('knowledge_set');
  * @returns 
  */
 export const getPopulationById = async(params: any) => {
-    const { id } = params;
+    const { PopulationById } = params;
 
-    return collectionKonwLedge.where({
-        _id: id,
-    }).get().then((res) => {
+    return collectionKonwLedge
+        .where({
+        _id: PopulationById,
+    }).
+    get()
+    .then((res) => {
 
         return {
             success: true,
@@ -22,83 +25,32 @@ export const getPopulationById = async(params: any) => {
         };
     });
 }
-
-//获取汉服科普列表
-// const getpopulation = () => {
-//   return Promise.all([
-//     collectionKonwLedge
-//       .where({})
-//       .orderBy('_createTime', 'desc')
-//       .limit(40)
-//       .get()
-//       .then((res) => res.data),
-//       collectionKonwLedge
-//       .where({
-//         type_name: 1,
-//       })
-//       .orderBy('_createTime', 'desc')
-//       .limit(40)
-//       .get()
-//       .then((res) => res.data),
-//       collectionKonwLedge
-//       .where({
-//         type_name: 2,
-//       })
-//       .orderBy('_createTime', 'desc')
-//       .limit(40)
-//       .get()
-//       .then((res) => res.data),
-//       collectionKonwLedge
-//       .where({
-//         type_name: 3,
-//       })
-//       .orderBy('_createTime', 'desc')
-//       .limit(40)
-//       .get()
-//       .then((res) => res.data),
-//   ]);
-// };
-//这里是把形制以及类型放一个函数里了，需要调整可以调整
+//目前是按照全部查询的
 const getpopulationList = async () => {
   const batchSize = 20; // 每个批次的数据数量
-  const result = [];
+  let hasMore = true; // 是否有更多数据
+  let skipCount = 0; // 初始跳过的数据数量
+  const result = []; // 最终结果数组
 
-  const queryPromises = [
-    collectionKonwLedge
+  while (hasMore) {
+    const res = await collectionKonwLedge
       .where({})
-      .orderBy('_createTime', 'desc')
+      .orderBy('type_name', 'asc')
+      // 如果需要根据创建时间排序，取消下面这行的注释
+      // .orderBy('_createTime', 'asc')
+      .skip(skipCount)
       .limit(batchSize)
-      .get()
-      .then((res) => res.data),
-    collectionKonwLedge
-      .where({
-        type_name: 1,
-      })
-      .orderBy('_createTime', 'desc')
-      .limit(batchSize)
-      .get()
-      .then((res) => res.data),
-    collectionKonwLedge
-      .where({
-        type_name: 2,
-      })
-      .orderBy('_createTime', 'desc')
-      .limit(batchSize)
-      .get()
-      .then((res) => res.data),
-    collectionKonwLedge
-      .where({
-        type_name: 3,
-      })
-      .orderBy('_createTime', 'desc')
-      .limit(batchSize)
-      .get()
-      .then((res) => res.data),
-  ];
+      .get();
 
-  for (const queryPromise of queryPromises) {
-    const data = await queryPromise;
-    result.push(...data.slice(0, batchSize));
+    const data = res.data;
+    result.push(...data); // 将本次查询结果加入总结果数组
+
+    if (data.length < batchSize) {
+      // 如果返回的数据少于batchSize，说明没有更多数据了
+      hasMore = false;
+    } else {
+      skipCount += batchSize; // 准备跳过之前已加载的数据
+    }
   }
 
   return result;

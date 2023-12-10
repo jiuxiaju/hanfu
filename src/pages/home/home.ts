@@ -61,6 +61,12 @@ aPage({
       promise 
     }
   },
+  //转发到朋友圈
+  onShareTimeline:function(){
+    return{
+      title:'快来看看'
+    }
+  },
   onTapSwiper(e: any) {
     const { jump, jump_link }: any = this.data.swiperData[e.detail.index]
     console.log('=====  this.data.swiperList[index]', this.data.swiperData[e.detail.index])
@@ -90,7 +96,7 @@ aPage({
     my.navigateTo({
       url: `/pages/${path}/${path}`,
       fail: () => {
-        my.navigateTo({ url: '/pages/pageNotFound/pageNotFound' })
+        my.navigateTo({ url: '/pages/home/pageNotFound' })
       },
     })
   },

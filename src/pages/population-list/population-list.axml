@@ -1,10 +1,18 @@
 <view class="page-title">
   汉服科普
 </view>
-<t-tabs defaultValue="all" space-evenly="{{false}}">
+<!-- <t-tabs defaultValue="all" space-evenly="{{false}}">
   <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}">
     <card a:for="{{dataSource[item.value]}}" a:key="index" a:for-item="cardInfo" info="{{cardInfo}}" onClick="onTap" />
   </t-tab-panel>
-</t-tabs>
+</t-tabs> -->
+<view>
+  <card a:for="{{infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity">
+    <view class="activity-list-card-desc" slot="desc">
+      <!-- <view>详情：{{item.desc}}</view> -->
+    </view>
+  </card>
+</view>
+
 
 

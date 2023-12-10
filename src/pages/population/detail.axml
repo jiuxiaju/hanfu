@@ -12,12 +12,13 @@
       bindchange="onChange"
       navigation="{{ { type: 'dots' } }}"
       list="{{swiperList}}"
-      image-props="{{ { shape: 'round', mode: 'scaleToFill' } }}"
+      image-props="{{ { shape: 'round', mode: 'aspectFill' } }}"
       previousMargin="34px"
       nextMargin="34px"
       t-class-nav="card-theme-nav"
       loop="{{true}}"
-      height="{{260}}"
+      height="{{500}}"
+      width="{{300}}"
     />
   </view>
   <view class="population-detail-content">

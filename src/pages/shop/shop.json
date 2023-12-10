@@ -8,5 +8,6 @@
     "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
     "offline": "/components/shop/offline/offline",
     "online": "/components/shop/online/online"
-  }
+  },
+  "defaultTitle": "店铺"
 }

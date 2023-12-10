@@ -12,14 +12,38 @@ aPage({
     swiperList: [],
   },
   onLoad(options) {
-    const { id } = options;
-    if (id) {
-      this.getArticleDetail(id);
+    console.log('页面参数 options:', options);
+    const { PopulationById } = options;
+    if (PopulationById) {
+      // this.getArticleDetail(PopulationById);
+      this.PopulationById = PopulationById;
+      this.getArticleDetail();
     }
   },
+    //分享给好友
+    onShareAppMessage() {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          resolve({
+            title: '九霞裾'
+          })
+        }, 20)
+      })
+      return {
+        title: '九霞裾',
+        path: '/pages/home',
+        promise 
+      }
+    },
+    //转发到朋友圈
+    onShareTimeline:function(){
+      return{
+        title:'快来看看'
+      }
+    },
 
-  getArticleDetail(id: string | number) {
-    get('/population/detail', { id }).then(res => {
+  getArticleDetail() {
+    get('/population/detail', { PopulationById:this.PopulationById }).then(res => {
       const { data = {} } = res;
       console.log("🚀 ~ file: detail.ts:24 ~ get ~ data:", data)
       let swiperList: Array<string> = [];

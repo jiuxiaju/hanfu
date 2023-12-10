@@ -20,7 +20,27 @@ aPage({
       this.getActivityDetail(activityId);
     }
   },
-
+  //分享给好友
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '九霞裾'
+        })
+      }, 20)
+    })
+    return {
+      title: '九霞裾',
+      path: '/pages/home',
+      promise 
+    }
+  },
+  //转发到朋友圈
+  onShareTimeline:function(){
+    return{
+      title:'快来看看'
+    }
+  },
   getActivityDetail(activityId: string | number) {
     get('/activity/detail', { activityId }).then(res => {
       const { data = {}, success } = res;

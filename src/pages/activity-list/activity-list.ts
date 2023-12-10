@@ -91,6 +91,27 @@ aPage({
     this.getArea()
     this.getActivityList()
   },
+    //分享给好友
+    onShareAppMessage() {
+      const promise = new Promise(resolve => {
+        setTimeout(() => {
+          resolve({
+            title: '九霞裾'
+          })
+        }, 20)
+      })
+      return {
+        title: '九霞裾',
+        path: '/pages/home',
+        promise 
+      }
+    },
+    //转发到朋友圈
+    onShareTimeline:function(){
+      return{
+        title:'快来看看'
+      }
+    },
   onPullDownRefresh() {
     this.getActivityList({})
   },
@@ -128,7 +149,7 @@ aPage({
           ...o,
           title: o.name,
           src: o.cover,
-          rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.endTime).format(
+          rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.emdTime).format(
             'YYYY-MM-DD'
           )}`,
           statusKey: STATUS_KEY_MAP[o.status],
@@ -189,3 +210,5 @@ aPage({
     my.navigateTo({ url: `/pages/activity/detail?activityId=${activityObj._id}` })
   },
 })
+
+

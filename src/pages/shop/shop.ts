@@ -45,8 +45,14 @@ aPage({
     })
     return {
       title: '九霞裾',
-      path: '/pages/shop',
+      path: '/pages/home',
       promise 
+    }
+  },
+  //转发到朋友圈
+  onShareTimeline:function(){
+    return{
+      title:'快来看看'
     }
   },
 });

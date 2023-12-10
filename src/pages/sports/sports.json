@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "article": "/components/article/article"
-  }
+  },
+  "defaultTitle": "汉服运动"
 }
