@@ -1,4 +1,3 @@
-
 import home from './home'
 import article from './article'
 import population from './population'
