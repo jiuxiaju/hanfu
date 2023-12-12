@@ -4473,7 +4473,7 @@ export default {
   {
   id: 10005,
   name: "内蒙古",
-  fullName: "内蒙古自治区",
+  fullName: "内蒙古",
   districtCode: 150000,
   region: "西北",
   abbr: "NMG",
@@ -26857,7 +26857,7 @@ export default {
   {
   id: 10020,
   name: "广西",
-  fullName: "广西壮族自治区",
+  fullName: "广西",
   districtCode: 450000,
   region: "华南",
   abbr: "GX",
@@ -35652,7 +35652,7 @@ export default {
   {
   id: 10026,
   name: "西藏",
-  fullName: "西藏自治区",
+  fullName: "西藏",
   districtCode: 540000,
   region: "西北",
   abbr: "XZ",
@@ -40514,7 +40514,7 @@ export default {
   {
   id: 10030,
   name: "宁夏",
-  fullName: "宁夏回族自治区",
+  fullName: "宁夏",
   districtCode: 640000,
   region: "西北",
   abbr: "NX",
@@ -40887,7 +40887,7 @@ export default {
   {
   id: 10031,
   name: "新疆",
-  fullName: "新疆维吾尔自治区",
+  fullName: "新疆",
   districtCode: 650000,
   region: "西北",
   abbr: "XJ",
@@ -42728,7 +42728,7 @@ export default {
   {
   id: 10032,
   name: "香港",
-  fullName: "香港特别行政区",
+  fullName: "香港",
   districtCode: 810000,
   region: "港澳台",
   abbr: "XG",
@@ -42737,7 +42737,7 @@ export default {
   {
   id: 215,
   name: "香港",
-  fullName: "香港特别行政区",
+  fullName: "香港",
   districtCode: 810000,
   abbr: "XG",
   level: 4,
@@ -42936,7 +42936,7 @@ export default {
   {
   id: 10033,
   name: "澳门",
-  fullName: "澳门特别行政区",
+  fullName: "澳门",
   districtCode: 820000,
   region: "港澳台",
   abbr: "AM",
@@ -42945,7 +42945,7 @@ export default {
   {
   id: 216,
   name: "澳门",
-  fullName: "澳门特别行政区",
+  fullName: "澳门",
   districtCode: 820000,
   abbr: "AM",
   level: 4,

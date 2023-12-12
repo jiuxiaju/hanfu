@@ -1,8 +1,19 @@
 <view class="online">
   <t-dropdown-menu>
-    <t-dropdown-item label="{{sourceLabel}}" >
+    <!-- <t-dropdown-item label="{{sourceLabel}}" >
       <t-checkbox-group value="{{source}}" bindchange="handleSourceChange" options="{{options}}" />
-    </t-dropdown-item>
+    </t-dropdown-item> -->
+ <t-dropdown-item
+      label="{{sourceLabel}}"
+      optionsColumns="2"
+      options="{{options}}"
+      bindchange="handleSourceChange"
+      value="{{source}}"
+      multiple
+    />
+
+
+
     <t-dropdown-item
       label="{{styleLabel}}"
       optionsColumns="3"
