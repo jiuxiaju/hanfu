@@ -6,32 +6,7 @@ import { TRGNodeAny } from 'XrFrame/render-graph/RGNode'
 
 // 获取全局 app 实例
 const app = getApp()
-interface InfoList {
-  label: string
-  value: any
-  key: string
-}
 
-const chineseNumber = '一二三四五六七八九十'.split('')
-
-const generateTree = function (deep = 0, count = 10, prefix?: any) {
-  const ans = []
-
-  for (let i = 0; i < count; i += 1) {
-    const value = prefix ? `${prefix}-${i}` : `${i}`
-    const rect: any = {
-      label: `选项${chineseNumber[i]}`,
-      value,
-    }
-
-    if (deep > 0) {
-      rect.children = generateTree(deep - 1, 10, value)
-    }
-    ans.push(rect)
-  }
-
-  return ans
-}
 function calculateStatus(startTime, endTime) {
   const now = dayjs();
   const start = dayjs(startTime);
@@ -54,7 +29,7 @@ const STATUS_KEY_MAP:any = {
 
 aPage({
   data: {
-    type: [
+    typeList: [
       {
         value: '',
         label: '所有类型',
@@ -72,7 +47,7 @@ aPage({
         label: '第三类',
       },
     ],
-    status: [
+    statusList: [
       {
         value: '',
         label: '所有状态',
@@ -96,9 +71,9 @@ aPage({
       status: '',
       area: ['', ''],
     },
-    options: generateTree(1),
     value: ['0', '0-0'],
     infoList: [],
+    area: ['', ''],
   },
   onLoad() {
     this.getArea()
@@ -151,13 +126,14 @@ aPage({
       delete requestParam.status
     }
     // 调整area的入参格式
-    requestParam.region = requestParam.area.join(',')
+    if (requestParam.area) {
+      requestParam.region = requestParam.area.join(',')
+    }
     if (requestParam.region === ',') {
       delete requestParam.region
     }
     delete requestParam.area
     get('/activity/list', requestParam).then((data) => {
-      console.log('=====  data', data)
       this.setData({
         infoList: data.map((o: any) => ({
           ...o,
@@ -166,16 +142,13 @@ aPage({
           rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.emdTime).format(
             'YYYY-MM-DD'
           )}`,
-          // statusKey: STATUS_KEY_MAP[o.status],
-          status: calculateStatus(o.startTime, o.emdTime),
-          statusKey: STATUS_KEY_MAP[calculateStatus(o.startTime, o.emdTime)],
+          statusKey: STATUS_KEY_MAP[o.status],
         })),
       })
     })
   },
 
   onChangeTypeFilter(e: any) {
-    console.log('=====  onChangeTypeFilter', e.detail.value)
     const filter = {
       ...this.data.filter,
       type: e.detail.value,
@@ -185,7 +158,6 @@ aPage({
   },
 
   onChangeStatusFilter(e: any) {
-    console.log('=====  onChangeStatusFilter', e.detail.value)
     const filter = {
       ...this.data.filter,
       status: e.detail.value,
@@ -195,35 +167,40 @@ aPage({
   },
 
   onChangeAreaFilter(e: any) {
-    const { value, level } = e.detail
-    const filter = {
-      ...this.data.filter,
-    }
-    if (level) {
-      filter.area = value
-    } else {
-      filter.area = [value[0], '']
-    }
-    this.setData({ filter })
+    const { value } = e.detail
+    this.setData({ area: value })
   },
   defaultTap() {
     const filter = {
       ...this.data.filter,
       area: ['', ''],
     }
-    this.setData({ filter })
+    this.setData({ filter, area: ['', ''] })
     this.getActivityList(filter)
+    this.mockCloseDropDownMenu();
   },
   primaryTap() {
     const filter = {
       ...this.data.filter,
+      area: this.data.area,
     }
     this.setData({ filter })
     this.getActivityList(filter)
+    this.mockCloseDropDownMenu();
   },
 
   onTapActivity(activityObj: any) {
     my.navigateTo({ url: `/pages/activity/detail?activityId=${activityObj._id}` })
+  },
+  mockCloseDropDownMenu() {
+    const drowItemRef = this.selectComponent('#test');
+    drowItemRef.$parent?.setData({
+      activeIdx: -1,
+    });
+    drowItemRef.setData({
+      show: false,
+    });
+    drowItemRef.triggerEvent('close');
   },
 })
 

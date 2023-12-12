@@ -1,9 +1,9 @@
 <view class="filter-container">
   <t-dropdown-menu>
-    <t-dropdown-item options="{{type}}" label="类型" value="{{filter.type}}" bindchange="onChangeTypeFilter" />
-    <t-dropdown-item options="{{status}}" label="状态" value="{{filter.status}}" bindchange="onChangeStatusFilter" />
-    <t-dropdown-item label="地区选择">
-      <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{filter.area}}" bindchange="onChangeAreaFilter" />
+    <t-dropdown-item options="{{typeList}}" label="{{filter.type ? typeList[filter.type].label : '类型'}}" value="{{filter.type}}" bindchange="onChangeTypeFilter" />
+    <t-dropdown-item options="{{statusList}}" label="{{filter.status}}" value="{{filter.status}}" bindchange="onChangeStatusFilter" />
+    <t-dropdown-item label="{{area[1] || area[0] || '地区选择'}}"  id="test">
+      <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{area}}" bindchange="onChangeAreaFilter" />
       <view class="area-tree-button-container">
         <t-button theme="primary" block variant="outline" onTap="defaultTap">重置</t-button>
         <t-button theme="primary" block onTap="primaryTap">确认</t-button>

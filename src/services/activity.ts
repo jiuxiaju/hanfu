@@ -2,6 +2,8 @@ import { dbTest } from './database'
 import get from 'lodash/get'
 const collectionActivity = dbTest.collection('activity_set')
 
+const _ = dbTest.command;
+
 // todo any
 /**
  * 获取活动详情
@@ -48,7 +50,10 @@ const getActivityList = async (params: any) => {
       .where({
         type: params.type,
         status: params.status,
-        region: params.region,
+        region: dbTest.RegExp({
+          regexp: params.region || '',
+          options: 'i'
+        })
       })
       .skip(skipCount)
       .limit(batchSize)
