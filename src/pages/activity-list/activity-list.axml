@@ -1,5 +1,6 @@
 <view class="filter-container">
   <t-dropdown-menu>
+   <t-sticky>
     <t-dropdown-item options="{{typeList}}" label="{{filter.type ? typeList[filter.type].label : '类型'}}" value="{{filter.type}}" bindchange="onChangeTypeFilter" />
     <t-dropdown-item options="{{statusList}}" label="{{filter.status}}" value="{{filter.status}}" bindchange="onChangeStatusFilter" />
     <t-dropdown-item label="{{area[1] || area[0] || '地区选择'}}"  id="test">
@@ -10,6 +11,7 @@
       </view>
     </t-dropdown-item>
   </t-dropdown-menu>
+   </t-sticky>
 </view>
 
 <view>

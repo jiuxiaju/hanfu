@@ -41,32 +41,64 @@ export const getActivityById = async (params: any) => {
 
 // 获取活动列表（暂不分页）
 const getActivityList = async (params: any) => {
-  const batchSize = 10; // 每个批次的数据数量
+  const batchSize = 20; // 每个批次的数据数量
+  let hasMore = true; // 是否有更多数据
   let skipCount = 0; // 初始跳过的数据数量
-  const result = [];
+  const result = []; // 最终结果数组
+  const currentTime = new Date().getTime(); // 获取当前时间的时间戳
 
-  while (true) {
-    const res = await collectionActivity
-      .where({
-        type: params.type,
-        status: params.status,
-        region: dbTest.RegExp({
-          regexp: params.region || '',
-          options: 'i'
-        })
+  while (hasMore) {
+    const queryConditions = {
+      type: params.type,
+      status: params.status,
+      region: dbTest.RegExp({
+        regexp: params.region || '',
+        options: 'i'
       })
+    };
+
+    // 如果status是 "未开始"，则添加时间的比较条件
+    if (params.status === "未开始") {
+      queryConditions.startTime = dbTest.command.gt(currentTime);
+    }
+
+    const res = await collectionActivity
+      .where(queryConditions)
       .skip(skipCount)
       .limit(batchSize)
       .get();
-
-    result.push(...res.data);
-
-    if (res.data.length < batchSize) {
-      break;
+    const data = res.data;
+    result.push(...data); // 将本次查询结果加入总结果数组
+    if (data.length < batchSize) {
+      // 如果返回的数据少于batchSize，说明没有更多数据了
+      hasMore = false;
+    } else {
+      skipCount += batchSize; // 准备跳过之前已加载的数据
     }
-
-    skipCount += batchSize;
   }
+  // while (hasMore) {
+  //   const res = await collectionActivity
+  //     .where({        
+  //       type: params.type,
+  //       status: params.status,
+  //       region: dbTest.RegExp({
+  //         regexp: params.region || '',
+  //         options: 'i'
+  //       })})
+  //     .skip(skipCount)
+  //     .limit(batchSize)
+  //     .get();
+
+  //   const data = res.data;
+  //   result.push(...data); // 将本次查询结果加入总结果数组
+
+  //   if (data.length < batchSize) {
+  //     // 如果返回的数据少于batchSize，说明没有更多数据了
+  //     hasMore = false;
+  //   } else {
+  //     skipCount += batchSize; // 准备跳过之前已加载的数据
+  //   }
+  // }
 
   return result;
 };

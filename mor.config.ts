@@ -8,4 +8,11 @@ export default defineConfig([
     compileType: 'miniprogram',
     compileMode: 'bundle',
   },
+  // {
+  //   name: 'wechat-ali',
+  //   sourceType: 'alipay',
+  //   target: 'alipay',
+  //   compileType: 'miniprogram',
+  //   compileMode: 'bundle'
+  // },
 ])

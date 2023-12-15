@@ -62,9 +62,17 @@ interface OfflineShopDTO extends ShopBase {
     /** 详情 */
     shop_brief: string;
 }
+
 export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
-    const { makeup, photo_shoot, province = '', city = '', pageSize = 100, pageIndex = 1 } = params || {};
-    const query: any = {
+    const batchSize = 20; // 每个批次的数据数量
+    let hasMore = true; // 是否有更多数据
+    let skipCount = 0; // 初始跳过的数据数量
+    const result = []; // 最终结果数组
+  
+       const { makeup, photo_shoot, province = '', city = '' } = params || {};
+    while (hasMore) {
+    
+      const query: any = {
         status: _.eq(true),
         makeup: makeup ? _.nin(["0", ""]) : undefined,
         photo_shoot: photo_shoot ? _.nin(["0", ""]) : undefined,
@@ -74,57 +82,91 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
             regexp: province
         }))
     }
-    return collectionShopOffline
-        .where(query)
-        .skip((pageIndex - 1) * pageSize)
-        .limit(pageSize)
-        .orderBy('shop_name', 'asc')
+  
+      const batchResult = await collectionShopOffline
+        .where(query)  
+        .skip(skipCount)
+        .limit(batchSize)
         .get()
-        .then((res) => {
-            return {
-                success: true,
-                code: 200,
-                data: res.data.map(item => ({
-                    ...item,
-                    supports: [!!(Number(item.makeup))&&"妆造",!!(Number(item.photo_shoot))&&"摄影"].filter(i => i),
-                })),
-            };
-        }
-        )
+      const data = batchResult.data; 
+      result.push(...data); // 将本次查询结果加入总结果数组
+      
+  
+      if (data.length < batchSize) {
+        // 如果返回的数据少于batchSize，说明没有更多数据了
+        hasMore = false;
+      } else {
+        skipCount += batchSize; // 准备跳过之前已加载的数据
+      }
     }
-    export const searchOnlineShop = async (params?: any) => {
-        const { store_source, style, pageSize = 100, pageIndex = 1 } = params || {};
-        const query: any = {
-            status: _.eq(true),
-            store_source: store_source?.length ? _.in(store_source) : undefined,
-            style: style?.length ? _.all(style) : undefined,
+    
+     // 对累积的结果数组 result 进行处理，类似于 res.data.map 的操作
+     const processedResult = result.map(item => ({
+        ...item,
+        supports: [!!(Number(item.makeup)) && "妆造", !!(Number(item.photo_shoot)) && "摄影"].filter(i => i),
+    }));
+    processedResult.sort((a, b) => {
+        // 使用 localeCompare 比较中文字符串
+        // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
+        return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
+    });
+ // 返回处理后的结果集
+ return {
+    success: true,
+    code: 200,
+    data: processedResult,
+};
+  };
+  export const searchOnlineShop = async (params?: any) => {
+    const batchSize = 20; // 每个批次的数据数量
+    let hasMore = true; // 是否有更多数据
+    let skipCount = 0; // 初始跳过的数据数量
+    const result = []; // 最终结果数组
+  
+       const { store_source, style } = params || {};
+    while (hasMore) {
+    //定义查询条件
+      const query: any = {
+        status: _.eq(true),
+        store_source: store_source?.length ? _.in(store_source) : undefined,
+        style: style?.length ? _.all(style) : undefined,
+    }
+  
+      const batchResult = await collectionShopOnline
+        .where(query)  
+        .skip(skipCount)
+        .limit(batchSize)
+        .get()
+      const data = batchResult.data; 
+      result.push(...data); // 将本次查询结果加入总结果数组
+      
+      if (data.length < batchSize) {
+        // 如果返回的数据少于batchSize，说明没有更多数据了
+        hasMore = false;
+      } else {
+        skipCount += batchSize; // 准备跳过之前已加载的数据
+      }
+    }
+    const processedResult = result;
+    processedResult.sort((a, b) => {
+        // 确保 shop_name 是存在且为字符串，否则返回0
+        if (typeof a.shop_name !== 'string' || typeof b.shop_name !== 'string') {
+            return 0;
         }
-        return collectionShopOnline
-            .where(query)
-            .skip((pageIndex - 1) * pageSize)
-            .limit(pageSize)
-            .orderBy('shop_name', 'asc')
-            .get()
-            .then((res) => {
-                return {
-                    success: true,
-                    code: 200,
-                    data: res.data,
-                };
-            }
-            )
-        }
-    // export const searchShopStyle = async() => {
-    //     return dbTest.collection('knowledge_set').field({
-    //         style: true
-    //     }).get().then((res) => {
-    //         const data = res.data.map(item => item.style);
-    //         return Array.from(new Set(data)).map(item =>( {
-    //             value: item,
-    //             label: item,
-    //         }));
-    //     });
-    // };
+        
+        // 使用 localeCompare 比较中文字符串
+        // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
+        return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
+    });
+    
+  // 返回处理后的结果集
+  return {
+    success: true,
+    code: 200,
+    data: processedResult,
+  };
+  };
+ 
     export const searchShopStyle = async () => {
   const batchSize = 10; // 每个批次的数据数量
   let skipCount = 0; // 初始跳过的数据数量
