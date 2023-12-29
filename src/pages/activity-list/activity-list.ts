@@ -36,15 +36,15 @@ aPage({
       },
       {
         value: '1',
-        label: '第一类',
+        label: '文化体验类',
       },
       {
         value: '2',
-        label: '第二类',
+        label: '教育研习类',
       },
       {
         value: '3',
-        label: '第三类',
+        label: '社交联谊类',
       },
     ],
     statusList: [
@@ -142,7 +142,9 @@ aPage({
           rangeDate: `${dayjs(o.startTime).format('YYYY-MM-DD')}~${dayjs(o.emdTime).format(
             'YYYY-MM-DD'
           )}`,
-          statusKey: STATUS_KEY_MAP[o.status],
+          // statusKey: STATUS_KEY_MAP[o.status],
+          status: calculateStatus(o.startTime, o.emdTime),
+          statusKey: STATUS_KEY_MAP[calculateStatus(o.startTime, o.emdTime)],
         })),
       })
     })

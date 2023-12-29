@@ -1,5 +1,6 @@
 
 <custom-navigation-bar />
+<official-account></official-account>
 <t-swiper
   navigation="{{ { type: 'dots' } }}"
   list="{{swiperList}}"
@@ -83,3 +84,4 @@
     </view>
   </view>
 </template>
+

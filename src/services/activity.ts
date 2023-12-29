@@ -45,30 +45,32 @@ const getActivityList = async (params: any) => {
   let hasMore = true; // 是否有更多数据
   let skipCount = 0; // 初始跳过的数据数量
   const result = []; // 最终结果数组
-  const currentTime = new Date().getTime(); // 获取当前时间的时间戳
-
+  const currentTimestamp = new Date().getTime(); // 获取当前时间戳
+  const queryCondition = {
+    type: params.type,
+    region: dbTest.RegExp({
+      regexp: params.region || '',
+      options: 'i'
+    })
+  };
+  if (params.status === '未开始') {
+    queryCondition.startTime = _.gt(currentTimestamp);
+  } else if (params.status === '进行中') {
+    queryCondition.startTime = _.lte(currentTimestamp);
+    queryCondition.emdTime = _.gt(currentTimestamp);
+  } else if (params.status === '已结束') {
+    queryCondition.emdTime = _.lte(currentTimestamp);
+  }
   while (hasMore) {
-    const queryConditions = {
-      type: params.type,
-      status: params.status,
-      region: dbTest.RegExp({
-        regexp: params.region || '',
-        options: 'i'
-      })
-    };
-
-    // 如果status是 "未开始"，则添加时间的比较条件
-    if (params.status === "未开始") {
-      queryConditions.startTime = dbTest.command.gt(currentTime);
-    }
-
     const res = await collectionActivity
-      .where(queryConditions)
+      .where(queryCondition)
       .skip(skipCount)
       .limit(batchSize)
       .get();
+
     const data = res.data;
     result.push(...data); // 将本次查询结果加入总结果数组
+
     if (data.length < batchSize) {
       // 如果返回的数据少于batchSize，说明没有更多数据了
       hasMore = false;
@@ -76,29 +78,6 @@ const getActivityList = async (params: any) => {
       skipCount += batchSize; // 准备跳过之前已加载的数据
     }
   }
-  // while (hasMore) {
-  //   const res = await collectionActivity
-  //     .where({        
-  //       type: params.type,
-  //       status: params.status,
-  //       region: dbTest.RegExp({
-  //         regexp: params.region || '',
-  //         options: 'i'
-  //       })})
-  //     .skip(skipCount)
-  //     .limit(batchSize)
-  //     .get();
-
-  //   const data = res.data;
-  //   result.push(...data); // 将本次查询结果加入总结果数组
-
-  //   if (data.length < batchSize) {
-  //     // 如果返回的数据少于batchSize，说明没有更多数据了
-  //     hasMore = false;
-  //   } else {
-  //     skipCount += batchSize; // 准备跳过之前已加载的数据
-  //   }
-  // }
 
   return result;
 };
