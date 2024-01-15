@@ -1,5 +1,5 @@
-<view class="online">
-  <t-dropdown-menu>
+<view class="online {{className}}">
+  <t-dropdown-menu t-class="menu">
     <!-- <t-dropdown-item label="{{sourceLabel}}" >
       <t-checkbox-group value="{{source}}" bindchange="handleSourceChange" options="{{options}}" />
     </t-dropdown-item> -->
