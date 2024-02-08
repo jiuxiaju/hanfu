@@ -1,3 +1,6 @@
+
+
+<t-sticky>
 <view class="online {{className}}">
   <t-dropdown-menu t-class="menu">
     <!-- <t-dropdown-item label="{{sourceLabel}}" >
@@ -23,5 +26,7 @@
       multiple
     />
   </t-dropdown-menu>
+   <no-data  a:if="{{showNoData}}" />
   <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
 </view> 
+</t-sticky>

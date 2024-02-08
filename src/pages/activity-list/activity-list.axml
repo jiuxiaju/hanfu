@@ -1,3 +1,7 @@
+
+
+
+<t-sticky>
 <view class="filter-container">
   <t-dropdown-menu>
     <t-dropdown-item options="{{typeList}}" label="{{filter.type ? typeList[filter.type].label : '类型'}}" value="{{filter.type}}" bindchange="onChangeTypeFilter" />
@@ -12,6 +16,7 @@
   </t-dropdown-menu>
 
 </view>
+</t-sticky>
 
 <view>
   <card a:for="{{infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity">

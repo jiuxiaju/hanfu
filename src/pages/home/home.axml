@@ -1,13 +1,22 @@
 
 <custom-navigation-bar />
-<official-account></official-account>
-<t-swiper
-  navigation="{{ { type: 'dots' } }}"
-  list="{{swiperList}}"
-  bind:click="onTapSwiper"
->
-</t-swiper>
-<view class='menu-container'>
+
+<t-sticky offset-top="{{ marginTop }}">
+<view class="floating-component" wx:if="{{visible}}">
+ 点击
+  <text class="highlight">“添加到我的小程序”</text>，
+  下次访问更方便
+</view>
+    <swiper class="swiper" autoplay="true" interval="1000" circular="true" >
+    <!-- 使用 wx:for 指令来循环渲染图片列表 -->
+    <swiper-item wx:for="{{swiperList}}" wx:key="url">
+      <image src="{{item}}" class="slide-image" mode="widthFix"  bindtap="onTapSwiper"
+      data-index="{{index}}"/>
+    </swiper-item>
+  </swiper>
+</t-sticky>
+
+<view class='menu-container'  style='margin-top:{{marginTop}}px;'>
   <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
   <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'population-list'}}" />
 </view>
@@ -31,7 +40,7 @@
 </view>
 
 <!-- 文章推荐 -->
-<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange" >
+<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange"  sticky="true" stickyProps="{{stickyProps}}" style="z-index: 998;" >
   <template
     is="article-tab-panel-item"
     data="{{label: '推荐', value: '0', articles: recommendArticles[0]}}"
@@ -84,4 +93,5 @@
     </view>
   </view>
 </template>
+<t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
 

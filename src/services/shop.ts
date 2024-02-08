@@ -106,10 +106,24 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
         supports: [!!(Number(item.makeup)) && "妆造", !!(Number(item.photo_shoot)) && "摄影"].filter(i => i),
     }));
     processedResult.sort((a, b) => {
-        // 使用 localeCompare 比较中文字符串
-        // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
-        return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
+      // 首先，根据 logo 是否存在进行排序
+      if (a.logo && !b.logo) {
+        // 如果 a 有 logo 而 b 没有，a 排前面
+        return -1;
+      } else if (!a.logo && b.logo) {
+        // 如果 b 有 logo 而 a 没有，b 排前面
+        return 1;
+      }   
+      // 如果两者都有 logo 或都没有 logo，那么比较 shop_name
+      // 确保 shop_name 是存在且为字符串，否则认为相等
+      if (typeof a.shop_name !== 'string' || typeof b.shop_name !== 'string') {
+        return 0;
+      }
+      // 使用 localeCompare 比较中文字符串
+      // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
+      return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
     });
+    
  // 返回处理后的结果集
  return {
     success: true,
@@ -149,16 +163,26 @@ export const searchOfflineShop = async (params?: ISearchOfflineParams) => {
     }
     const processedResult = result;
     processedResult.sort((a, b) => {
-        // 确保 shop_name 是存在且为字符串，否则返回0
-        if (typeof a.shop_name !== 'string' || typeof b.shop_name !== 'string') {
-            return 0;
-        }
-        
-        // 使用 localeCompare 比较中文字符串
-        // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
-        return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
-    });
+      // 首先，根据 logo 是否存在进行排序
+      if (a.logo && !b.logo) {
+        // 如果 a 有 logo 而 b 没有，a 排前面
+        return -1;
+      } else if (!a.logo && b.logo) {
+        // 如果 b 有 logo 而 a 没有，b 排前面
+        return 1;
+      }
     
+      // 如果两者都有 logo 或都没有 logo，那么比较 shop_name
+      // 确保 shop_name 是存在且为字符串，否则认为相等
+      if (typeof a.shop_name !== 'string' || typeof b.shop_name !== 'string') {
+        return 0;
+      }
+    
+      // 使用 localeCompare 比较中文字符串
+      // 传递 'zh-Hans-CN' 作为 locales 参数进行中文排序
+      return a.shop_name.localeCompare(b.shop_name, 'zh-Hans-CN', { sensitivity: 'accent' });
+    });
+    console.log('排序后的结果:', processedResult);
   // 返回处理后的结果集
   return {
     success: true,

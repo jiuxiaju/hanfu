@@ -11,6 +11,8 @@ interface InfoList {
 aPage({
   data: {
     infoList: [],
+    stickyProps:{
+    },
     types: [
       {
         label: '全部',
@@ -33,6 +35,7 @@ aPage({
         infoList: [],
       },
     ],
+
   },
   onLoad() {
     this.getpopulationList()
@@ -60,6 +63,9 @@ aPage({
     },
   onPullDownRefresh() {
     this.getpopulationList()
+  },
+  onStickyScroll(event) {
+    console.log(event.detail);
   },
 
  // 获取科普列表
@@ -96,7 +102,6 @@ aPage({
     return richClone;
   },
   
-
   onTapActivity(Populationobj: any) {
     my.navigateTo({ url: `/pages/population/detail?PopulationById=${Populationobj._id}` })
   },

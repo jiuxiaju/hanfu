@@ -5,7 +5,6 @@
       bind:change="onTabsChange"
       t-class="custom-tabs"
       sticky="{{true}}"
-      stickyProps="{{stickyProps}}"
     >
       <t-tab-panel
         a:for="{{tabList}}"
@@ -18,4 +17,7 @@
         <online a:elif="{{item.key === 'online'}}" className="{{currentTab}}"/>
       </t-tab-panel>
     </t-tabs>
+</view>
+<view class="loading-container-flex" wx:if="{{showLoading}}">
+  <t-loading theme="circular" size="80rpx" class="wrapper"  />
 </view>

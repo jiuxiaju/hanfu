@@ -5,6 +5,7 @@
     "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
     "t-tree-select": "tdesign-miniprogram/tree-select/tree-select",
     "t-button": "tdesign-miniprogram/button/button",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
     "card": "/components/card/card"
   }
 }

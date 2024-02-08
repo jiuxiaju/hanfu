@@ -4,6 +4,7 @@
   "usingComponents": {
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
     "card": "/components/card/card"
   }
 }

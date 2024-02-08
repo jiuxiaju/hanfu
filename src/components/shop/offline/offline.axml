@@ -7,6 +7,6 @@
       <region onSelect="handleRegionChange" />
     </t-dropdown-item>
   </t-dropdown-menu>
-  <no-data  a:if="{{!list.length}}" />
+  <no-data  a:if="{{showNoData}}" />
   <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
 </view> 

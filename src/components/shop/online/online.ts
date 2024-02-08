@@ -101,6 +101,12 @@ aComponent({
                 label: '其他'
               }
             })) as any,
+            showNoData: !(res.data && res.data.length > 0) // 判断搜索结果是否为空
+          });
+        } else {
+          // 如果请求失败或不成功，也设置showNoData为true
+          this.setData({
+            showNoData: true
           });
         }
       })

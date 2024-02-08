@@ -14,7 +14,7 @@ aComponent({
   props: {
     className: '',
     data: {},
-    onClick: () => {},
+    onClick: () => { },
   },
   data: {
     support: [],
@@ -65,6 +65,12 @@ aComponent({
         if (res.success) {
           this.setData({
             list: res.data as any,
+            showNoData: !(res.data && res.data.length > 0) // 判断搜索结果是否为空
+          });
+        } else {
+          // 如果请求失败或不成功，也设置showNoData为true
+          this.setData({
+            showNoData: true
           });
         }
       })

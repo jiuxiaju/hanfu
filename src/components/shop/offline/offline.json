@@ -7,6 +7,7 @@
         "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
         "region": "/components/shop/region/region",
         "shop": "/components/shop/shop",
+        "t-sticky": "tdesign-miniprogram/sticky/sticky",
         "no-data": "/components/shop/no-data/no-data"
     }
 }

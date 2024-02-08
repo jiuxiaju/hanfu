@@ -28,6 +28,14 @@ aPage({
     list: [] as any[],
     stickyProps: {},
     currentTab: ShopType.offline,
+    showLoading: true // 初始时显示加载动画
+  },
+  onLoad() {
+    setTimeout(() => {
+      this.setData({
+        showLoading: false // 1.5秒后隐藏加载动画
+      });
+    }, 1500); 
   },
   onTabsChange(e) {
     this.setData({

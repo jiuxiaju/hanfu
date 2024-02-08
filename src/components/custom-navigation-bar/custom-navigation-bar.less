@@ -1,25 +1,45 @@
+// .custom-nav {
+//   background-color: #fff;
+// }
+
+// .custom-title-bar {
+//   --td-input-bg-color: #f3f3f3;
+//   --td-input-border-radius: 16px;
+//   --td-input-prefix-icon-color: #00000066;
+//   --td-input-placeholder-text-color: #00000066;
+//   --td-spacer-2: 4px;
+
+//   display: flex;
+//   align-items: center;
+//   margin-left: 12px;
+//   color: #000;
+
+//   .t-input {
+//     box-sizing: border-box;
+//     height: calc(100% - 8px);
+//     padding: 10px 14px;
+//     border-radius: 32px;
+//     width: 220px;
+//     flex: unset;
+//   }
+// }
+/* 自定义导航栏的样式 */
 .custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
   background-color: #fff;
 }
-
 .custom-title-bar {
-  --td-input-bg-color: #f3f3f3;
-  --td-input-border-radius: 16px;
-  --td-input-prefix-icon-color: #00000066;
-  --td-input-placeholder-text-color: #00000066;
-  --td-spacer-2: 4px;
+  display: flex; /* 启用Flexbox布局 */
+  justify-content: center; /* 子元素水平居中 */
+  align-items: center; /* 子元素垂直居中 */
+  padding-bottom: 10px;
+}
 
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
-  color: #000;
-
-  .t-input {
-    box-sizing: border-box;
-    height: calc(100% - 8px);
-    padding: 10px 14px;
-    border-radius: 32px;
-    width: 220px;
-    flex: unset;
-  }
+.title-text {
+  text-align: center; /* 文本水平居中（对于块级元素有效） */
+  /* 其他样式根据实际需求添加 */
 }

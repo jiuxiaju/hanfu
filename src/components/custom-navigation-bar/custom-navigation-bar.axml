@@ -1,5 +1,5 @@
-<view class="custom-nav" style="height:{{titleBarHeight + statusBarHeight}}px">
-  <view class="custom-title-bar" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;padding-bottom: 8px" >
-    <t-input prefixIcon="search" placeholder="请输入" borderless />
+<view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight}};z-index: 99; position: fixed; top: 0; left: 0; width: 100%;" >
+  <view class="custom-title-bar" style="height:{{titleBarHeight}};padding-top:40px;" > 
+    <t-input  placeholder="九霞裾" borderless />
   </view>
 </view>
