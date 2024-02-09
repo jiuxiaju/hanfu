@@ -32,43 +32,72 @@ aPage({
   data: {
     jumpList,
     tIconClass: ['my-icon'],
+    userInfo: {},
   },
   onLoad() {
   },
-    //分享给好友
-    onShareAppMessage() {
-      const promise = new Promise(resolve => {
-        setTimeout(() => {
-          resolve({
-            title: '九霞裾'
-          })
-        }, 20)
-      })
-      return {
-        title: '九霞裾',
-        path: '',
-        promise 
-      }
-    },
-  jump2Page(e:any) {
+  //分享给好友
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '九霞裾'
+        })
+      }, 20)
+    })
+    return {
+      title: '九霞裾',
+      path: '',
+      promise
+    }
+  },
+  jump2Page(e: any) {
     const { path, detailkey } = e.currentTarget.dataset || {};
     if (detailkey === 'suggest') {
       my.openEmbeddedMiniProgram({
         appId: "wx8abaf00ee8c3202e",
-        extraData :{
+        extraData: {
           // 产品ID
-          id : "612747",
+          id: "612747",
           // 自定义参数，具体参考文档
-          customData : {}
+          customData: {}
         }
       });
     } else {
       my.navigateTo({
         url: `${path}&detailKey=${detailkey}`,
         fail: () => {
-          my.navigateTo({url: '/pages/pageNotFound/pageNotFound'})
+          my.navigateTo({ url: '/pages/pageNotFound/pageNotFound' })
         }
       });
     }
   },
+  //点击头像区域，触发登陆流程。
+  onTapLogin: function () {
+    // 调用 wx.login 获取临时登录凭证 (code)
+    wx.login({
+      success: loginRes => {
+        if (loginRes.code) {
+          // 调用云函数进行登录
+          wx.cloud.callFunction({
+            name: 'login',
+            data: { code: loginRes.code },
+            success: res => {
+              // 这里得到云函数返回的结果，包括用户的 openId 等
+              console.log('云函数登录成功：', res);
+            },
+            fail: err => {
+              console.error('云函数调用失败', err);
+            }
+          });
+        } else {
+          console.error('wx.login 失败', loginRes.errMsg);
+        }
+      },
+      fail: err => {
+        console.error('wx.login 接口调用失败', err);
+      }
+    });
+  },
+  
 })

@@ -1,21 +1,25 @@
 
 <custom-navigation-bar />
-
+<!-- 公众号关注组件，部分场景值下触发 -->
+<official-account></official-account>
+<!-- 对轮播图配置吸顶 -->
 <t-sticky offset-top="{{ marginTop }}">
+
+<!-- 悬浮指引，部分场景值可见 -->
 <view class="floating-component" wx:if="{{visible}}">
  点击
   <text class="highlight">“添加到我的小程序”</text>，
   下次访问更方便
 </view>
-    <swiper class="swiper" autoplay="true" interval="1000" circular="true" >
+    <swiper class="swiper" autoplay="true" interval="2000" circular="true" >
     <!-- 使用 wx:for 指令来循环渲染图片列表 -->
     <swiper-item wx:for="{{swiperList}}" wx:key="url">
-      <image src="{{item}}" class="slide-image" mode="widthFix"  bindtap="onTapSwiper"
+      <image src="{{item}}" class="slide-image" mode="aspectFill"  bindtap="onTapSwiper"
       data-index="{{index}}"/>
     </swiper-item>
   </swiper>
 </t-sticky>
-
+<!-- 对菜单设置距离，方便多端用户 -->
 <view class='menu-container'  style='margin-top:{{marginTop}}px;'>
   <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
   <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'population-list'}}" />

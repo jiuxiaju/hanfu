@@ -2,6 +2,8 @@
 
 
 <t-sticky>
+
+<!-- 设置吸顶效果 -->
 <view class="filter-container">
   <t-dropdown-menu>
     <t-dropdown-item options="{{typeList}}" label="{{filter.type ? typeList[filter.type].label : '类型'}}" value="{{filter.type}}" bindchange="onChangeTypeFilter" />

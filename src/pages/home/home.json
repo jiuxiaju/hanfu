@@ -7,14 +7,11 @@
   "showBackButton": "false",
   "usingComponents": {
     "custom-navigation-bar": "../../components/custom-navigation-bar/custom-navigation-bar",
-    "t-swiper": "tdesign-miniprogram/swiper/swiper",
-    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-image": "tdesign-miniprogram/image/image",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
     "t-sticky": "tdesign-miniprogram/sticky/sticky",
     "t-footer": "tdesign-miniprogram/footer/footer",
-    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
-    "t-notice-bar": "tdesign-miniprogram/notice-bar/notice-bar"
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel"
   }
 }

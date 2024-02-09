@@ -22,10 +22,6 @@ Component({
     this.setData({
       titleBarHeight: titleBarHeight,
       statusBarHeight: statusBarHeight,
-    }, () => {
-      // 设置完成后的回调函数，在此处打印
-      console.log('titleBarHeight1:', this.data.titleBarHeight);
-      console.log('statusBarHeight1:', this.data.statusBarHeight);
     });
   },
   didUpdate() { },

@@ -19,6 +19,8 @@ aPage({
     visible: true,
   },
   onLoad() {
+
+    //判断场景值
     const launchOptions = wx.getLaunchOptionsSync();
     const scene = launchOptions.scene;
   
@@ -43,11 +45,6 @@ aPage({
       titleBarHeight: titleBarHeight,
       statusBarHeight: statusBarHeight,
       marginTop: marginTop,
-    }, () => {
-      // 打印信息
-      console.log('statusBarHeight2:', statusBarHeight);
-      console.log('titleBarHeight2:', titleBarHeight);
-      console.log('marginTop:', marginTop);
     });
     // 获取广告位图片
     get('/home/getBannerImgs').then((data) => {
@@ -114,6 +111,7 @@ aPage({
       title: '快来看看'
     }
   },
+  //悬浮指引点击事件，点击取消
   click(e) {
     const { trigger } = e.detail;
     console.log(`click on the ${trigger} area`);
@@ -141,6 +139,7 @@ aPage({
         break;
     }
   },
+  //对富文本进行处理
   getRitch(rich: any) {
     if (!rich) {
       return ''

@@ -1,5 +1,6 @@
 <view class="mine">
-  <view class="mine-header">
+  <view class="mine-header" bindtap="onTapLogin">
+  <!-- onTapLogin绑定登陆触发 -->
     <image class="mine-header-logo" src="" mode="aspectFit"></image>
     <view class="mine-header-info">
       <view class="mine-header-info-title">欢迎你同袍</view>
