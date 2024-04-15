@@ -8,7 +8,6 @@
  * 可以输入预定的版权声明、个性签名、空行等
  */
 import { aComponent } from '@ali/mor-core'
-import {  searchOnlineShop, searchShopStyle, } from '../../../services/shop';
 const options = [
   {
     value: '1',
@@ -80,38 +79,56 @@ aComponent({
       });
       this.onSearch();
     },
-   initStyle () {
-      searchShopStyle().then(res => {
-        this.setData({
-          styleOptions: res,
-        })
+  initStyle () {
+    wx.cloud.callFunction({
+      name: 'searchShopStyle', // 请替换成您的云函数名
+    }).then((res) => {
+      console.log(res); // 查看返回数据
+      const result = res.result; // 这里接收到的result应该是一个数组
+      console.log(result); // 查看返回数据
+      this.setData({
+        styleOptions: result,
       })
-    },
-    onSearch() {
-      const params: any = {
+    })
+  }, 
+    onSearch: function () {
+      const params = {
         store_source: this.data.source,
         style: this.data.style,
-      }
-      searchOnlineShop(params).then(res => {
-        if (res.success) {
+      };
+      // 调用云函数
+      wx.cloud.callFunction({
+        name: 'searchOnlineShop', // 您在云端定义的函数名
+        data: params, // 携带的参数
+      }).then(res => {
+        const result = res.result; // 云函数返回的结果
+        console.log("d")
+        // 处理返回的结果，根据实际返回的结构可能需要调整
+        if (result && result.success) {
+          // 假设返回的列表在 result.data 中，这里也许需要根据实际情况调整
           this.setData({
-            list: res.data.map((item) => ({
+            list: result.data.map(item => ({
               ...item,
-              store: options.find((i: any) => i?.value === item.store_source) || {
-                label: '其他'
-              }
-            })) as any,
-            showNoData: !(res.data && res.data.length > 0) // 判断搜索结果是否为空
+              store: options.find(i => i?.value === item.store_source) || { label: '其他' }
+            })),
+            showNoData: !result.data.length // 判断搜索结果是否为空
           });
         } else {
-          // 如果请求失败或不成功，也设置showNoData为true
+          // 请求失败或云函数执行不成功
           this.setData({
             showNoData: true
           });
         }
-      })
+      }).catch(err => {
+        // 处理任何在请求中发生的错误
+        console.error('云函数调用失败：', err);
+        this.setData({
+          showNoData: true
+        });
+      });
     }
+
+
+
   },
 })
-
-

@@ -12,9 +12,7 @@ const map: any = {
   '/article/detail': article.getArticleById,
   '/population/detail': population.getPopulationById,
   '/activity/detail': activity.getActivityById,
-  '/activity/list': activity.getActivityList,
   '/my/center/detail': mine.getMyCenterdetailById,
-  '/population/list': population.getpopulationList,
   '/sports/getSports': sports.getSportsInfo,
   '/article/updateArticleCReadNum': article.updateArticleCReadNum,
 }
@@ -42,3 +40,5 @@ export const get = async (url: string, params?: any) => {
 export default {
   get,
 }
+
+

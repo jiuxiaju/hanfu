@@ -35,7 +35,7 @@ aPage({
       this.setData({
         showLoading: false // 1.5秒后隐藏加载动画
       });
-    }, 1500); 
+    }, 500); 
   },
   onTabsChange(e) {
     this.setData({

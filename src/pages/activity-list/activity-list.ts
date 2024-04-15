@@ -21,7 +21,7 @@ function calculateStatus(startTime, endTime) {
   }
 }
 
-const STATUS_KEY_MAP:any = {
+const STATUS_KEY_MAP: any = {
   '已结束': 3,
   '未开始': 1,
   '进行中': 2,
@@ -79,33 +79,33 @@ aPage({
     this.getArea()
     this.getActivityList()
   },
-    //分享给好友
-    onShareAppMessage() {
-      const promise = new Promise(resolve => {
-        setTimeout(() => {
-          resolve({
-            title: '九霞裾'
-          })
-        }, 20)
-      })
-      return {
-        title: '九霞裾',
-        path: '/pages/home',
-        promise 
-      }
-    },
-    //转发到朋友圈
-    onShareTimeline:function(){
-      return{
-        title:'快来看看'
-      }
-    },
+  //分享给好友
+  onShareAppMessage() {
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '九霞裾'
+        })
+      }, 20)
+    })
+    return {
+      title: '九霞裾',
+      path: '/pages/home',
+      promise
+    }
+  },
+  //转发到朋友圈
+  onShareTimeline: function () {
+    return {
+      title: '快来看看'
+    }
+  },
   onPullDownRefresh() {
     this.getActivityList({})
   },
 
   getArea() {
-    const provinceList:any = area.provinceList.map((province: any) => ({
+    const provinceList: any = area.provinceList.map((province: any) => ({
       label: province.fullName,
       value: province.fullName,
       children: province.directCityList.map((city: any) => ({
@@ -115,7 +115,7 @@ aPage({
     }))
     this.setData({ provinceList });
   },
-  
+
 
   getActivityList(filter?: any) {
     const requestParam = filter || this.data.filter
@@ -133,9 +133,17 @@ aPage({
       delete requestParam.region
     }
     delete requestParam.area
-    get('/activity/list', requestParam).then((data) => {
+    console.log(requestParam)
+    //改用云函数
+    wx.cloud.callFunction({
+      name: 'getActivityList', // 您在云端定义的函数名
+      data: requestParam, // 携带的参数
+    }).then((res) => {
+      console.log(res,"1");
+      const result = res.result; // 云函数返回的结果
+      console.log(result,"2");
       this.setData({
-        infoList: data.map((o: any) => ({
+        infoList:result.data.map((o: any) => ({
           ...o,
           title: o.name,
           src: o.cover,

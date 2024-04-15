@@ -70,37 +70,72 @@ aPage({
 
  // 获取科普列表
  //对简介进行复文本处理，失败了
-  getpopulationList() {
-    get('/population/list').then((data) => {
-      console.log('===== data', data);
-      const types:any = [...this.data.types];
-      types[0].infoList = data.map((o: any) => ({
+  // getpopulationList() {
+  //   // get('/population/list')
+  //      // 将HTTP请求修改为调用微信小程序云函数
+  // wx.cloud.callFunction({
+  //   // 云函数名称
+  //   name: 'getpopulationList',
+  //   // 传递给云函数的参数（如果有需要）
+  // })
+  // .then((data) => {
+  //     console.log('===== data', data);
+  //     const types:any = [...this.data.types];
+      // types[0].infoList = data.map((o: any) => ({
+      //   ...o,
+      //   title: o.style_name,
+      //   src: o.pic_1,
+      //   desc:this.getRitch(o.detail)
+      // }));
+      // data.forEach((o: any) => {
+      //   types[Number(o.type_name)].infoList.push({
+      //     ...o,
+      //     title: o.style_name,
+      //     src: o.pic_1,
+      //     desc:this.getRitch(o.detail)
+      //   })
+      // });
+  //     this.setData({types})
+  //   }).catch((error) => {
+  //     console.log('获取活动列表失败:', error);
+  //     // 在这里处理错误，例如显示一个错误提示给用户
+  //   });
+  // },
+
+getpopulationList() {
+  wx.cloud.callFunction({
+    name: 'getpopulationList',
+  }).then(data => {
+    console.log('云函数返回值的类型:', typeof data.result); // 应该输出 'object'
+    console.log('云函数返回了一个数组:', Array.isArray(data.result)); // 应该输出 true
+    const types:any = [...this.data.types];
+    types[0].infoList = data.result.map((o: any) => ({
+      ...o,
+      title: o.style_name,
+      src: o.pic_1,
+      desc:this.getRitch(o.detail)
+    }));
+    data.result.forEach((o: any) => {
+      types[Number(o.type_name)].infoList.push({
         ...o,
         title: o.style_name,
         src: o.pic_1,
         desc:this.getRitch(o.detail)
-      }));
-      data.forEach((o: any) => {
-        types[Number(o.type_name)].infoList.push({
-          ...o,
-          title: o.style_name,
-          src: o.pic_1,
-          desc:this.getRitch(o.detail)
-        })
-      });
-      this.setData({types})
-    }).catch((error) => {
-      console.log('获取活动列表失败:', error);
-      // 在这里处理错误，例如显示一个错误提示给用户
+      })
     });
-  },
-  getRitch(rich:any) {
-    if (!rich) {
-      return ''
-    }
-    const richClone = rich.replace(/<[^>]*>/g, "")
-    return richClone;
-  },
+    this.setData({types})
+  }).catch(error => {
+    console.error('获取活动列表失败:', error);
+    // 错误处理
+  });
+},
+getRitch(rich:any) {
+  if (!rich) {
+    return ''
+  }
+  const richClone = rich.replace(/<[^>]*>/g, "")
+  return richClone;
+},
   
   onTapActivity(Populationobj: any) {
     my.navigateTo({ url: `/pages/population/detail?PopulationById=${Populationobj._id}` })

@@ -61,19 +61,31 @@ aComponent({
           params[key] = true;
         }
       })
-      searchOfflineShop(params).then(res => {
-        if (res.success) {
-          this.setData({
-            list: res.data as any,
-            showNoData: !(res.data && res.data.length > 0) // 判断搜索结果是否为空
-          });
-        } else {
-          // 如果请求失败或不成功，也设置showNoData为true
-          this.setData({
-            showNoData: true
-          });
+      console.log(params)
+      wx.cloud
+        .callFunction({
+          // 云函数名称
+          name: "searchOfflineShop",
+          // 传给云函数的参数
+          data: params,
+        })
+        .then(res => {
+          // console.log(res.result); // 3
+          const result = res.result; // 云函数返回的结果
+          if (result && result.success) {
+            this.setData({
+              list: result.data as any,
+              showNoData: !(result.data && result.data.length > 0) // 判断搜索结果是否为空
+            }) 
+            else {
+            this.setData({
+              showNoData: true
+            });
+          }
         }
-      })
+        })
     }
   }
 })
+
+
