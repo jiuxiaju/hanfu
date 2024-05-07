@@ -12,6 +12,7 @@
     "pages/population/detail",
     "pages/activity/detail",
     "pages/activity-list/activity-list",
+    "pages/search/search",
     "pages/my/center"
   ],
   "window": {

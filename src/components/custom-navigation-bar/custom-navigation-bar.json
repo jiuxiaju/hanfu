@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "t-input": "tdesign-miniprogram/input/input"
+    "t-search": "tdesign-miniprogram/search/search"
   }
 }

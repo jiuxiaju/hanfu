@@ -14,18 +14,18 @@ Component({
     //   statusBarHeight,
     // },
     // )
-    const systemInfo = my.getSystemInfoSync();
-    const titleBarHeight = this.getTitleBarHeight(systemInfo.statusBarHeight);
-    const statusBarHeight = systemInfo.statusBarHeight;
+    const systemInfo = my.getSystemInfoSync()
+    const titleBarHeight = this.getTitleBarHeight(systemInfo.statusBarHeight)
+    const statusBarHeight = systemInfo.statusBarHeight
 
     // 设置数据
     this.setData({
       titleBarHeight: titleBarHeight,
       statusBarHeight: statusBarHeight,
-    });
+    })
   },
-  didUpdate() { },
-  didUnmount() { },
+  didUpdate() {},
+  didUnmount() {},
   methods: {
     // 计算titleBar的高度，wx无法自动提供
     getTitleBarHeight(statusBarHeight: number) {
@@ -36,14 +36,10 @@ Component({
         return 48
       }
     },
-    onTitleBar(e) {
-      my.alert({
-        title: '点击了标题栏',
-      })
-    },
-    click(e) {
-      const { trigger } = e.detail;
-      console.log(`click on the ${trigger} area`);
+    onJump2Search() {
+      if (this.$page.route !== 'pages/search/search') {
+        my.navigateTo({ url: '/pages/search/search' })
+      }
     },
   },
 })

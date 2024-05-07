@@ -1,5 +1,5 @@
-<view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight}};z-index: 99; position: fixed; top: 0; left: 0; width: 100%;" >
-  <view class="custom-title-bar" style="height:{{titleBarHeight}};padding-top:40px;" > 
-    <t-input  placeholder="九霞裾" borderless />
+<view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight}};z-index: 999; position: fixed; top: 0; left: 0; width: 100%;" onTap="onJump2Search" >
+  <view class="custom-title-bar" style="height:{{titleBarHeight}};padding-top:40px;">
+    <t-search placeholder="搜索活动、穿搭、妆造等" shape="round" />
   </view>
 </view>
