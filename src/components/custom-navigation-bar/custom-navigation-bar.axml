@@ -1,5 +1,9 @@
-<view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight}};z-index: 999; position: fixed; top: 0; left: 0; width: 100%;" onTap="onJump2Search" >
+<view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight}}px;z-index: 999; position: fixed; top: 0; left: 0; width: 100%;" onTap="onJump2Search" >
   <view class="custom-title-bar" style="height:{{titleBarHeight}};padding-top:40px;">
     <t-search placeholder="搜索活动、穿搭、妆造等" shape="round" />
   </view>
+</view>
+
+<view style="height:{{titleBarHeight+statusBarHeight}}px;visibility: hidden;">
+  占位,你看不到我
 </view>

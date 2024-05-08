@@ -14,7 +14,6 @@ aPage({
     stickyProps: {
       offsetTop: 276,
     },
-    marginTop: 0,
     currentSwiperIndex: 0,
     visible: true,
   },
@@ -39,11 +38,9 @@ aPage({
     // 获取手机基础信息(状态栏高度)
     const statusBarHeight = wx.getSystemInfoSync().statusBarHeight
     const titleBarHeight = this.getTitleBarHeight(statusBarHeight)
-    const marginTop = titleBarHeight + statusBarHeight
     this.setData({
       titleBarHeight: titleBarHeight,
       statusBarHeight: statusBarHeight,
-      marginTop: marginTop,
     })
     // 获取广告位图片
     get('/home/getBannerImgs').then((data) => {

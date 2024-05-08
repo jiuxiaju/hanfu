@@ -3,7 +3,7 @@
 <!-- 公众号关注组件，部分场景值下触发 -->
 <official-account></official-account>
 <!-- 对轮播图配置吸顶 -->
-<t-sticky offset-top="{{ marginTop }}">
+<t-sticky>
 
 <!-- 悬浮指引，部分场景值可见 -->
 <view class="floating-component" wx:if="{{visible}}">
@@ -20,7 +20,7 @@
   </swiper>
 </t-sticky>
 <!-- 对菜单设置距离，方便多端用户 -->
-<view class='menu-container'  style='margin-top:{{marginTop}}px;'>
+<view class='menu-container'>
   <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
   <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'population-list'}}" />
 </view>
