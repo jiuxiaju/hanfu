@@ -1,1 +1,33 @@
 <custom-navigation-bar />
+
+<t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true"  stickyProps="{{stickyProps}}" >
+  <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >
+    <!-- 不同的类型用不同的card组件渲染列表 -->
+    <!-- 实体店/网店 -->
+    <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
+    <!-- 科普 -->
+    <card a:for="{{item.infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity" >
+      <view class="activity-list-card-desc" slot="desc">
+      </view>
+    </card>
+    <!-- 活动 -->
+    <card a:for="{{infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity">
+      <view class="activity-list-card-desc" slot="desc">
+        <view>地址：{{item.region}}</view>
+        <view>日期：{{item.rangeDate}}</view>
+      </view>
+      <view class="activity-list-card-tag activity-list-card-tag{{item.statusKey}}" slot="tag">{{item.status}}</view>
+    </card>
+    <!-- 文章 -->
+    <view a:for="{{articles}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ArticleDetailPage">
+      <view class="activity-desc">
+        <view class="activity-title">{{item.headline}}</view>
+        <view>{{item.article2}}</view>
+        <view a:if="{{item.read_count !== undefined}}">阅读量：{{item.read_count}}</view>
+      </view>
+      <t-image a:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" width="74" height="74" />
+    </view>
+  </t-tab-panel>
+</t-tabs>
+
+<t-empty t-class="empty-cls" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />

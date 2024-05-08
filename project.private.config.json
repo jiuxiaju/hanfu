@@ -33,6 +33,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "搜索页",
+          "pathName": "pages/search/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
