@@ -4,11 +4,10 @@ aComponent({
   props: {
     className: '',
     info: {},
+    keyMap: {},
     onClick: (info: any) => {},
   },
-  didMount() {
-    console.log(this.props.info)
-  },
+  didMount() {},
   methods: {
     onTapCard() {
       console.log('=====  onTapCard')

@@ -40,6 +40,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "店铺列表",
+          "pathName": "pages/shop/shop",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

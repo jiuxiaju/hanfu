@@ -1,8 +1,11 @@
 import { aPage } from '@ali/mor-core'
+import dayjs from 'dayjs'
 
 aPage({
   data: {
     image: 'https://tdesign.gtimg.com/mobile/demos/empty1.png',
+    query: '',
+    currentTab: 'all',
     types: [
       {
         label: '综合',
@@ -35,5 +38,66 @@ aPage({
         infoList: [],
       },
     ],
+    knowledgeKeyMap: {
+      title: 'style_name',
+      src: 'pic_1',
+    },
+    activityKeyMap: {
+      title: 'name',
+      src: 'cover',
+    },
+  },
+  onLoad() {
+    this.queryInfos()
+  },
+  queryInfos(query: string = this.data.query, tab: string = this.data.currentTab) {
+    my.showLoading({ content: '搜索中' })
+    console.log('=====  query', query)
+    console.log('=====  tab', tab)
+    wx.cloud
+      .callFunction({
+        // 云函数名称
+        name: 'hui',
+        // 传给云函数的参数
+        data: {
+          query, // 这是要传递的query
+          tab,
+        },
+      })
+      .then((res) => {
+        console.log('=====  res', res)
+        console.log(res.result) // 3
+        // 拆解搜索结果
+        this.setData({
+          infos: res.result,
+          currentTab: tab,
+          query,
+        })
+        my.hideLoading()
+      })
+      .catch(() => {
+        my.hideLoading()
+      })
+  },
+  onTabsChange(e) {
+    console.log('=====  onTabsChange', e.detail.value)
+    this.setData({
+      currentTab: e.detail.value,
+    })
+  },
+  onTapKnowledge(item: any) {
+    my.navigateTo({
+      url: `/pages/population/detail?PopulationById=${item._id}`,
+    })
+  },
+  onTapActivity(item: any) {
+    my.navigateTo({
+      url: `/pages/activity/detail?activityId=${item._id}`,
+    })
+  },
+  onTapArticle(article: any) {
+    my.navigateTo({
+      url: `/pages/article/detail?articleId=${article._id}`,
+    })
   },
 })

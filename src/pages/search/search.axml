@@ -1,33 +1,37 @@
-<custom-navigation-bar />
+<import-sjs src="./constant.sjs" name='constant' />
+<import-sjs src="./util.sjs" name='util' />
 
-<t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true"  stickyProps="{{stickyProps}}" >
+<custom-navigation-bar onSearch="queryInfos" />
+
+<t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}" >
   <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >
-    <!-- 不同的类型用不同的card组件渲染列表 -->
-    <!-- 实体店/网店 -->
-    <shop a:for="{{list}}" a:for-item="data" a:key="id" data="{{data}}" />
-    <!-- 科普 -->
-    <card a:for="{{item.infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity" >
-      <view class="activity-list-card-desc" slot="desc">
-      </view>
-    </card>
-    <!-- 活动 -->
-    <card a:for="{{infoList}}" a:key="_id" info="{{item}}" onClick="onTapActivity">
-      <view class="activity-list-card-desc" slot="desc">
-        <view>地址：{{item.region}}</view>
-        <view>日期：{{item.rangeDate}}</view>
-      </view>
-      <view class="activity-list-card-tag activity-list-card-tag{{item.statusKey}}" slot="tag">{{item.status}}</view>
-    </card>
-    <!-- 文章 -->
-    <view a:for="{{articles}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ArticleDetailPage">
-      <view class="activity-desc">
-        <view class="activity-title">{{item.headline}}</view>
-        <view>{{item.article2}}</view>
-        <view a:if="{{item.read_count !== undefined}}">阅读量：{{item.read_count}}</view>
-      </view>
-      <t-image a:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" width="74" height="74" />
-    </view>
+
   </t-tab-panel>
 </t-tabs>
 
-<t-empty t-class="empty-cls" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />
+<!-- 搜索结果, 不同的类型用不同的card组件渲染列表  -->
+<block a:for="{{infos}}" a:key="_id">
+  <!-- 实体店/网店 -->
+  <shop a:if="{{item.source === 'offline_shop_set' || item.source === 'online_shop_set'}}" data="{{item}}" />
+  <!-- 科普 -->
+  <card a:if="{{item.source === 'knowledge_set'}}" info="{{item}}" keyMap="{{knowledgeKeyMap}}" onClick="onTapKnowledge" >
+    <rich-text slot="desc" nodes="{{item.detail}}"></rich-text>
+  </card>
+  <!-- 活动 -->
+  <card a:if="{{item.source === 'activity_set'}}" info="{{item}}" keyMap="{{activityKeyMap}}" onClick="onTapActivity">
+    <view class="activity-list-card-desc" slot="desc">
+      <view>地址：{{item.region}}</view>
+      <view>日期：{{util.formatRangeTime(item)}}</view>
+    </view>
+    <view class="activity-list-card-tag activity-list-card-tag{{util.getStatusMap(item)}}" slot="tag">{{util.getStatusDesc(item)}}</view>
+  </card>
+  <!-- 文章 -->
+  <card a:if="{{item.source === 'article'}}" info="{{item}}" keyMap="{{constant.articleKeyMap}}" onClick="onTapArticle">
+    <view slot="desc">
+      <view class="article-desc"><rich-text nodes="{{item.article}}"></rich-text></view>
+      <view a:if="{{item.read_count !== undefined}}" class="article-read-count">阅读量：{{item.read_count}}</view>
+    </view>
+  </card>
+</block>
+
+<t-empty a:if="{{infos.length === 0}}" t-class="empty-cls" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />

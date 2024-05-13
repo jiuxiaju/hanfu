@@ -1,19 +1,15 @@
-Component({
+import { aComponent } from '@ali/mor-core'
+
+aComponent({
   data: {
     titleBarHeight: 0,
     statusBarHeight: 0,
+    focus: false,
+  },
+  props: {
+    onSearch: (value: string) => {},
   },
   didMount() {
-    // 获取手机基础信息(头状态栏和标题栏高度)
-    // const {
-    //   titleBarHeight,
-    //   statusBarHeight,
-    // } = my.getSystemInfoSync()
-    // this.setData({
-    //   titleBarHeight: this.getTitleBarHeight(statusBarHeight),
-    //   statusBarHeight,
-    // },
-    // )
     const systemInfo = my.getSystemInfoSync()
     const titleBarHeight = this.getTitleBarHeight(systemInfo.statusBarHeight)
     const statusBarHeight = systemInfo.statusBarHeight
@@ -23,6 +19,13 @@ Component({
       titleBarHeight: titleBarHeight,
       statusBarHeight: statusBarHeight,
     })
+
+    // 如果是在搜索页面，则search组件聚焦
+    if (this.$page.route === 'pages/search/search') {
+      this.setData({
+        focus: true,
+      })
+    }
   },
   didUpdate() {},
   didUnmount() {},
@@ -40,6 +43,9 @@ Component({
       if (this.$page.route !== 'pages/search/search') {
         my.navigateTo({ url: '/pages/search/search' })
       }
+    },
+    onSearch(e) {
+      this.props.onSearch(e.detail.value)
     },
   },
 })
