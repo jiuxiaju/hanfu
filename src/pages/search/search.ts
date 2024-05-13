@@ -1,5 +1,4 @@
 import { aPage } from '@ali/mor-core'
-import dayjs from 'dayjs'
 
 aPage({
   data: {
@@ -52,8 +51,6 @@ aPage({
   },
   queryInfos(query: string = this.data.query, tab: string = this.data.currentTab) {
     my.showLoading({ content: '搜索中' })
-    console.log('=====  query', query)
-    console.log('=====  tab', tab)
     wx.cloud
       .callFunction({
         // 云函数名称
@@ -61,12 +58,10 @@ aPage({
         // 传给云函数的参数
         data: {
           query, // 这是要传递的query
-          tab,
+          tab: tab === 'all' ? undefined : tab,
         },
       })
       .then((res) => {
-        console.log('=====  res', res)
-        console.log(res.result) // 3
         // 拆解搜索结果
         this.setData({
           infos: res.result,
@@ -80,10 +75,7 @@ aPage({
       })
   },
   onTabsChange(e) {
-    console.log('=====  onTabsChange', e.detail.value)
-    this.setData({
-      currentTab: e.detail.value,
-    })
+    this.queryInfos(this.data.query, e.detail.value)
   },
   onTapKnowledge(item: any) {
     my.navigateTo({
