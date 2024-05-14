@@ -7,6 +7,7 @@ aComponent({
     focus: false,
   },
   props: {
+    showBackIcon: false,
     onSearch: (value: string) => {},
   },
   didMount() {
@@ -43,6 +44,9 @@ aComponent({
       if (this.$page.route !== 'pages/search/search') {
         my.navigateTo({ url: '/pages/search/search' })
       }
+    },
+    onNavigateBack() {
+      my.navigateBack()
     },
     onSearch(e) {
       this.props.onSearch(e.detail.value)

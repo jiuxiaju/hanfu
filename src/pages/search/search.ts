@@ -46,9 +46,7 @@ aPage({
       src: 'cover',
     },
   },
-  onLoad() {
-    this.queryInfos()
-  },
+  onLoad() {},
   queryInfos(query: string = this.data.query, tab: string = this.data.currentTab) {
     my.showLoading({ content: '搜索中' })
     wx.cloud

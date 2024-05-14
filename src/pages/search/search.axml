@@ -1,7 +1,7 @@
 <import-sjs src="./constant.sjs" name='constant' />
 <import-sjs src="./util.sjs" name='util' />
 
-<custom-navigation-bar onSearch="queryInfos" />
+<custom-navigation-bar onSearch="queryInfos" showBackIcon />
 
 <t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}" >
   <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >

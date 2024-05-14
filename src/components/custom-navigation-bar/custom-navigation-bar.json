@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "t-search": "tdesign-miniprogram/search/search"
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }
