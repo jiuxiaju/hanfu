@@ -5,48 +5,13 @@ aPage({
     image: 'https://tdesign.gtimg.com/mobile/demos/empty1.png',
     query: '',
     currentTab: 'all',
-    types: [
-      {
-        label: '综合',
-        value: 'all',
-        infoList: [],
-      },
-      {
-        label: '实体店',
-        value: '1',
-        infoList: [],
-      },
-      {
-        label: '网店',
-        value: '2',
-        infoList: [],
-      },
-      {
-        label: '科普',
-        value: '3',
-        infoList: [],
-      },
-      {
-        label: '活动',
-        value: '4',
-        infoList: [],
-      },
-      {
-        label: '文章',
-        value: '5',
-        infoList: [],
-      },
-    ],
-    knowledgeKeyMap: {
-      title: 'style_name',
-      src: 'pic_1',
-    },
-    activityKeyMap: {
-      title: 'name',
-      src: 'cover',
-    },
+    showSearchResult: false, // 是否展示搜索结果
+    queryHistoryArr: [] as string[], // 搜索历史
   },
-  onLoad() {},
+  onLoad() {
+    const { data: queryHistoryArr } = my.getStorageSync({ key: 'queryHistory' }) as any
+    this.setData({ queryHistoryArr: queryHistoryArr || [] })
+  },
   queryInfos(query: string = this.data.query, tab: string = this.data.currentTab) {
     my.showLoading({ content: '搜索中' })
     wx.cloud
@@ -60,20 +25,44 @@ aPage({
         },
       })
       .then((res) => {
-        // 拆解搜索结果
         this.setData({
           infos: res.result,
           currentTab: tab,
           query,
+          showSearchResult: true,
         })
+        this.updateQueryHistory(query)
         my.hideLoading()
       })
       .catch(() => {
         my.hideLoading()
       })
   },
-  onTabsChange(e) {
+  onTabsChange(e: { detail: { value: string | undefined } }) {
     this.queryInfos(this.data.query, e.detail.value)
+  },
+  // 更新历史搜索记录
+  updateQueryHistory(query?: string) {
+    if (!query) {
+      return
+    }
+    const queryHistoryArr = [...this.data.queryHistoryArr]
+    const queryIndex = queryHistoryArr.indexOf(query)
+    if (queryIndex !== -1) {
+      queryHistoryArr.splice(queryIndex, 1)
+    }
+    const newLen = queryHistoryArr.unshift(query)
+    if (newLen > 50) {
+      queryHistoryArr.pop()
+    }
+    this.setData({ queryHistoryArr })
+    my.setStorage({
+      key: 'queryHistory',
+      data: queryHistoryArr,
+    })
+  },
+  onSearchHistory(e: { currentTarget: { dataset: { query: string | undefined } } }) {
+    this.queryInfos(e.currentTarget.dataset.query)
   },
   onTapKnowledge(item: any) {
     my.navigateTo({

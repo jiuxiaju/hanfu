@@ -4,15 +4,9 @@
     "parser": "@typescript-eslint/parser",
     "project": "./tsconfig.json",
     "sourceType": "module",
-    "extraFileExtensions": [
-      ".axml"
-    ]
+    "extraFileExtensions": [".axml", ".sjs"]
   },
-  "plugins": [
-    "@ali/alsc-miapp",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["@ali/alsc-miapp", "@typescript-eslint", "prettier"],
   "extends": [
     "plugin:@ali/alsc-miapp/recommended",
     "plugin:@ali/alsc-base/recommended",

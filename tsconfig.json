@@ -9,12 +9,12 @@
     "importHelpers": true,
     "module": "ES2015",
     "strict": true,
-    "lib": ["DOM", "ES2015"],
+    "lib": ["DOM", "ES2017"],
     "skipLibCheck": true,
     "types": ["@mini-types/alipay"]
   },
   "paths": {
-    "tdesign-miniprogram/*":["/node_modules/tdesign-miniprogram/*"]
+    "tdesign-miniprogram/*": ["/node_modules/tdesign-miniprogram/*"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]

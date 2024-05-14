@@ -3,35 +3,44 @@
 
 <custom-navigation-bar onSearch="queryInfos" showBackIcon />
 
-<t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}" >
-  <t-tab-panel a:for="{{types}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >
+<block a:if="{{showSearchResult}}">
+  <t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}" >
+    <t-tab-panel a:for="{{constant.tabList}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >
 
-  </t-tab-panel>
-</t-tabs>
+    </t-tab-panel>
+  </t-tabs>
 
-<!-- 搜索结果, 不同的类型用不同的card组件渲染列表  -->
-<block a:for="{{infos}}" a:key="_id">
-  <!-- 实体店/网店 -->
-  <shop a:if="{{item.source === 'offline_shop_set' || item.source === 'online_shop_set'}}" data="{{item}}" />
-  <!-- 科普 -->
-  <card a:if="{{item.source === 'knowledge_set'}}" info="{{item}}" keyMap="{{knowledgeKeyMap}}" onClick="onTapKnowledge" >
-    <rich-text slot="desc" nodes="{{item.detail}}"></rich-text>
-  </card>
-  <!-- 活动 -->
-  <card a:if="{{item.source === 'activity_set'}}" info="{{item}}" keyMap="{{activityKeyMap}}" onClick="onTapActivity">
-    <view class="activity-list-card-desc" slot="desc">
-      <view>地址：{{item.region}}</view>
-      <view>日期：{{util.formatRangeTime(item)}}</view>
-    </view>
-    <view class="activity-list-card-tag activity-list-card-tag{{util.getStatusMap(item)}}" slot="tag">{{util.getStatusDesc(item)}}</view>
-  </card>
-  <!-- 文章 -->
-  <card a:if="{{item.source === 'article'}}" info="{{item}}" keyMap="{{constant.articleKeyMap}}" onClick="onTapArticle">
-    <view slot="desc">
-      <view class="article-desc"><rich-text nodes="{{item.article}}"></rich-text></view>
-      <view a:if="{{item.read_count !== undefined}}" class="article-read-count">阅读量：{{item.read_count}}</view>
-    </view>
-  </card>
+  <!-- 搜索结果, 不同的类型用不同的card组件渲染列表  -->
+  <block a:for="{{infos}}" a:key="_id">
+    <!-- 实体店/网店 -->
+    <shop a:if="{{item.source === 'offline_shop_set' || item.source === 'online_shop_set'}}" data="{{item}}" />
+    <!-- 科普 -->
+    <card a:if="{{item.source === 'knowledge_set'}}" info="{{item}}" keyMap="{{constant.knowledgeKeyMap}}" onClick="onTapKnowledge" >
+      <rich-text slot="desc" nodes="{{item.detail}}"></rich-text>
+    </card>
+    <!-- 活动 -->
+    <card a:if="{{item.source === 'activity_set'}}" info="{{item}}" keyMap="{{constant.activityKeyMap}}" onClick="onTapActivity">
+      <view class="activity-list-card-desc" slot="desc">
+        <view>地址：{{item.region}}</view>
+        <view>日期：{{util.formatRangeTime(item)}}</view>
+      </view>
+      <view class="activity-list-card-tag activity-list-card-tag{{util.getStatusMap(item)}}" slot="tag">{{util.getStatusDesc(item)}}</view>
+    </card>
+    <!-- 文章 -->
+    <card a:if="{{item.source === 'article'}}" info="{{item}}" keyMap="{{constant.articleKeyMap}}" onClick="onTapArticle">
+      <view slot="desc">
+        <view class="article-desc"><rich-text nodes="{{item.article}}"></rich-text></view>
+        <view a:if="{{item.read_count !== undefined}}" class="article-read-count">阅读量：{{item.read_count}}</view>
+      </view>
+    </card>
+  </block>
+
+  <t-empty a:if="{{infos.length === 0}}" t-class="empty" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />
 </block>
 
-<t-empty a:if="{{infos.length === 0}}" t-class="empty-cls" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />
+<block a:elif="{{queryHistoryArr.length}}">
+  <view class="history-title">历史搜索</view>
+  <view class="history-tags">
+    <t-tag a:for="{{queryHistoryArr}}" a:key="item" class="history-tag" variant="light" shape="round" data-query="{{item}}" bind:click="onSearchHistory">{{item}}</t-tag>
+  </view>
+</block>
