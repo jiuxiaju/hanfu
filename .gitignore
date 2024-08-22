@@ -46,7 +46,7 @@ dist
 /_ali
 /_bytedance
 /_qq
-/_wechat
-/_dist
+# /_dist/
+# /_wechat/
 /_package
 /.appx
