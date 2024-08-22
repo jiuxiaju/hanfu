@@ -1,0 +1,8 @@
+<view>
+    <t-tabs id="tabs" defaultValue="offline" bind:change="onTabsChange" t-class="custom-tabs" sticky="{{true}}">
+      <t-tab-panel label="{{item.label}}" value="{{item.key}}" wx:for="{{tabList}}" wx:for-item="item" wx:key="key">
+        <offline className="{{currentTab}}" wx:if="{{item.key === 'offline'}}"></offline>
+        <online className="{{currentTab}}" wx:elif="{{item.key === 'online'}}"></online>
+      </t-tab-panel>
+    </t-tabs>
+</view>

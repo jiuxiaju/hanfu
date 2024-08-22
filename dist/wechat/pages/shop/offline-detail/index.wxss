@@ -1,0 +1,224 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.preview-area {
+  width: 100%;
+}
+.preview-image {
+  width: 100%;
+}
+.preview-index {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.swiper-item {
+  border-radius: 20px;
+}
+/* 店铺信息容器样式 */
+.shop-info-container {
+  width: 90%;
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.shop-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.shop-status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.shop-status {
+  font-size: 16px;
+}
+/* 营业时间链接样式 */
+.business-hours-link {
+  display: flex;
+  align-items: center;
+  color: #007aff;
+  cursor: pointer;
+}
+.business-hours-link text {
+  margin-right: 4px;
+}
+.shop-address {
+  font-size: 14px;
+  color: #666;
+}
+/* 店铺简介容器样式 */
+.shop-description-container {
+  width: 90%;
+  margin-top: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.shop-description {
+  font-size: 14px;
+  color: #666;
+}
+/* 店铺款式介绍容器样式 */
+.shop-styles-container {
+  width: 90%;
+  margin-top: 20px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.styles-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop-style {
+  font-size: 16px;
+  color: #333;
+  margin: 5px;
+  padding: 5px 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.shop-style:hover {
+  background: #c0c0c0;
+}
+.block {
+  color: var(--td-text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block--bottom {
+  width: 100vw;
+  height: 240px;
+}
+.wrapper {
+  margin-bottom: 32rpx;
+}
+.wrapper:last-child {
+  margin-bottom: 0;
+}
+/* 弹窗内容样式 */
+/* t-popup 内容的整体样式 */
+.popup-content {
+  display: flex;
+  justify-content: center;
+  /* 居中对齐 */
+  align-items: center;
+  /* 垂直居中 */
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+/* 父容器居中布局 */
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* 可调整 */
+}
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* 子元素居中对齐，内部内容左对齐 */
+.business-hour {
+  width: 100%;
+  /* 可根据需要设置具体宽度，或者固定宽度 */
+  max-width: 500px;
+  /* 或者设置一个上限宽度 */
+  text-align: left;
+  /* 文本左对齐 */
+}
+/* 模态内容样式 */
+.modal-content {
+  width: 90%;
+  /* 适当宽度 */
+  max-width: 500px;
+  /* 最大宽度 */
+  background: #fff;
+  /* 背景色 */
+  padding: 20px;
+  /* 内间距 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  /* 阴影 */
+  border-radius: 8px;
+  /* 圆角 */
+}
+/* 父容器样式，确保内容包裹 */
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* 可调整 */
+}
+.shop {
+  display: flex;
+  flex-direction: row;
+  margin: 0 16px;
+  padding: 16px 0;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: #FFFFFF;
+}
+.shop-title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+}
+.shop-tabs {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+.shop-tab,
+.shop-tab-offline {
+  padding: 0 10px;
+  border-radius: 6px;
+  line-height: 20px;
+  font-family: PingFangSC;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-align: center;
+}
+.shop-tab-offline {
+  margin-left: 10px;
+  background-color: #6dd40033;
+  color: #53A101;
+}

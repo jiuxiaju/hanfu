@@ -1,0 +1,67 @@
+<wxs src="./constant.wxs" module="constant"></wxs>
+<wxs src="./util.wxs" module="util"></wxs>
+
+<view class="block">
+</view>
+<navbar id="navbar"></navbar>
+<view class="page-container">
+
+
+  <view bindtap="onClick">
+    <t-search class="custom-search" value="{{text}}" shape="round" bindfocus="onInputFocus" bindclear="onInputFocus"></t-search>
+  </view>
+  <t-tabs id="tabs-container" value="{{currentTab}}" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}">
+    <t-tab-panel label="{{item.label}}" value="{{item.value}}" wx:for="{{constant.tabList}}" wx:key="value">
+    </t-tab-panel>
+  </t-tabs>
+  <t-sticky offset-top="{{navbarHeight}}">
+  <meun currentTab="{{currentTab}}" menuData="{{menuData}}" bind:menuData="handleMenuData"></meun>
+  <dynamic bind:dynamicData="handleDynamicChange" mergedData="{{mergedData}}"></dynamic>
+  <back-top scroll-top="{{scrollTop}}" bind:to-top="handleToTop"></back-top>
+  <tips></tips>
+</t-sticky>
+<view wx:if="{{showLoading}}">
+  <t-loading theme="circular" size="80rpx" class="wrapper" text="搜索中..."></t-loading>
+</view>
+<scroll-view class="scroll-container" scroll-y bindscroll="onScrollViewScroll" scroll-top="{{scrollTop}}">
+  <card-list wx:for="{{displayList}}" wx:key="_id" config="{{config}}" cardData="{{item}}" bind:renderComplete="onRenderComplete" bind:itemClick="handleItemClick">
+  </card-list>
+  <t-empty t-class="empty" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" wx:if="{{!showLoading && displayList.length === 0}}"></t-empty>
+
+
+</scroll-view> 
+<view style="height:60px;">
+  <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+</view>
+
+</view>
+
+
+<!-- <view class="scroll-content">
+  <card-list wx:for="{{displayList}}" wx:key="_id" config="{{config}}" cardData="{{item}}"
+bind:itemClick="handleItemClick">
+</card-list>
+
+  <view class="content">
+
+</view>
+</view> -->
+
+<!-- 
+
+-->
+
+<!-- 
+
+
+
+  </view>
+</view>
+</view> -->
+
+
+
+
+  <!-- 无数据提示 -->
+  <!-- <t-empty a:if="{{!showLoading && displayList.length === 0}}" t-class="empty" t-class-image="t-empty__image"
+    image="{{image}}" description="暂无结果\n请亲试试换个关键词～" /> -->

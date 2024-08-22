@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "t-tabs": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tabs/tabs",
+    "t-tab-panel": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tab-panel/tab-panel",
+    "t-image": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/image/image",
+    "t-dropdown-menu": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-item/dropdown-item",
+    "card-list": "../../../components/cardList/index",
+    "t-skeleton": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "dynamic": "../../../components/dynamic/index",
+    "t-footer": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "meun": "../../menu/index"
+  },
+  "navigationStyle": "custom"
+}

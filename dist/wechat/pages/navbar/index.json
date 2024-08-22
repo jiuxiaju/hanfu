@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "styleIsolation": "apply-shared",
+  "usingComponents": {
+    "t-navbar": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/navbar/navbar",
+    "t-icon": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/icon/icon"
+  }
+}

@@ -1,0 +1,15 @@
+.sports-article {
+  margin: 16px 0;
+}
+.session-container {
+  padding: 20px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  background-color: #fff;
+}
+.session-container .session-title {
+  color: #000 85%;
+}
+.session-container .session-desc {
+  color: #000 50%;
+}

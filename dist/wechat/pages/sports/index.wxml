@@ -1,0 +1,16 @@
+<view class="page-title">
+  汉服运动
+</view>
+<template is="article" data="{{title: '汉服是什么', desc: articles.movement_def}}"></template>
+<template is="article" data="{{title: '汉服运动', desc: articles.def}}"></template>
+<template is="article" data="{{title: '口号', desc: articles.slogan}}"></template>
+<template is="article" data="{{title: '背景', desc: articles.background}}"></template>
+<template is="article" data="{{title: '目的', desc: articles.goal}}"></template>
+<template is="article" data="{{title: '现状', desc: articles.status}}"></template>
+
+<template name="article">
+<view class="session-container">
+  <view class="session-title">{{title}}</view>
+  <rich-text class="session-desc" nodes="{{desc}}"></rich-text>
+</view>
+</template>

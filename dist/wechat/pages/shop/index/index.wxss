@@ -1,0 +1,31 @@
+.t-tabs {
+  --td-tab-item-active-color: #A86600;
+  --td-tab-track-color: #A86600;
+}
+.t-dropdown-menu {
+  --td-dropdown-menu-active-colorm: #A86600;
+  --td-checkbox-tag-active-color: #A86600;
+  --td-checkbox-icon-checked-color: #A86600;
+  --td-checkbox-tag-active-bg-color: rgba(168, 102, 0, 0.1);
+}
+.loading-container-flex {
+  display: flex;
+  justify-content: center;
+  /* 子项在主轴上居中 */
+  align-items: center;
+  /* 子项在交叉轴上居中 */
+  width: 100vw;
+  /* 宽度覆盖视口宽度 */
+  height: 100vh;
+  /* 高度覆盖视口高度 */
+  position: fixed;
+  /* 固定定位 */
+  top: 0;
+  left: 0;
+  z-index: 999;
+  /* 设置高层级以确保显示在最顶层 */
+}
+/* 如果.wrapper是加载图标的容器，它可能不需要额外的margin-right */
+.wrapper {
+  /* margin-right: 40px; */
+}

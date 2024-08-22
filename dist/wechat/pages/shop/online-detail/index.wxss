@@ -1,0 +1,91 @@
+.container {
+  height: 100px;
+  /* 根据你的需求调整高度 */
+  background-color: #FFFFFF;
+  /* 背景色为空白 */
+  border-radius: 12px;
+  /* 上下左右的弧度 */
+  box-sizing: border-box;
+  /* 确保边框包含在宽度和高度内 */
+}
+.header {
+  display: flex;
+  align-items: center;
+  /* 垂直居中对齐 */
+  justify-content: space-between;
+  /* 左右分开排列 */
+  margin-bottom: 10px;
+  /* 下边距，可以根据需要调整 */
+}
+.logo {
+  width: 40px;
+  /* 根据需要调整logo的宽度 */
+  height: 40px;
+  /* 根据需要调整logo的高度 */
+  margin-left: 50px;
+  /* 右边距，可以根据需要调整 */
+}
+.title {
+  font-size: 18px;
+  /* 根据需要调整标题的字体大小 */
+  font-weight: bold;
+  /* 加粗字体 */
+  color: #000000;
+  /* 标题颜色 */
+  flex-grow: 1;
+  /* 使标题占据剩余空间 */
+  margin-left: 20px;
+  text-align: left;
+  /* 使标题文本靠右对齐 */
+}
+.source {
+  margin-left: 20px;
+  font-size: 14px;
+  /* 根据需要调整店铺来源字段的字体大小 */
+  color: #666666;
+  /* 店铺来源字段的颜色 */
+}
+.group {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  /* 列表项之间的间隔 */
+}
+.group-avatar {
+  margin-left: 56rpx;
+  /* 头像在右侧 */
+}
+.group-content {
+  flex-grow: 1;
+  width: 80%;
+  /* 让内容占满剩余空间 */
+  margin-right: 20rpx;
+  /* 调整内容与图片之间的间隔 */
+}
+/* 店铺款式介绍容器样式 */
+.shop-styles-container {
+  width: 90%;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.styles-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop-style {
+  font-size: 16px;
+  color: #333;
+  margin: 5px;
+  padding: 5px 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.shop-style:hover {
+  background: #c0c0c0;
+}

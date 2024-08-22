@@ -1,0 +1,41 @@
+<view class="card-container" bindtap="onCardTap">
+  <view class="content">
+    <text class="title">{{cardData.title}}</text>
+    <view class="info">
+      <view class="info-item" wx:for="{{cardData.info}}" wx:key="index" wx:for-item="infoItem">
+        <!-- 整个内容放在同一行的容器 -->
+        <view class="info-label-and-value">
+          <text class="info-label" wx:if="{{infoItem.displayLabel}}">{{infoItem.label}}: </text>
+          <view wx:else class="info-label-placeholder"></view>
+          <!-- 判断是不是数组，使用 infoItem.isArray 进行判断 -->
+          <block wx:if="{{infoItem.isArray}}">
+            <view class="array-container">
+              <view class="array-item" wx:for="{{infoItem.value}}" wx:key="index" wx:for-item="arrayItem">
+                <text class="info-value" style="{{infoItem.styles}}">{{arrayItem}}</text>
+              </view>
+            </view>
+          </block>
+          <!-- 不是数组时 -->
+          <block wx:else>
+            <text class="info-value" style="{{infoValueStyle}}">{{infoItem.value}}</text>
+            <!-- 只在store_source字段的时候显示icon -->
+            <t-image wx:if="{{infoItem.label === '店铺来源'}}" class="shop-source-icon" src="{{infoItem.icon}}" mode="aspectFill" height="15" width="15"></t-image>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="logo">
+    <view class="status" wx:if="{{cardData.source === 'activity_set'}}" data-status="{{cardData.activityStatus}}">
+      {{cardData.activityStatus}}</view>
+    <!-- 添加 style 字段 -->
+    <view class="style" wx:if="{{cardData.source === 'hanfu_style'}}">{{cardData.style}}</view>
+    <!-- <t-image class="logo-image {{cardData.imageClass}}" src="{{cardData.logo}}"  mode="widthFix" /> -->
+    <swiper class="logo-swiper" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" style="max-height: {{swiperMaxHeight}};">
+      <swiper-item wx:for="{{cardData.images}}" wx:key="index">
+        <!-- <t-image class="logo-image {{cardData.imageClass}}" src="{{item}}" mode="widthFix" /> -->
+        <t-image class="logo-image {{cardData.imageClass}}" src="{{item}}" mode="widthFix"></t-image>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

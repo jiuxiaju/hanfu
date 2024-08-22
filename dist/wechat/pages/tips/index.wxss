@@ -1,0 +1,74 @@
+.block--bottom {
+  width: 100vw;
+  color: var(--td-text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.block {
+  color: var(--td-text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.block--bottom {
+  width: 100vw;
+  height: 190px;
+}
+.tips-popup-container {
+  position: fixed;
+  /* 确保其位置固定在页面 */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  /* 确保其在最顶层 */
+}
+t-fab {
+  position: fixed;
+  /* 确保固定在页面上 */
+  bottom: 20px;
+  /* 可调整位置使其在适当的位置 */
+  right: 20px;
+  /* 可调整位置使其在适当的位置 */
+  z-index: 9999;
+  /* 确保其在最顶层 */
+}
+.t-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.item-image {
+  width: 20rpx;
+  height: 20rpx;
+  padding-bottom: 100%;
+  /* 使图片保持正方形 */
+}
+.item-text {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+.description-container {
+  padding-left: 10px;
+  /* 左边距 */
+  padding-right: 10px;
+  /* 右边距 */
+  box-sizing: border-box;
+  /* 确保内边距被包含在内 */
+}
+.description {
+  display: block;
+  /* 确保 text 元素是一个块级元素 */
+  text-indent: 2em;
+  /* 首行缩进2个字符 */
+  white-space: pre-wrap;
+  /* 保持换行和空白 */
+  padding-left: 10px;
+  /* 左边距 */
+  padding-right: 10px;
+  /* 右边距 */
+}

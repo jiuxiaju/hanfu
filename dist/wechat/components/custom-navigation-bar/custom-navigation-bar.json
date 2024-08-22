@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-search": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/search/search",
+    "t-icon": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/icon/icon"
+  }
+}

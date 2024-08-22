@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+.suggestion-text {
+  color: #030304;
+  /* 设置文本颜色为蓝色 */
+  margin-left: 20rpx;
+  /* 设置文本组件距离左边的距离 */
+  font-size: 32rpx;
+  /* 调整文本大小为64rpx，约等于32px */
+}
+.right-icon {
+  margin-right: 20rpx;
+}
+.empty {
+  margin-top: 30px;
+}
+.history-header,
+.discover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 历史搜索标题样式 */
+.history-title,
+.discover-title {
+  /* 根据需要添加样式，例如： */
+  flex-grow: 1;
+  /* 允许标题占据可用空间，但不会把按钮挤到下一行 */
+  padding-left: 20rpx;
+  /* 左边距 */
+  margin: 10px;
+  font-weight: bold;
+}
+/* 清除搜索历史按钮样式 */
+.clear-history-button {
+  /* 根据需要添加样式 */
+}
+.history-tags {
+  margin: 10px;
+  max-height: 140px;
+  /* 历史记录区域的高度 */
+}
+.history-tags .history-tag {
+  margin-right: 10px;
+}
+.offlineSuggestions {
+  display: flex;
+  align-items: center;
+  /* 确保内容在纵向居中 */
+  margin-top: 20px;
+}
+.icon {
+  margin-right: 20px;
+  /* 设置图标和文字之间的间距 */
+  margin-left: 20px;
+  /* 设置图标距离最左边的距离 */
+}
+.onlineSuggestions {
+  display: flex;
+  align-items: center;
+  /* 确保内容在纵向居中 */
+  margin-top: 20px;
+}
+.discover-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 130px;
+  /* 控制搜索发现区域的高度 */
+  overflow-y: auto;
+}
+.discover-row {
+  width: 50%;
+  /* 每行显示两个 */
+  box-sizing: border-box;
+  padding: 5px;
+}
+.discover-tag {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.refresh-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.refresh-button text {
+  margin-right: 5px;
+}
+.refresh-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.refresh-text {
+  font-size: 16px;
+}

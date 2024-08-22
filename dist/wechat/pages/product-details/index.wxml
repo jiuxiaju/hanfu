@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="dynamic-container">
+      <block wx:for="{{dynamicFields}}" wx:key="label">
+        <view class="field">
+          <text class="label">{{item.label}}:</text>
+          <block wx:if="{{Array.isArray(item.value)}}">
+            <text wx:for="{{item.value}}" wx:key="index">{{index > 0 ? ', ' : ''}}{{item}}</text>
+          </block>
+          <block wx:else>
+            <text>{{item.value}}</text>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+  

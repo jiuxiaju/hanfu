@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-dropdown-menu": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-item/dropdown-item",
+    "t-tree-select": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tree-select/tree-select",
+    "t-button": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/button/button",
+    "t-sticky": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "t-tabs": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tabs/tabs",
+    "t-tab-panel": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tab-panel/tab-panel"
+  }
+}

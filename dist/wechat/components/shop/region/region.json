@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-tree-select": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tree-select/tree-select",
+    "t-button": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/button/button"
+  }
+}

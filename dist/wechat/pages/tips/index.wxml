@@ -1,0 +1,27 @@
+<!-- <view class="floating-modal-container">
+    <t-fab
+    text="九霞裾"
+    bind:click="handlePopup"
+    bind:move="handleMove"
+    usingCustomNavbar
+    style="z-index: 1000;"
+    draggable
+  ></t-fab> -->
+<view class="tips-popup-container">
+  <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+    <view>
+      <view class="description-container">
+        <text class="description">
+          {{description}}
+        </text>
+      </view>
+        <!-- 功能按钮列表 -->
+        <t-grid class="block" column="3">
+          <block wx:for="{{buttons}}" wx:key="index">
+            <t-grid-item bind:tap="handleButtonTap" data-type="{{item.type}}" data-app-id="{{item.appId}}" data-path="{{item.path}}" text="{{item.text}}" image="{{item.image}}"></t-grid-item>
+          </block>
+        </t-grid>
+      </view>
+  </t-popup>
+  <t-fab icon="tips" bind:click="handlePopup" draggable morStyle="z-index: 9999;"></t-fab>
+</view>

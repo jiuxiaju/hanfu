@@ -1,0 +1,23 @@
+{
+  "component": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "t-dropdown-menu": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-item/dropdown-item",
+    "t-checkbox-group": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/checkbox-group/checkbox-group",
+    "t-checkbox": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/checkbox/checkbox",
+    "region": "../../../components/shop/region/region",
+    "shop": "../../../components/shop/shop",
+    "t-sticky": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "no-data": "../../../components/shop/no-data/no-data",
+    "meun": "../../menu/index",
+    "t-loading": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/loading/loading",
+    "card-list": "../../../components/cardList/index",
+    "back-top": "../../../components/backTop/backTop",
+    "t-skeleton": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "t-popup": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/popup/popup",
+    "dynamic": "../../../components/dynamic/index",
+    "t-footer": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "tips": "../../tips/index"
+  }
+}

@@ -1,0 +1,85 @@
+.population-detail-title {
+  padding: 32rpx 24rpx;
+  font-family: PingFangSC;
+  font-weight: 600;
+  font-size: 56rpx;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: 0;
+  line-height: 72rpx;
+  background-color: #fff;
+}
+.population-detail-content {
+  margin-top: 32rpx;
+  background-color: #fff;
+  padding: 32rpx;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+.population-detail-content-shop {
+  margin-bottom: 20rpx;
+}
+.population-detail-content-detail-label {
+  margin-bottom: 20rpx;
+}
+.card-theme {
+  --td-swiper-radius: 0;
+  --td-swiper-item-padding: 0 12rpx;
+  --td-swiper-nav-dot-color: #e7e7e7;
+  --td-swiper-nav-dot-active-color: #0052d9;
+  padding-bottom: 18px;
+}
+.card-theme .card-theme-nav {
+  bottom: -18px;
+}
+/* Swiper容器的外层view */
+.swiper-container {
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+}
+/* Swiper本身 */
+.my-swiper {
+  height: 400px;
+  /* 设置高度 */
+  width: 80%;
+  /* 设置宽度 */
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+}
+/* Swiper每一项 */
+.swiper-item {
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+}
+/* 图片样式 */
+.swiper-image {
+  width: 100%;
+  /* 图片宽度占满 */
+  height: 100%;
+  /* 图片高度占满 */
+  border-radius: 10px;
+  /* 圆角 */
+  object-fit: cover;
+  /* 避免图片拉伸 */
+}
+.skeleton-container {
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+  height: 100%;
+  /* 容器高度可根据需要调整，或者是父容器高度，例如100vh全屏高度 */
+}

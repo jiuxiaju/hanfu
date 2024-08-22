@@ -1,0 +1,138 @@
+/* 容器3：包含所有可水平滚动的标签和标签面板 */
+.container3 {
+  width: 100%;
+  position: relative;
+  /* 确保子元素的绝对定位相对于此容器 */
+}
+/* 水平滚动视图 */
+.tabs-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  z-index: 20;
+  background: #fefefe;
+}
+/* 水平排列所有标签的容器 */
+.tabs-container {
+  justify-content: space-between;
+  display: flex;
+  /* 默认居中对齐 */
+}
+/* 统一的标签样式 */
+.tab-container {
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  color: #000000;
+  border-radius: 10px;
+  display: flex;
+  margin-left: 10px;
+  background-color: #f4e9e9;
+  flex-shrink: 0;
+  justify-content: center;
+}
+/* 单标签样式 */
+.tabs-single .tab-container {
+  width: 80%;
+  margin-left: 10%;
+}
+/* 两个标签样式 */
+.tabs-double .tab-container {
+  width: 40%;
+  margin-left: 5%;
+}
+/* 三至四个标签样式 */
+.tabs-four-or-less .tab-container {
+  width: 25%;
+  margin-left: 5%;
+}
+/* 被选择的标签样式 */
+.tab-container.selected {
+  background-color: #007aff;
+  color: white;
+}
+/* 标签Logo：预留给logo的空位 */
+.tab-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+/* 标签：每个标签的内容区域 */
+.tab {
+  display: inline-block;
+  white-space: nowrap;
+  /* 防止标签内文字换行 */
+}
+/* 透明遮罩层 */
+.transparent-mask {
+  position: fixed;
+  top: 300px;
+  /* 设置为tab栏的下方 */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  /* 避免遮挡tab栏 */
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  /* 确保遮罩层在tab-panel下面 */
+}
+/* 标签面板：每个标签对应的内容面板，绝对定位浮动显示 */
+.tab-panel {
+  /* position: fixed; */
+  /* 位置在tabs-scroll下面 */
+  position: relative;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  z-index: 10;
+  /* 确保浮动在其他内容之上 */
+  max-height: 300px;
+  /* 限制最大高度 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* 标签面板内容：可上下滚动 */
+.tab-content {
+  max-height: 200px;
+  /* 设置内容区最大高度，允许滚动 */
+  overflow-y: auto;
+  padding: 10px;
+}
+/* 每行标签项的容器 */
+.tab-row {
+  display: flex;
+  justify-content: flex-start;
+  /* 确保项目从左到右排列 */
+  margin-bottom: 10px;
+  /* 每行之间的间距 */
+  flex-wrap: wrap;
+  /* 允许换行 */
+}
+/* 标签项：标签面板内的每个项 */
+.tab-item {
+  flex: 0 1 30%;
+  /* 固定每个项目占行的30% */
+  max-width: 30%;
+  /* 防止项目太宽 */
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  /* 添加边框以更好地分隔项目 */
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #dddddd;
+}
+.selected {
+  background-color: #d3dcff;
+  color: #0052D9;
+}
+/* 标签面板底部：包含重置和确认按钮 */
+.tab-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #eaeaea;
+}
+.content {
+  margin-top: 10px;
+  /* 给内容留出一些空间 */
+}

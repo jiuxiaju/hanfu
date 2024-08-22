@@ -1,0 +1,18 @@
+{
+  "usingComponents": {
+    "t-image": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/image/image",
+    "t-icon": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/icon/icon",
+    "t-tabs": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tabs/tabs",
+    "t-sticky": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "t-footer": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "t-tab-panel": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tab-panel/tab-panel",
+    "card-list": "../../components/cardList/index",
+    "t-search": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/search/search",
+    "t-button": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/button/button",
+    "t-skeleton": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "tips": "../tips/index",
+    "t-fab": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/fab/fab"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

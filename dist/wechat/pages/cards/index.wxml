@@ -1,0 +1,5 @@
+<!-- <meun currentTab="1" menuData="{{menuData}}" bind:menuData="handleMenuData"  /> -->
+<view>123</view>
+<view>123</view>
+<dynamic bind:dynamicData="handleDynamicChange" mergedData="{{mergedData}}"></dynamic>
+<tips></tips>

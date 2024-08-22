@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "t-footer": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "活动详情"
+}

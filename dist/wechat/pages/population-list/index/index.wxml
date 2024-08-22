@@ -1,0 +1,24 @@
+
+<scroll-view scroll-y scroll-top="{{scrollTop}}" bindscroll="onScrollViewScroll" style="height: 800px;">
+  <view wx:if="{{showLoading}}">
+    <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="{{item}}">
+      <view class="group">
+        <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+        <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{!showLoading}}">
+    <t-sticky offset-top="0">
+      <dynamic bind:dynamicData="handleDynamicChange" mergedData="{{mergedData}}"></dynamic>
+    </t-sticky>
+
+    <card-list wx:for="{{displayList}}" wx:key="_id" config="{{config}}" cardData="{{item}}" bind:itemClick="handleItemClick">
+    </card-list>
+
+    <back-top scroll-top="{{scrollTop}}" bind:to-top="handleToTop"></back-top>
+  </view>
+  <view style="height:60px;">
+    <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+  </view>
+</scroll-view>

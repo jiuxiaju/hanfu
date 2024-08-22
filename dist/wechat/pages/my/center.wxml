@@ -1,0 +1,5 @@
+<view class="mine-center">
+  <view class="mine-center-detail">
+    <rich-text nodes="{{detail}}" style="word-break: break-all;" bind:tap="tap"></rich-text>
+  </view>
+</view>

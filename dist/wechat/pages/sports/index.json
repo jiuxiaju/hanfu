@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "article": "../../components/article/article"
+  },
+  "navigationBarTitleText": "汉服运动"
+}

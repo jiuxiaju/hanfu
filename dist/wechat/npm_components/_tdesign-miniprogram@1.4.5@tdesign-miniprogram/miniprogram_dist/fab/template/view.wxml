@@ -1,0 +1,8 @@
+<import src="../../common/template/button.wxml"></import>
+<wxs src="../../common/utils.wxs" module="_"></wxs>
+
+<template name="view">
+  <view class="{{classPrefix}} class {{prefix}}-class" style="right: 16px; bottom: 32px; {{_._style([style, customStyle])}}">
+    <template is="button" data="{{...buttonData}}"></template>
+  </view>
+</template>

@@ -1,0 +1,17 @@
+{
+  "titlePenetrate": "YES",
+  "navigationStyle": "custom",
+  "showBackButton": "false",
+  "usingComponents": {
+    "t-empty": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/empty/empty",
+    "t-tag": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tag/tag",
+    "t-search": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/search/search",
+    "t-navbar": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/navbar/navbar",
+    "t-icon": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/icon/icon",
+    "t-sticky": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "t-button": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/button/button"
+  },
+  "navigationBarTitleText": " ",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

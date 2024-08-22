@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "t-popup": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/popup/popup",
+    "t-fab": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/fab/fab",
+    "t-grid": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/grid/grid",
+    "t-grid-item": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/grid-item/grid-item"
+  }
+}

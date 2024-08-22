@@ -1,0 +1,50 @@
+.exception {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  flex-direction: column;
+}
+.exception-image {
+  width: 480rpx;
+  height: 378rpx;
+  margin-bottom: 30rpx;
+}
+.exception-msg {
+  color: #0f131a;
+  font-weight: 500;
+  font-size: 30rpx;
+  text-align: center;
+}
+.exception-refresh-btn {
+  height: 60rpx;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  border-radius: 30rpx;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d2d4d9;
+  background-color: transparent;
+  margin-top: 24rpx;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 36rpx;
+}

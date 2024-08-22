@@ -1,0 +1,24 @@
+<view class="shop" bind:tap="onTapCard">
+    <view class="shop-info">
+      <view class="shop-title">{{data.shop_name}}
+            <view class="shop-tabs">
+                <view class="shop-tab-offline" wx:for="{{data.supports}}" wx:for-item="item" wx:key="item">{{item}}</view>
+            </view>
+        </view>
+        
+        <view class="shop-desc">
+           <rich-text nodes="{{data.adress}}"></rich-text>
+        </view>
+        <view class="shop-tabs">
+            <view class="shop-tab-online" wx:for="{{data.style}}" wx:key="item" wx:for-item="item">{{item}}</view>
+        </view>
+        <view class="shop-source" wx:if="{{data.store}}">店铺来源：
+            <t-image class="shop-source-icon" src="{{data.store.icon}}" mode="aspectFill" height="12" width="12" wx:if="{{data.store.icon}}"></t-image>
+            {{data.store.label}}
+          </view>
+    </view>
+    <view class="shop-cover">
+      <t-image src="{{data.logo}}" mode="aspectFill" height="74" width="74" wx:if="{{data.logo}}"></t-image>
+      <view class="shop-cover-text" wx:else>{{data.shop_name[0]}}</view>
+    </view>
+  </view>

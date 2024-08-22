@@ -1,0 +1,44 @@
+<t-sticky>
+<!-- 设置吸顶效果 -->
+<view class="filter-container">
+  <t-dropdown-menu>
+    <t-dropdown-item options="{{typeList}}" label="{{filter.type ? typeList[filter.type].label : '类型'}}" value="{{filter.type}}" bindchange="onChangeTypeFilter"></t-dropdown-item>
+    <t-dropdown-item options="{{statusList}}" label="{{filter.status}}" value="{{filter.status}}" bindchange="onChangeStatusFilter"></t-dropdown-item>
+    <t-dropdown-item label="{{area[1] || area[0] || '地区选择'}}" id="test">
+      <t-tree-select options="{{provinceList}}" value="{{area}}" bindchange="onChangeAreaFilter" wx:if="{{provinceList.length}}"></t-tree-select>
+      <view class="area-tree-button-container">
+        <t-button theme="primary" block variant="outline" bind:tap="defaultTap">重置</t-button>
+        <t-button theme="primary" block bind:tap="primaryTap">确认</t-button>
+      </view>
+    </t-dropdown-item>
+  </t-dropdown-menu>
+</view>
+</t-sticky>
+<tips></tips>
+
+
+<scroll-view scroll-y bindscroll="onScrollViewScroll" style="height: 800px;">
+<view wx:if="{{showLoading}}">
+
+  <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="{{item}}">
+    <view class="group">
+      <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+      <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+    </view>
+  </block>
+</view>
+
+
+<view wx:if="{!{showLoading}}">
+  <card-list wx:for="{{displayList}}" wx:key="_id" config="{{config}}" cardData="{{item}}" bind:itemClick="handleItemClick">
+ </card-list>
+ <view style="height:60px;">
+  <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+</view>
+
+</view>
+
+</scroll-view>
+
+
+

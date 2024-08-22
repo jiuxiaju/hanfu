@@ -1,0 +1,28 @@
+{
+  "titlePenetrate": "YES",
+  "showBackButton": "false",
+  "usingComponents": {
+    "t-tabs": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tabs/tabs",
+    "t-tab-panel": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tab-panel/tab-panel",
+    "t-empty": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/empty/empty",
+    "t-tag": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tag/tag",
+    "custom-navigation-bar": "../../components/custom-navigation-bar/custom-navigation-bar",
+    "card": "../../components/card/card",
+    "t-search": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/search/search",
+    "t-navbar": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/navbar/navbar",
+    "t-sticky": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "shop": "../../components/shop/shop",
+    "t-dropdown-menu": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-item/dropdown-item",
+    "back-top": "../../components/backTop/backTop",
+    "card-list": "../../components/cardList/index",
+    "meun": "../menu/index",
+    "dynamic": "../../components/dynamic/index",
+    "t-footer": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "tips": "../tips/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": " ",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black"
+}

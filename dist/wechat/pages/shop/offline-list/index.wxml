@@ -1,0 +1,31 @@
+
+<view class="offline  {{className}}">
+  <view class="menu">
+    <meun currentTab="1" menuData="{{menuData}}" bind:menuData="handleMenuData"></meun>
+  </view>
+  <tips></tips>
+<!-- 骨架屏 -->
+<t-sticky offset-top="90">
+  <dynamic bind:dynamicData="handleDynamicChange" mergedData="{{mergedData}}"></dynamic>
+</t-sticky>
+<scroll-view scroll-y bindscroll="onScrollViewScroll" style="height: 600px;margin-top: 10px;">
+<view wx:if="{{showLoading}}" bindscroll="onScroll" scroll-y="true">
+  <!-- 三行骨架屏，每行右侧是图片，左侧是文本 -->
+  <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="{{item}}">
+    <view class="group">
+      <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+      <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+    </view>
+  </block>
+</view>
+
+    <card-list wx:if="{{!showLoading && !showNoData}}" wx:for="{{displayList}}" wx:key="_id" config="{{config}}" cardData="{{item}}" data-id="_id" bind:itemClick="handleItemClick">
+</card-list>
+<no-data wx:if="{{showNoData}}"></no-data>
+<view style="height:60px;">
+  <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+</view>
+
+</scroll-view>
+</view> 
+

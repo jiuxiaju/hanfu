@@ -1,0 +1,15 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-tabs": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tabs/tabs",
+    "t-tab-panel": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/tab-panel/tab-panel",
+    "t-sticky": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "card": "../../../components/card/card",
+    "card-list": "../../../components/cardList/index",
+    "back-top": "../../../components/backTop/backTop",
+    "t-skeleton": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "t-footer": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "dynamic": "../../../components/dynamic/index"
+  },
+  "navigationBarTitleText": "汉服科普"
+}

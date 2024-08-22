@@ -1,0 +1,62 @@
+.offline {
+  background-color: #fff;
+  --td-dropdown-body-max-height: 400px;
+  padding-top: 48px;
+}
+.offline.online {
+  display: none;
+}
+.offline .menu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+/* 如果.wrapper是加载图标的容器，它可能不需要额外的margin-right */
+.wrapper {
+  /* margin-right: 40px; */
+}
+.group {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  /* 列表项之间的间隔 */
+}
+.group-avatar {
+  margin-left: 56rpx;
+  /* 头像在右侧 */
+}
+.group-content {
+  flex-grow: 1;
+  width: 80%;
+  /* 让内容占满剩余空间 */
+  margin-right: 20rpx;
+  /* 调整内容与图片之间的间隔 */
+}
+.block {
+  color: var(--td-text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block--top,
+.block--bottom {
+  width: 100vw;
+  height: 240px;
+}
+.block--left,
+.block--right {
+  width: 280px;
+  height: 100vh;
+}
+.block--center {
+  width: 240px;
+  height: 240px;
+}
+.wrapper {
+  margin-bottom: 32rpx;
+}
+.wrapper:last-child {
+  margin-bottom: 0;
+}

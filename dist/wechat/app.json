@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/shop/index/index",
+    "pages/shop/offline-detail/index",
+    "pages/shop/online-detail/index",
+    "pages/shop/style/index",
+    "pages/population-list/index/index",
+    "pages/population-list/detail/index",
+    "pages/activity-list/index/index",
+    "pages/activity-list/detail/index",
+    "pages/cards/index",
+    "pages/product-details/index",
+    "pages/my/my",
+    "pages/sports/index",
+    "pages/article/detail",
+    "pages/menu/index",
+    "pages/search/search",
+    "pages/my/center",
+    "pages/result/result",
+    "pages/tips/index",
+    "pages/navbar/index"
+  ],
+  "window": {
+    "backgroundColor": "#F9F9F9",
+    "navigationBarTitleText": "九霞裾",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#A86600",
+    "backgroundColor": "#FFFFFF",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "assets/home-active.png",
+        "selectedIconPath": "assets/home-active.png"
+      },
+      {
+        "pagePath": "pages/shop/index/index",
+        "text": "店铺",
+        "iconPath": "assets/shop-active.png",
+        "selectedIconPath": "assets/shop-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "九霞裾",
+        "iconPath": "assets/my-active.png",
+        "selectedIconPath": "assets/my-active.png"
+      }
+    ]
+  },
+  "embeddedAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "usingComponents": {
+    "navbar": "./pages/navbar/index"
+  }
+}

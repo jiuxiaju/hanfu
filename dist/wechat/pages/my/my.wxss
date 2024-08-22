@@ -1,0 +1,58 @@
+.mine-header {
+  background-color: #fff;
+  padding: 32rpx;
+  display: flex;
+  margin-bottom: 34rpx;
+}
+.mine-header-logo {
+  width: 148rpx;
+  height: 148rpx;
+  margin-right: 32rpx;
+  border-radius: 50%;
+  background-color: #F2F3F5;
+  background-image: url('https://6a69-jiuxiaju-7ghefl5n6fc39431-1319329496.tcb.qcloud.la/cloudbase-cms/upload/2023-12-01/pazvvtij13g26yqy00o0drnthmdb8led_.JPG?sign=eadbc8aad5e38d7d645c441a032258ec&t=1701430016');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.mine-header .avatar-update-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mine-header-info {
+  display: flex;
+  flex-direction: column;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+}
+.mine-header-info-title {
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+}
+.mine-header-info-desc {
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 34rpx;
+}
+.mine-list {
+  background-color: #fff;
+  padding: 0 32rpx;
+}
+.mine-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 32rpx 0;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0;
+  line-height: 36rpx;
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0.04);
+}
+.mine-list-item .t-icon-base {
+  opacity: 0.4;
+}

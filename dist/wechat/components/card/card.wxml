@@ -1,0 +1,15 @@
+<view class="card-container" bind:tap="onTapCard">
+  <view class="card-container-left">
+    <view class="card-title">{{keyMap.title ? info[keyMap.title] : info.title}}</view>
+    <slot name="desc"></slot>
+    <view class="card-desc">{{keyMap.desc ? info[keyMap.desc] : info.desc}}</view>
+  </view>
+  <view class="card-container-right">
+    <t-image src="{{keyMap.src ? info[keyMap.src] : info.src}}" mode="aspectFill" height="100%" width="100%" wx:if="{{info[keyMap.src] || info.src}}"></t-image>
+  </view>
+  <view class="card-tag">
+  <slot name="tag"></slot>
+  </view>
+</view>
+
+

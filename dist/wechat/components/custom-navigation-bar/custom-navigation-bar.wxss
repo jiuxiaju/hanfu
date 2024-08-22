@@ -1,0 +1,21 @@
+/* 自定义导航栏的样式 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  background-color: #fff;
+}
+.custom-title-bar {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  padding-left: 12px;
+}
+.custom-back_icon {
+  padding: 10px 10px 10px 0;
+}
+.custom-search {
+  flex: 1;
+}

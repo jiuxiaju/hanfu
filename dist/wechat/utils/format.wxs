@@ -1,0 +1,27 @@
+"use strict";
+var formatTime = function (timestamp, format) {
+    if (!timestamp) {
+        return '';
+    }
+    if (!format) {
+        format = 'YYYY-MM-DD HH:mm:ss';
+    }
+    var date = getDate(timestamp);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    format = format
+        .replace('YYYY', year)
+        .replace('MM', ('0' + month).slice(-2))
+        .replace('dd', ('0' + day).slice(-2))
+        .replace('HH', ('0' + hour).slice(-2))
+        .replace('mm', ('0' + minute).slice(-2))
+        .replace('ss', ('0' + second).slice(-2));
+    return format;
+};
+module.exports = {
+    formatTime: formatTime,
+};

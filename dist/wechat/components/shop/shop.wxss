@@ -1,0 +1,90 @@
+.shop {
+  display: flex;
+  flex-direction: row;
+  margin: 0 16px;
+  padding: 16px 0;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: #FFFFFF;
+}
+.shop-title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+}
+.shop-tabs {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+.shop-desc {
+  margin-top: 10px;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.shop-cover {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.shop-cover-text {
+  width: 74px;
+  height: 74px;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #A86600;
+  color: #fff;
+}
+.shop-source {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 17px;
+  letter-spacing: 0px;
+  color: #929FAE;
+}
+.shop-source-icon {
+  margin-right: 4px;
+}
+.shop-tab,
+.shop-tab-offline,
+.shop-tab-online {
+  padding: 0 10px;
+  border-radius: 6px;
+  line-height: 20px;
+  font-family: PingFangSC;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-align: center;
+}
+.shop-tab-offline {
+  margin-left: 10px;
+  background-color: #6dd40033;
+  color: #53A101;
+}
+.shop-tab-online {
+  margin-top: 8px;
+  margin-right: 10px;
+  background-color: #a866001a;
+  color: #A86600;
+}

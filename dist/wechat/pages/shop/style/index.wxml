@@ -1,0 +1,88 @@
+<navbar title="款式">
+</navbar>
+<view class="container1">
+     <!-- 吸顶Tab导航 -->
+     <view wx:if="{{tabVisible}}" class="sticky-tab">
+      <view class="tab" bindtap="scrollToTop">宝贝</view>
+      <view class="tab" bindtap="scrollToDetails">详情</view>
+    </view>
+
+<view class="container" wx:if="{{!loading}}">
+  <!-- 页面标题 -->
+  <view class="header">
+    <text class="title">{{styleetails.title}}</text>
+  </view>
+
+  <!-- 店铺名 -->
+  <view>店铺：</view>
+  <view class="shop-list">
+    <block wx:for="{{styleetails.shop_names}}" wx:key="shop_id">
+      <view class="shop-item" data-shop-id="{{item.id}}" bindtap="handleShopClick">
+        <text>{{item.shop_name}}</text>
+      </view>
+    </block>
+  </view>
+  <!-- 动态容器 -->
+   <view>属性：</view>
+  <view class="container1">
+    <product-details product="{{product}}" config="{{config}}"></product-details>
+  </view>
+</view>
+
+<view wx:if="{{loading}}">
+  <block wx:for="{{[0,1,2,3,4,5]}}" wx:key="index">
+    <t-skeleton theme="text"></t-skeleton>
+  </block>
+</view>
+<view class="container">
+  <!-- 选择区域 -->
+  <view class="selection-area">
+    <view>
+      <image class="{{images.length >=currentImageIndex+1 ? 'selected' : 'icon'}}" src="{{styleetails.images[0]}}" mode="aspectFill" bindtap="onMainIconClick"></image>
+    </view>
+    <text>全部款式</text>
+    <!-- 图片合集的第一张 -->
+    <scroll-view class="icon-group" scroll-x="true">
+      <view>
+        <image wx:for="{{skuList}}" wx:key="index" src="{{item.image}}" bindtap="onIconClick" data-index="{{index}}" mode="aspectFill" class="{{index + images.length == currentImageIndex ? 'selected' : 'icon'}}">
+        </image>
+      </view>
+      <!-- SKU图标 -->
+    </scroll-view>
+  </view>
+  <!-- 图片预览区 -->
+  <swiper class="preview-area" style="height: {{containerHeight}}px" current="{{currentImageIndex}}" interval="1000000000" circular="true" autoplay="true" bindchange="onSwiperChange">
+    <swiper-item wx:for="{{images}}" wx:key="index">
+      <image class="preview-image" src="{{item}}" mode="widthFix" data-index="{{index}}" bindtap="previewImage" bindload="onImageLoad"></image>
+      <text class="preview-index">{{index+1}}/{{images.length}}</text>
+    </swiper-item>
+    <swiper-item wx:for="{{skuList}}" wx:key="index" bindchange="onSwiperChange">
+      <text class="sku-title">{{item.title}}</text>
+      <view class="sku-detail">
+        <text class="color-info">颜色：{{item.color}}</text>
+        <text class="stock-info" wx:if="{{item.stock !== undefined && item.stock !== null}}">库存：{{item.stock}}</text>
+        <view class="size-info" wx:if="{{item.sizes && item.sizes.length > 0}}">
+          <text>尺码：</text>
+          <block wx:for="{{item.sizes}}" wx:key="size">
+            <text>{{item}}</text>
+          </block>
+        </view>
+      </view>
+      <image class="preview-image" src="{{item.image}}" mode="widthFix" data-index="{{index + images.length}}" bindtap="previewImage" data-id="{{item.id}}" bindload="onImageLoad"></image>
+      <text class="preview-index">{{index+1}}/{{skuList.length}}</text>
+    </swiper-item>
+  </swiper>
+
+  <view id="detailsSection" class="details-container">
+    <view style="font-weight: 600;">商品详情：</view>
+    <block wx:for="{{skuList}}" wx:key="index">
+      <image src="{{item.image}}" class="detail-image" mode="widthFix" bindtap="previewDetailImage"></image>
+    </block>
+  </view>
+ 
+  <view style="height:60px;">
+    <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+  </view>
+</view>
+</view>
+

@@ -1,0 +1,40 @@
+"use strict";
+var format = require("../../utils/format.wxs");
+var formatRangeTime = function (item) {
+    return (format.formatTime(item.startTime, 'YYYY-MM-dd') +
+        '~' +
+        format.formatTime(item.emdTime, 'YYYY-MM-dd'));
+};
+var getStatusDesc = function (item) {
+    var now = getDate();
+    var start = item.startTime;
+    var end = item.emdTime;
+    if (now < start) {
+        return '未开始'; // 活动尚未开始
+    }
+    else if (now > end) {
+        return '已结束'; // 活动已经结束
+    }
+    else {
+        return '进行中'; // 活动正在进行中
+    }
+};
+var getStatusMap = function (item) {
+    var now = getDate();
+    var start = item.startTime;
+    var end = item.emdTime;
+    if (now < start) {
+        return '1'; // 活动尚未开始
+    }
+    else if (now > end) {
+        return '3'; // 活动已经结束
+    }
+    else {
+        return '2'; // 活动正在进行中
+    }
+};
+module.exports = {
+    formatRangeTime: formatRangeTime,
+    getStatusDesc: getStatusDesc,
+    getStatusMap: getStatusMap,
+};

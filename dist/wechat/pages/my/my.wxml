@@ -1,0 +1,32 @@
+<view class="mine">
+
+  <view class="mine-header">
+
+  <!-- 头像与更新资料的子容器 -->
+   <view class="avatar-update-container" bindtap="onTapLogo">
+    <!-- 头像 -->
+    <image class="mine-header-logo" mode="aspectFit"></image>
+    <!-- 更新资料文本 -->
+  </view>
+
+    
+    <view class="mine-header-info" bindtap="onTapLogin">
+      <view class="mine-header-info-title">点击登录</view>
+      <view class="mine-header-info-desc">岂曰无衣，与子同袍。</view>
+    </view>
+  </view>
+  <view class="mine-list">
+    <block wx:for="{{jumpList}}">
+      <view data-path="{{item.path}}" data-detailkey="{{item.key}}" class="mine-list-item" bind:tap="jump2Page">
+        <view>{{item.text}}</view>
+        <t-icon name="chevron-right" size="32rpx" external-classes="{{['t-class']}}"></t-icon>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+<t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+
+
+ 

@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-skeleton": "../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "meun": "../menu/index",
+    "product-details": "/pages/product-details/index",
+    "dynamic": "../../components/dynamic/index",
+    "tips": "../tips/index"
+  }
+}

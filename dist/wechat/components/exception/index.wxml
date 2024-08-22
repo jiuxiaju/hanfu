@@ -1,0 +1,5 @@
+<view class="exception">
+  <image src="{{ errImg }}" mode="aspectFit" class="exception-image" wx:if="{{errImg}}"></image>
+  <view class="exception-msg">{{ message || 'hahahaha' }}</view>
+  <view class="exception-refresh-btn" bind:tap="onRefresh">{{ btnText}}</view>
+</view>

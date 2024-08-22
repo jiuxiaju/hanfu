@@ -1,0 +1,14 @@
+<navbar title="文章"></navbar>
+<view class="article-detail">
+  <block wx:if="{{article}}">
+    <view class="article-detail-title">
+      {{ headline }}
+    </view>
+    <view class="article-detail-content">
+      <rich-text nodes="{{article}}" bind:tap="tap"></rich-text>
+      <view class="article-detail-read-count">阅读量 {{read_count || 0}}</view>
+    </view>
+  </block>
+  <exception errMsg="{{errConfig.errMsg}}" errType="{{errConfig.errType}}" wx:if="{{errConfig.errType}}" bind:refresh="$morEventHandlerProxy" data-mor-event-handlers="eyJyZWZyZXNoIjoib25SZWZyZXNoIn0="></exception>
+</view>
+<view class="article-detail-title">{{ article.headline }}</view>

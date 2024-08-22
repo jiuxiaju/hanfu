@@ -1,0 +1,13 @@
+.filter-container {
+  --td-dropdown-body-max-height: 400px;
+  --td-tree-colum-width: 206rpx;
+}
+.filter-container .area-tree-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px;
+}
+.filter-container .area-tree-button-container :first-child {
+  margin-right: 12px;
+}

@@ -1,0 +1,110 @@
+.activity-detail-title {
+  padding: 32rpx 24rpx;
+  font-family: PingFangSC;
+  font-weight: 600;
+  font-size: 56rpx;
+  color: rgba(0, 0, 0, 0.9);
+  letter-spacing: 0;
+  line-height: 72rpx;
+  background-color: #fff;
+}
+.activity-detail-content {
+  margin-top: 32rpx;
+  background-color: #fff;
+  padding: 36rpx 32rpx 48rpx;
+}
+.activity-detail .content-info {
+  background-color: #F6F3F3;
+  border-radius: 16rpx;
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  line-height: 48rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.activity-detail .content-info-item {
+  display: flex;
+}
+.activity-detail .content-detail-label {
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  line-height: 20px;
+}
+.activity-detail-require {
+  font-family: AlibabaPuHuiTiR;
+  font-weight: 400;
+  font-size: 28rpx;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  line-height: 48rpx;
+  margin-top: 32rpx;
+}
+.overlay {
+  position: fixed;
+  /* 固定定位，使其浮在页面上方 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 半透明背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* 确保其位于最上层 */
+}
+/* 按钮样式 */
+.show-overlay-btn {
+  position: fixed;
+  /* 可按需设置，确保按钮位置合适 */
+  bottom: 20px;
+  /* 举例，可以根据实际需要调整 */
+  right: 20px;
+  z-index: 500;
+}
+.snapshot-box {
+  background-color: #FFFFFF;
+  /* 设置背景颜色为白色 */
+  /* 其它样式保持不变，这里仅展示背景颜色设置 */
+}
+.intro {
+  width: 90%;
+  /* 设置宽度为90% */
+  margin: 0 5%;
+  /* 上下边距设置为0，左右边距设置为5% */
+  background-color: #FFFFFF;
+  /* 背景颜色设置为白色 */
+  /* 其他样式保持不变 */
+}
+.snapshot-footer {
+  display: flex;
+}
+.qrcode {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.qrcode image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.invitation-container {
+  display: flex;
+  /* 设定为Flex布局 */
+  align-items: center;
+  /* 垂直居中对齐 */
+}
+.sponsor-name {
+  font-weight: bold;
+  /* 设置字体粗细 */
+  color: #030303;
+}

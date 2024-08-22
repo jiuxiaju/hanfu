@@ -1,0 +1,73 @@
+<navbar title="汉服店"></navbar>
+<view wx:if="{{showLoading}}">
+    <t-skeleton theme="paragraph" loading></t-skeleton>
+    <t-skeleton rowCol="{{rowCol}}" loading></t-skeleton>
+    <t-skeleton theme="paragraph" loading></t-skeleton>
+    <t-skeleton theme="paragraph" loading></t-skeleton>
+    <t-skeleton theme="paragraph" loading></t-skeleton>
+</view>
+<view>
+  <view wx:if="{{!showLoading}}">
+  <!-- 店铺信息容器 -->
+  <view class="shop-info-container">
+    <view class="shop-name">店名：{{shopInfo.shop_name}}</view>
+    <view class="shop-tabs">
+        <view class="shop-tab-offline" wx:for="{{shopInfo.tags}}" wx:for-item="item" wx:key="item">{{item}}</view>
+    </view>
+      <view class="shop-status-container">
+        <!-- 营业状态和营业时间一行展示 -->
+        <view class="shop-status {{isOpen ? 'open' : 'closed'}}">
+          {{isOpen ? '营业中' : '已歇业'}}
+        </view>
+        <view class="business-hours-link" bindtap="handlePopup">
+          <text>营业时间</text>
+          <t-icon name="time" size="24" bindtap="onIconTap"></t-icon>
+        </view>
+      </view>
+      <view class="shop-address">电话：{{shopInfo.telephone}}</view>
+    <view class="shop-address">地址：{{shopInfo.address}}</view>
+  </view>
+
+  <!-- 营业时间弹窗 -->
+  <t-popup visible="{{visible}}" bind:visible-change="onVisibleChange" placement="bottom">
+    <view class="popup-content">
+      <view class="modal-content">
+        <view class="modal-title">营业时间</view>
+        <view class="parent-container">
+            <block wx:for="{{shopInfo.businessHours}}" wx:key="day">
+              <view class="business-hour">
+                {{item.day}}：{{item.hours}}
+              </view>
+            </block>
+          </view>
+      </view>
+    </view>
+  </t-popup>
+
+<view class="container">
+    <swiper class="preview-area" style="height: {{containerHeight}}px" current="{{currentImageIndex}}" interval="3000" circular="true" autoplay="true" bindchange="onSwiperChange">
+      <swiper-item wx:for="{{images}}" wx:key="index" class="swiper-item">
+        <image class="preview-image" src="{{item}}" mode="widthFix" data-index="{{index}}" bindload="onImageLoad" bindtap="previewImage"></image>
+        <text class="preview-index">{{index + 1}}/{{images.length}}</text>
+      </swiper-item>
+    </swiper>
+  </view>
+    <!-- 店铺简介容器 -->
+    <view class="shop-description-container">
+        <text class="section-title">店铺简介</text>
+        <view class="shop-description">{{shopInfo.description}}</view>
+      </view>
+
+  <!-- 店铺款式介绍容器 -->
+  <view class="shop-styles-container">
+    <text class="section-title">店铺形制介绍</text>
+    <view class="styles-list">
+        <view wx:for="{{style}}" wx:key="index" data-style="{{item}}" class="shop-style" bindtap="navigateToUrl">
+            {{item}}
+          </view>
+    </view>
+  </view>
+  <view style="height:60px;">
+    <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+  </view>
+</view></view>

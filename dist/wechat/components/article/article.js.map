@@ -1,0 +1,1 @@
+{"version":3,"file":"components/article/article.js","mappings":";;;;;;;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA","sources":["webpack:///./components/article/article.ts"],"sourcesContent":["import { aComponent } from '@ali/mor-core';\naComponent({\n    props: {\n        className: '',\n        list: [],\n    },\n});\n"],"names":[],"sourceRoot":""}

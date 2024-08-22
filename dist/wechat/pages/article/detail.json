@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "exception": "../../components/exception/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "文章详情"
+}

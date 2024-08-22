@@ -1,0 +1,18 @@
+<import src="../common/template/icon.wxml"></import>
+<wxs src="../common/utils.wxs" module="_"></wxs>
+<wxs src="./empty.wxs" module="utils"></wxs>
+
+<view style="{{_._style([style, customStyle])}}" class="class {{prefix}}-class {{classPrefix}}">
+  <view aria-hidden="true" class="{{classPrefix}}__thumb">
+    <t-image wx:if="{{image}}" t-class="{{prefix}}-class-image" src="{{image}}" mode="aspectFit"></t-image>
+    <template wx:elif="{{iconName || _.isNoEmptyObj(iconData)}}" is="icon" data="{{class: classPrefix + '__icon', name: iconName, ...iconData}}"></template>
+    <slot wx:else name="image"></slot>
+  </view>
+  <view class="{{classPrefix}}__description {{prefix}}-class-description">
+    <block wx:if="{{description}}"> {{description}} </block>
+    <slot name="description"></slot>
+  </view>
+  <view class="{{classPrefix}}__actions {{prefix}}-class-actions">
+    <slot name="action"></slot>
+  </view>
+</view>

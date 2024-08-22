@@ -1,0 +1,31 @@
+.online {
+  background-color: #fff;
+  padding-top: 48px;
+}
+.online.offline {
+  display: none;
+}
+.online .menu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.group {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  /* 列表项之间的间隔 */
+}
+.group-avatar {
+  margin-left: 56rpx;
+  /* 头像在右侧 */
+}
+.group-content {
+  flex-grow: 1;
+  width: 80%;
+  /* 让内容占满剩余空间 */
+  margin-right: 20rpx;
+  /* 调整内容与图片之间的间隔 */
+}

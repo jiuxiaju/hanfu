@@ -1,0 +1,7 @@
+<view class="article-container {{className}}">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="article-title" wx:if="{{item.type === 'title'}}">{{item.value}}</view>
+    <view class="article-text" wx:elif="{{item.type === 'text'}}">{{item.value}}</view>
+    <t-image src="{{item.value}}" mode="widthFix" width="100%" wx:elif="{{item.type === 'image'}}"></t-image>
+  </block>
+</view>

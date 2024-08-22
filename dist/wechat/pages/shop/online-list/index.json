@@ -1,0 +1,18 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-dropdown-menu": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/dropdown-item/dropdown-item",
+    "t-checkbox-group": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/checkbox-group/checkbox-group",
+    "t-checkbox": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/checkbox/checkbox",
+    "shop": "../../../components/shop/shop",
+    "t-sticky": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/sticky/sticky",
+    "no-data": "../../../components/shop/no-data/no-data",
+    "card-list": "../../../components/cardList/index",
+    "meun": "../../menu/index",
+    "dynamic": "../../../components/dynamic/index",
+    "t-skeleton": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/skeleton/skeleton",
+    "t-footer": "../../../npm_components/_tdesign-miniprogram@1.4.5@tdesign-miniprogram/miniprogram_dist/footer/footer",
+    "tips": "../../tips/index"
+  }
+}
