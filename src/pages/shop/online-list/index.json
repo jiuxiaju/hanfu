@@ -1,0 +1,18 @@
+{
+    "component": true,
+    "usingComponents": {
+        "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+        "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+        "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+        "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+        "shop": "/components/shop/shop",
+        "t-sticky": "tdesign-miniprogram/sticky/sticky",
+        "no-data": "/components/shop/no-data/no-data",
+        "card-list": "/components/cardList/index",
+        "meun": "/pages/menu/index",
+        "dynamic": "/components/dynamic/index",
+        "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+        "t-footer": "tdesign-miniprogram/footer/footer",
+                "tips":"/pages/tips/index"
+    }
+}

@@ -1,0 +1,139 @@
+<custom-navigation-bar />
+<!-- 公众号关注组件，部分场景值下触发 -->
+<official-account></official-account>
+<!-- 对轮播图配置吸顶 -->
+<!-- 悬浮指引，部分场景值可见 -->
+<tips></tips>
+<view class="floating-component" wx:if="{{visible}}">
+  点击
+  <text class="highlight">“添加到我的小程序”</text>，
+  下次访问更方便
+</view>
+<view wx:if="{{isLoadingSwiper}}">
+  <t-skeleton theme="image" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+</view>
+<swiper wx:if="{{!isLoadingSwiper}}" class="swiper" autoplay="true" interval="2000" circular="true">
+
+  <!-- 使用 wx:for 指令来循环渲染图片列表 -->
+  <swiper-item wx:for="{{swiperList}}" wx:key="url">
+    <image src="{{item}}" class="slide-image" mode="widthFix" bindtap="onTapSwiper" data-index="{{index}}" />
+  </swiper-item>
+</swiper>
+<t-sticky offset-top="0">
+  <view class="example-search" onTap="onJump2Search">
+    <t-search class="search-input" placeholder="{{placeholder}}" shape="round" />
+    <t-button class="search-button" size="small" bindtap="onSearchButtonClick">搜索</t-button>
+  </view>
+  <!-- action="搜索" -->
+</t-sticky>
+<!-- 对菜单设置距离，方便多端用户 -->
+<view class='menu-container' wx:if="{{!isLoadingContent}}">
+  <template is="menu-item" data="{{logo: 'sports', title: '汉服运动', desc: '什么是汉服运动?', key: 'sports'}}" />
+  <template is="menu-item" data="{{logo: 'popularization', title: '汉服科普', desc: '什么是汉服?', key: 'population-list'}}" />
+</view>
+<view wx:if="{{isLoadingContent}}">
+  <!-- 三行骨架屏，每行右侧是图片，左侧是文本 -->
+  <view class="group">
+    <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+    <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+  </view>
+</view>
+<!-- <t-fab 
+icon="tips" 
+bind:click="handlePopup"
+style="z-index: 9999;" 
+draggable
+></t-fab> -->
+
+<!-- 近期活动 -->
+<!-- 当 activityList 不为空时显示 -->
+<view wx:if="{{isLoadingContent}}">
+  <!-- 三行骨架屏，每行右侧是图片，左侧是文本 -->
+  <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="{{item}}">
+    <view class="group">
+      <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+      <t-skeleton class="group-avatar" rowCol="{{rowColsImage}}" loading animation="gradient"></t-skeleton>
+    </view>
+  </block>
+</view>
+<view class="container">
+  <view class="top-row">
+    <view class="left-text">近期活动</view>
+    <!-- 当 activityList 不为空时显示 -->
+    <view wx:if="{{activityList.length}}" class="center-text">
+      有{{activityList.length}}场活动待您参加
+    </view>
+    <view class="right-text" data-path="activity-list" bindtap="jump2Page">
+      查看全部
+      <t-icon name="caret-right-small" size="16px" />
+    </view>
+  </view>
+  <!-- 当 activityList 为空时显示替代内容 -->
+  <view wx:if="{{!activityList.length}}" class="empty-list">
+    最近没有活动呢~
+  </view>
+  <swiper wx:if="{{activityList.length}}" class="swiper-container" indicator-dots="true" autoplay="true"
+    interval="10000" duration="1000">
+    <block wx:for="{{activityList}}" wx:key="_id">
+      <swiper-item>
+        <card-list config="{{config}}" cardData="{{item}}" bind:itemClick="handleItemClick" class="ddd">
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 文章推荐 -->
+<view wx:if="{{!isLoadingContent}}">
+<t-tabs defaultValue="{{0}}" bind:change="onTabsChange" bind:click="onTabsClick" class="articles"
+  t-class-content="custom-panel" stickyProps="{{stickyProps}}" sticky="true">
+  <block wx:for="{{tabs}}" wx:key="value">
+    <t-tab-panel label="{{item.label}}" value="{{item.value}}" style="{{tabPanelstyle}}">
+        <block wx:for="{{item.articles}}" wx:key="_id">
+          <view wx:if="{{!isLoadingContent}}">
+            <card-list cardData="{{item}}" config="{{config}}" bind:itemClick="handleItemClick"
+             />
+        </block>
+        <view wx:if="{{!item.articles || item.articles.length === 0}}" class="empty-list">还没有{{item.label}}的文章哦~</view>
+      </view>
+    </t-tab-panel>
+  </block>
+</t-tabs>
+</view>
+<template name="menu-item">
+  <view class="menu-item" data-path="{{key}}" onTap="jump2Page">
+    <view class="menu-logo">
+      <t-image src="/assets/{{logo}}.png" mode="aspectFill" width="40" height="40" />
+    </view>
+    <view>
+      <view class="menu-title">{{title}}</view>
+      <view class="menu-desc">{{desc}}</view>
+    </view>
+  </view>
+</template>
+<t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+<!-- 
+<t-tabs class="articles" defaultValue="0" bind:change="onTabsChange" sticky="true" stickyProps="{{stickyProps}}"
+  style="z-index: 998;">
+
+  <template is="article-tab-panel-item" data="{{label: '推荐', value: '0', articles: recommendArticles[0]}}" />
+
+  <template is="article-tab-panel-item" data="{{label: '穿搭', value: '1', articles: recommendArticles[1]}}" />
+  <template is="article-tab-panel-item" data="{{label: '妆造', value: '2', articles: recommendArticles[2]}}" />
+  <template is="article-tab-panel-item" data="{{label: '文学', value: '3', articles: recommendArticles[3]}}" />
+  <template is="article-tab-panel-item" data="{{label: '六艺', value: '4', articles: recommendArticles[4]}}" />
+  <template is="article-tab-panel-item" data="{{label: '其他', value: '5', articles: recommendArticles[5]}}" />
+</t-tabs>
+<template name="article-tab-panel-item">
+  <t-tab-panel label="{{label}}" value="{{value}}">
+    <view wx:if="{{!isLoadingContent}}">
+    <view a:for="{{articles}}" a:key="_id" class="activity-item" data-item="{{item}}" onTap="jump2ArticleDetailPage">
+      <view class="activity-desc">
+        <view class="activity-title">{{item.headline}}</view>
+        <view>{{item.article2}}</view>
+        <view a:if="{{item.read_count !== undefined}}">阅读量：{{item.read_count}}</view>
+      </view>
+      <t-image a:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" width="74" height="74" />
+    </view>
+    <view a:if="{{!articles || articles.length === 0}}" class="empty-list">还没有{{label}}的文章哦~</view>
+    </view>
+  </t-tab-panel>
+</template> -->

@@ -1,0 +1,15 @@
+{
+  "component": true,
+  "defaultTitle": "汉服科普",
+  "usingComponents": {
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "card": "/components/card/card",
+    "card-list": "/components/cardList/index",
+    "back-top": "/components/backTop/backTop",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+    "dynamic": "/components/dynamic/index"
+  }
+}

@@ -1,0 +1,187 @@
+.page {
+  padding:2%;
+  /* 页面的内边距，确保卡片两侧有边距 */
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  // padding: 16px;
+  padding:4.27%;
+  margin: 2.13% 0;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 94%;
+}
+.content {
+  flex: 1;
+  margin-left: 2%;
+  width: 69vw;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: AlibabaPuHuiTiR;
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 1rem; /* 1rem = 14px */
+  // margin-bottom: 12px;
+  margin-left: 1%;
+}
+.info {
+  margin-top: 2.13%;
+  width: 100%;
+}
+.info-item {
+  margin-bottom:  1.07%;
+}
+/* 使用 Flexbox 布局 */
+.info-label-and-value {
+  display: flex;
+  align-items: flex-start; /* 顶部对齐 */
+  flex-wrap: nowrap; /* 不允许换行 */
+  margin-bottom: 10rpx; /* 项间距 */
+}
+
+/* 为 info-label 保留固定宽度 */
+.info-label, .info-label-placeholder {
+  font-size: 0.8rem; /* 1rem = 14px */
+  font-weight: 400;
+  text-align: right; /* 右对齐，确保标签对齐到右边 */
+  margin-right: 0.286em; /* 调整标签与值之间的间距 */
+  flex-shrink: 0; /* 防止标签缩小 */
+  white-space: nowrap; /* 确保标签不会自动换行 */
+}
+/* 防止占位符标签实际显示 */
+.info-label[hidden] {
+  visibility: hidden;
+}
+.info-value {
+  font-size: 0.75rem; /* 1rem = 14px */
+  border-radius: 12rpx;
+  font-weight: 300;
+  padding: 0 20rpx; /* 内边距 */
+  padding-right: 0.714em; 
+  color: #333;
+  display: inline-flex; /* 限制背景色宽度 */
+  word-wrap: break-word; /* 自动换行 */
+  word-break: break-word; /* 确保长单词换行 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 限制显示三行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em; /* 根据设计调整行高 */
+  max-height: 4.5em; /* 三行的高度 */
+}
+.array-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.array-item {
+  margin-left: 0.3em; /* 4 / 14 = 0.286em */
+}
+.shop-source-icon {
+  width: 0.857em;   /* 12 / 14 = 0.857em */
+  height: 0.857em;  /* 12 / 14 = 0.857em */
+  margin-left: 0.286em; /* 4 / 14 = 0.286em */
+}
+.status {
+  color: #ffffff;
+  border-radius: 2.13%; /* 8px ≈ 2.13% */
+  padding: 1.07% 2.13%; /* 4px ≈ 1.07%，8px ≈ 2.13% */
+  text-align: center;
+  border-radius: 8rpx;
+  width: 60%;
+  margin-left: 60%;
+  z-index: 1;
+  /* 确保状态值在图片上方 */
+  height: 5.33vw; /* 20px ≈ 5.33vw */
+  line-height: 5.33vw; /* 20px ≈ 5.33vw */
+  font-size: 3.2vw; /* 12px ≈ 3.2vw */
+}
+/* 不同状态对应的背景颜色 */
+.status[data-status="未开始"] {
+  background-color: #F7B500;
+  /* 黄色 */
+}
+
+.status[data-status="进行中"] {
+  background-color: #6DD400;
+  /* 绿色 */
+}
+
+.status[data-status="已结束"] {
+  background-color: #BFBFBF;
+  /* 灰色 */
+}
+.style {
+  font-size: 3.73vw; 
+  color: #008080;
+  // margin-bottom: 8px;
+  text-align: center;
+  position: absolute;
+  margin-bottom: 10rpx; /* 确保有间距 */
+  /* 使 style 悬浮在 logo-image 上 */
+  top: 0;
+  /* 悬浮在顶端 */
+  right: 0;
+  /* 靠右对齐 */
+  background-color: rgba(253, 249, 249, 0.1); /* 半透明背景 */
+  /* 字体颜色 */
+  text-align: right;
+  /* 右对齐文本 */
+  padding: 5px;
+  /* 内边距 */
+  z-index: 1;
+  /* 确保悬浮在图片上面 */
+  white-space: nowrap;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;  
+  right: 0;
+  position: relative;
+  text-align: right;
+  height: auto;
+}
+.logo-swiper {
+  width: 100%;
+}
+.swiper-item {
+  display: flex;
+  align-items: center; /* 垂直居中对齐 */
+  justify-content: center; /* 水平居中对齐 */
+  height: 100%; /* 确保 swiper 项目高度占满父容器 */
+}
+.swiper-item {
+  display: flex; /* 使swiper-item内部采用flex布局 */
+  align-items: flex-start; /* 确保内部内容顶部对齐 */
+}
+.logo-image {
+  height: auto;               /* 高度自动调整 */
+  width: 100%;                /* 图片宽度填充容器 */
+  display: block;             /* 确保图片占满容器 */
+}
+.logo-image-100 {
+  width: 100%;
+}
+
+.logo-image-70 {
+  width: 70%;
+}
+@media (max-width: 400px) {
+  .logo-image {
+    border-radius: 5px !important; /* 在小屏幕设备上减少圆角半径 */
+  }
+}
+@media (min-width: 401px) {
+  .logo-image {
+    border-radius: 10px !important; /* 在较大屏幕设备上增加圆角半径 */
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "meun": "/pages/menu/index",
+    "product-details":"/pages/product-details/index",
+    "dynamic": "/components/dynamic/index",
+        "tips":"/pages/tips/index"
+  }
+}

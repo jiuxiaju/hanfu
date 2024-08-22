@@ -1,0 +1,7 @@
+<t-back-top
+  theme="{{backTopTheme}}"
+  text="{{backTopText}}"
+  scroll-top="{{scrollTop}}"
+  visibility-height='{{visibilityHeight}}'
+  bind:to-top="onToTop"
+></t-back-top>

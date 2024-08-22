@@ -1,46 +1,63 @@
-<import-sjs src="./constant.sjs" name='constant' />
-<import-sjs src="./util.sjs" name='util' />
+<view class="block">
+  <t-navbar t-class-placeholder="t-navbar-placeholder" t-class-content="t-navbar-content" class="block" title="搜索"
+    left-arrow bind:go-back="handleBack" />
+</view>
 
-<custom-navigation-bar onSearch="queryInfos" showBackIcon />
 
-<block a:if="{{showSearchResult}}">
-  <t-tabs defaultValue="all" space-evenly="{{false}}" sticky="true" bind:change="onTabsChange" stickyProps="{{stickyProps}}" >
-    <t-tab-panel a:for="{{constant.tabList}}" a:key="value" label="{{item.label}}" value="{{item.value}}" >
-
-    </t-tab-panel>
-  </t-tabs>
-
-  <!-- 搜索结果, 不同的类型用不同的card组件渲染列表  -->
-  <block a:for="{{infos}}" a:key="_id">
-    <!-- 实体店/网店 -->
-    <shop a:if="{{item.source === 'offline_shop_set' || item.source === 'online_shop_set'}}" data="{{item}}" />
-    <!-- 科普 -->
-    <card a:if="{{item.source === 'knowledge_set'}}" info="{{item}}" keyMap="{{constant.knowledgeKeyMap}}" onClick="onTapKnowledge" >
-      <rich-text slot="desc" nodes="{{item.detail}}"></rich-text>
-    </card>
-    <!-- 活动 -->
-    <card a:if="{{item.source === 'activity_set'}}" info="{{item}}" keyMap="{{constant.activityKeyMap}}" onClick="onTapActivity">
-      <view class="activity-list-card-desc" slot="desc">
-        <view>地址：{{item.region}}</view>
-        <view>日期：{{util.formatRangeTime(item)}}</view>
-      </view>
-      <view class="activity-list-card-tag activity-list-card-tag{{util.getStatusMap(item)}}" slot="tag">{{util.getStatusDesc(item)}}</view>
-    </card>
-    <!-- 文章 -->
-    <card a:if="{{item.source === 'article'}}" info="{{item}}" keyMap="{{constant.articleKeyMap}}" onClick="onTapArticle">
-      <view slot="desc">
-        <view class="article-desc"><rich-text nodes="{{item.article}}"></rich-text></view>
-        <view a:if="{{item.read_count !== undefined}}" class="article-read-count">阅读量：{{item.read_count}}</view>
-      </view>
-    </card>
-  </block>
-
-  <t-empty a:if="{{infos.length === 0}}" t-class="empty" t-class-image="t-empty__image" image="{{image}}" description="暂无结果\n请亲试试换个关键词～" />
-</block>
-
-<block a:elif="{{queryHistoryArr.length}}">
-  <view class="history-title">历史搜索</view>
+<t-sticky offsetTop="80">
+  <t-search class="custom-search" placeholder="{{placeholder}}" shape="round" clearable bindclear="onClearSearch"
+    bindchange="onInputChange" bindsubmit="onSubmitSearch" />
+</t-sticky>
+<block a:if="{{queryHistoryArr.length && !query.length}}">
+  <view class="history-header">
+    <view class="history-title">历史搜索</view>
+    <view class="refresh-button" bindtap="clearQueryHistory">
+      <image class="refresh-icon"  src="/assets/delete.png"></image>
+      <text>删除</text>
+    </view>
+  </view>
   <view class="history-tags">
-    <t-tag a:for="{{queryHistoryArr}}" a:key="item" class="history-tag" variant="light" shape="round" data-query="{{item}}" bind:click="onSearchHistory">{{item}}</t-tag>
+    <t-tag a:for="{{queryHistoryArr}}" wx:key="item.currentTab" class="history-tag" variant="light" shape="round"
+      data-item="{{item}}" bind:click="onSearchHistory">{{item.text}}</t-tag>
   </view>
 </block>
+<!-- 搜索发现区域 -->
+<block a:if="{{!query.length}}">
+  <view class="discover-header">
+    <view class="discover-title">搜索发现</view>
+    <view class="refresh-button" bindtap="refreshDiscoveries">
+      <image class="refresh-icon"  src="/assets/switch.png"></image>
+      <text>换一批</text>
+    </view>
+  </view>
+  <view class="discover-content">
+    <view wx:for="{{displayDiscoveries}}" wx:key="index" wx:for-item="item" wx:for-index="index"
+      data-item="{{item}}" bindtap="onClickDiscover" class="discover-row">
+      <view class="discover-tag" variant="light" shape="round" bind:click="onDiscoverItemClick">{{item.text}}</view>
+    </view>
+  </view>
+</block>
+<!-- sug -->
+
+<!-- 历史记录 -->
+
+<!-- 穹顶配置 -->
+<view hidden="{{!showSuggestion}}" bindtap="onSuggestionTap" class="container">
+  <text class="suggestion-text">{{suggestionText}}</text>
+  <t-icon name="chevron-right" size="32rpx" class="right-icon" />
+</view>
+<scroll-view scroll-y style="height: 600px">
+  <view wx:if="{{suggestions.length > 0}}">
+    <view wx:for="{{suggestions}}" wx:key="text" bindtap="onClickRecommendation" data-item="{{item}}">
+      <view class="offlineSuggestions">
+        <t-icon name="search" size="32rpx" class="icon" />
+        <text>{{item.text}}</text>
+        <t-tag class="margin-16" variant="light" shape="round">{{item.label}}</t-tag>
+
+      </view>
+
+
+    </view>
+  </view>
+
+</scroll-view>

@@ -1,0 +1,27 @@
+{
+  "transparentTitle": "always",
+  "titlePenetrate": "YES",
+  "defaultTitle": " ",
+  "titleBarColor": "#ffffff",
+  "showBackButton": "false",
+  "usingComponents": {
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "custom-navigation-bar": "../../components/custom-navigation-bar/custom-navigation-bar",
+    "card": "/components/card/card",
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "shop": "/components/shop/shop",
+    "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+    "back-top": "../../components/backTop/backTop",
+    "card-list": "/components/cardList/index",
+    "meun": "/pages/menu/index",
+    "dynamic": "/components/dynamic/index",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+       "tips":"/pages/tips/index"
+  }
+}

@@ -1,0 +1,18 @@
+{
+
+  "titleBarColor": "#ffffff",
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+     "card-list": "/components/cardList/index",
+    "t-search": "tdesign-miniprogram/search/search",
+      "t-button": "tdesign-miniprogram/button/button",
+       "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+       "tips":"/pages/tips/index",
+           "t-fab": "tdesign-miniprogram/fab/fab"
+  }
+}

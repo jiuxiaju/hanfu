@@ -1,10 +1,8 @@
 <view class="custom-nav" style="height:{{titleBarHeight+statusBarHeight+10}}px;z-index: 999; position: fixed; top: 0; left: 0; width: 100%;" onTap="onJump2Search" >
   <view class="custom-title-bar" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;">
-  <t-icon a:if="{{showBackIcon}}" class="custom-back_icon" name="chevron-left" size="48rpx" bind:click="onNavigateBack" />
-    <t-search class="custom-search" placeholder="活动、穿搭、妆造等" shape="round" focus="{{focus}}" bind:submit="onSearch" />
+  <t-icon a:if="{{showBackIcon}}" class="custom-back_icon" name="chevron-left" size="48rpx" catchtap="onNavigateBack" />
+    <t-search class="custom-search" placeholder="活动、穿搭、妆造等" shape="round" focus="{{focus}}" bind:submit="onSearch"/>
   </view>
 </view>
-
 <view style="height:{{titleBarHeight+statusBarHeight+10}}px;visibility: hidden;">
-  占位,你看不到我
 </view>

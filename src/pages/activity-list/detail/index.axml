@@ -1,0 +1,53 @@
+<navbar title="活动详情" />
+<view class="activity-detail" >
+  <view class="activity-detail-title">
+    {{ name }}
+  </view>
+  <view class="activity-detail-content">
+    <view class="content-info">
+      <view a:for="{{infoList}}" class="content-info-item">
+        <view class="content-info-item-label">{{item.label}}：</view>
+        <view class="content-info-item-value">{{item.value}}</view>
+      </view>
+    </view>
+    <view class="activity-detail-require" a-if="{{require}}">活动要求:{{require}}</view>
+
+  </view>
+  <view class="activity-detail-content">
+    <view a-if="{{detail}}">
+      <view class="content-detail-label">详情:</view>
+      <rich-text nodes="{{detail}}" onTap="tap"></rich-text>
+    </view>
+  </view>
+
+  <view  style="height:60px;">
+    <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+  </view>
+</view>
+<!-- 海报区域，后续再优化样式。 -->
+
+<view class="overlay" hidden="{{!showOverlay}}">
+  <button class="show-overlay-btn" bindtap="handleTap">生成海报</button>
+  <snapshot id="view" class="intro" hidden="{{isIntroHidden}}">
+    <view class="snapshot-box">
+      <view class="invitation-container">
+        <text class="sponsor-name">{{sponsor}}</text>
+        <text class="invitation-text">邀请您参与</text>
+        <view> {{ name }}</view>
+      </view>
+     <view>
+      <text class="event-location">地址：{{address}}</text>
+     </view>
+      <text class="event-time">活动时间：{{time}}</text>
+      <view class="footer">
+        <view class="qrcode">
+          <image mode="aspectFill" src="https://res.wx.qq.com/wxdoc/dist/assets/img/skyline-demo.37eff20b.png"></image>
+        </view>
+        <view class="qrcode">
+          <text>长按识别小程序码来一起参加活动吧</text>
+        </view>
+      </view>
+    </view>
+</view>
+</snapshot>
+</view>

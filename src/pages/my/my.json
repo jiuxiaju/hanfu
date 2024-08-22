@@ -2,6 +2,5 @@
   "usingComponents": {
     "t-footer": "tdesign-miniprogram/footer/footer",
     "t-icon": "tdesign-miniprogram/icon/icon"
-
   }
 }

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+    "product-details":"/pages/product-details/index"
+  },
+  "navigationStyle": "custom",
+  "defaultTitle": "科普详情"
+}

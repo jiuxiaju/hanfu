@@ -1,0 +1,24 @@
+{
+    "component": true,
+    "onReachBottomDistance": 50,
+    "usingComponents": {
+        "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+        "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+        "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+        "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+        "region": "/components/shop/region/region",
+        "shop": "/components/shop/shop",
+        "t-sticky": "tdesign-miniprogram/sticky/sticky",
+        "no-data": "/components/shop/no-data/no-data",
+        "meun": "/pages/menu/index",
+        "t-loading": "tdesign-miniprogram/loading/loading",
+        "card-list": "/components/cardList/index",
+        "back-top": "../../components/backTop/backTop",
+        "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+        "t-popup": "tdesign-miniprogram/popup/popup",
+        "dynamic": "/components/dynamic/index",
+        "t-footer": "tdesign-miniprogram/footer/footer",
+        "tips":"/pages/tips/index"
+         
+    }
+}

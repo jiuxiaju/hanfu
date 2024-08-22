@@ -1,0 +1,64 @@
+.t-tabs {
+    --td-tab-item-active-color: #a86600;
+    --td-tab-track-color: #a86600;
+  }
+  
+.tab-panel-class {
+    position: absolute;
+    // top: 4px; /* 根据需要设置顶部距离 */
+    left: 0; /* 根据需要设置左边距离 */
+  }
+  
+  .t-tabs__content-inner {
+    background-color: #f9f9f9;
+  }
+  
+  .t-empty__image {
+    width: 240rpx !important;
+    height: 240rpx !important;
+  }
+  
+  .content-below {
+    margin-top: 100px; /* 根据 t-tab-panel 的高度设置足够的值 */
+  }  
+  .empty {
+    margin-top: 30px;
+  }
+  
+  .history-title {
+    margin: 10px;
+    font-weight: bold;
+  }
+  
+  .history-tags {
+    margin: 10px;
+  
+    .history-tag {
+      margin-right: 10px;
+    }
+  }
+  /* 调整返回顶部组件的层级 */
+.custom-back-top {
+  z-index: 99999; /* 设置一个足够大的 z-index 值 */
+  background-color: #eded24 !important; /* 示例：设置背景颜色 */
+}
+/* 确保列表项的 z-index 不高于返回顶部组件，必要时设置列表容器的 z-index */
+.list-container {
+  position: relative; /* 确保父容器具有定位属性 */
+  z-index: 1; /* 设置低于返回顶部组件的 z-index */width: 100%;
+}
+.scroll-content {
+  height: 100%;
+  display: flex;
+  overflow: auto; /* 使其能够滚动 */
+  height: 2000px; /* 使内容高度足以触发滚动 */
+}.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 100% 某视口高度 */
+}
+/* 确保 scroll 容器动态高度 */
+.scroll-container {
+  flex: 1; /* 占用剩余空间的 100% 的高度 */
+  overflow-y: auto; /* 确保滚动 */
+}

@@ -1,9 +1,17 @@
 <view class="mine">
-  <view class="mine-header" bindtap="onTapLogin">
-  <!-- onTapLogin绑定登陆触发 -->
-    <image class="mine-header-logo" src="" mode="aspectFit"></image>
-    <view class="mine-header-info">
-      <view class="mine-header-info-title">欢迎你同袍</view>
+
+  <view class="mine-header">
+
+  <!-- 头像与更新资料的子容器 -->
+   <view class="avatar-update-container"   bindtap="onTapLogo">
+    <!-- 头像 -->
+    <image class="mine-header-logo" mode="aspectFit"></image>
+    <!-- 更新资料文本 -->
+  </view>
+
+    
+    <view class="mine-header-info"   bindtap="onTapLogin">
+      <view class="mine-header-info-title">点击登录</view>
       <view class="mine-header-info-desc">岂曰无衣，与子同袍。</view>
     </view>
   </view>
@@ -16,4 +24,9 @@
     </block>
   </view>
 </view>
+
+
 <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+
+
+ 

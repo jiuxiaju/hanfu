@@ -1,0 +1,71 @@
+<view class="container3">
+  <!-- 可水平滚动的标签区域 -->
+  <scroll-view scroll-x="true" class="tabs-scroll">
+    <!-- <view class="tabs-container">
+       -->
+    <view
+      class="tabs-container {{totalTabs === 1 ? 'tabs-single' : totalTabs === 2 ? 'tabs-double' : totalTabs > 2 && totalTabs <= 4 ? 'tabs-four-or-less' : '' }}">
+      <!-- 遍历singleValueTabs数组，生成单个值标签 -->
+      <block wx:for="{{singleValueTabs}}" wx:key="index">
+        <view data-label="{{item.label}}" data-content="{{item.content}}" data-value="{{item.value}}"
+          bindtap="onSingleValueTabClick"
+          class="{{finalValues[item.value] ? 'tab-container selected' : 'tab-container'}}">
+          <view class="tab-single">{{item.content}}</view> <!-- 单个值标签内容 -->
+        </view>
+      </block>
+      <!-- 遍历tabs数组，生成每个标签 -->
+      <block wx:for="{{tabs}}" wx:key="index">
+        <view data-value="{{item.value}}"
+          class="{{finalValues[item.value] && finalValues[item.value].length > 0 ? 'tab-container selected' : 'tab-container'}}"
+          data-label="{{item.label}}" data-value="{{item.value}}" bindtap="onTabClick">
+          <view class="tab-logo">
+            <t-icon wx:if="{{activeTab === item.value}}" name="caret-up-small" size="48rpx" />
+            <t-icon wx:if="{{activeTab !== item.value}}" name="caret-down-small" size="48rpx" />
+          </view>
+          <view class="">
+            {{
+              finalValues[item.value] && finalValues[item.value].length > 0
+                ? (finalValues[item.value].length === 1
+                    ? finalValues[item.value][0]
+                    : `${item.label}(${finalValues[item.value].length})`)
+                : item.label
+            }}
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <!-- 当isPanelOpen为true时显示的内容面板 -->
+  <view wx:if="{{isPanelOpen}}">
+    <!-- 透明遮罩层，点击时关闭面板 -->
+    <view class="transparent-mask" bindtap="closePanel"></view>
+    <!-- 标签内容面板 -->
+    <view class="tab-panel">
+      <!-- 垂直滚动的标签内容 -->
+      <scroll-view scroll-y="true" class="tab-content">
+        <!-- 遍历tabs数组，显示当前激活标签的内容 -->
+        <block wx:for="{{tabs}}" wx:key="index">
+          <view wx:if="{{activeTab === item.value}}">
+            <!-- 遍历每行内容 -->
+            <block wx:for="{{item.content}}" wx:key="rowIndex">
+              <view class="tab-row">
+                <!-- 遍历每个内容项 -->
+                <block wx:for="{{item}}" wx:key="subIndex">
+                  <view class="tab-item {{selectedItems.indexOf(item)> -1 ?  'selected' : ''}}" bindtap="onItemSelect"
+                    data-value="{{item}}">
+                    <text>{{item}}</text>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+      <!-- 面板底部的重置和确认按钮 -->
+      <view class="tab-footer">
+        <t-button theme="light" block size="large" bindtap="onReset" disabled="{{!hasSelectedItems}}">重置</t-button>
+        <t-button theme="primary" block size="large" bindtap="onConfirm" disabled="{{!hasSelectedItems}}">确认</t-button>
+      </view>
+    </view>
+  </view>
+</view>

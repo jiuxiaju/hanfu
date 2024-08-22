@@ -6,12 +6,12 @@
   "navigationStyle": "custom",
   "showBackButton": "false",
   "usingComponents": {
-    "t-tabs": "tdesign-miniprogram/tabs/tabs",
-    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
     "t-empty": "tdesign-miniprogram/empty/empty",
     "t-tag": "tdesign-miniprogram/tag/tag",
-    "custom-navigation-bar": "../../components/custom-navigation-bar/custom-navigation-bar",
-    "card": "/components/card/card",
-    "shop": "/components/shop/shop"
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "t-button": "tdesign-miniprogram/button/button"
   }
 }

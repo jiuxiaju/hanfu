@@ -12,7 +12,7 @@
         <view class="shop-tabs">
             <view a:for="{{data.style}}" a:key="item" a:for-item="item" class="shop-tab-online">{{item}}</view>
         </view>
-        <view a:if="{{data.store}}" class="shop-source">店铺来源：
+        <view a:if="{{data.store}}" class="shop-source"  >店铺来源：
             <t-image class="shop-source-icon" a:if="{{data.store.icon}}" src="{{data.store.icon}}" mode="aspectFill" height="12" width="12" />
             {{data.store.label}}
           </view>

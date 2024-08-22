@@ -1,0 +1,97 @@
+<view>
+  <view wx:if="{{currentTab === 0}}">
+    <view class="filter-container">
+      <t-dropdown-menu>
+        <t-dropdown-item 
+        label="{{areaLabel}}"
+    id="dropdown-item-1">
+          <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{area}}"
+            bindchange="onChangeAreaFilter" />
+          <view class="area-tree-button-container">
+            <t-button theme="primary" block variant="outline" onTap="defaultTap" data-id="dropdown-item-1">重置</t-button>
+            <t-button theme="primary" block onTap="primaryTap" data-id="dropdown-item-1">确认</t-button>
+          </view>
+        </t-dropdown-item>
+        <t-dropdown-item label="{{styleLabel}}" optionsColumns="2" options="{{styleOptions}}"
+          bindchange="handleStyleChange" bindreset="handleStyleReset" bindconfirm="handleStyleConfirm" value="{{style}}"
+          multiple />
+      </t-dropdown-menu>
+    </view>
+  </view>
+  <view wx:elif="{{currentTab === 1}}">
+    <view class="filter-container">
+      <t-dropdown-menu>
+        <t-dropdown-item label="{{tagsLabel}}" optionsColumns="3" options="{{tagsOptions}}"
+          bindchange="handleTagsChange" bindreset="handleTagsReset" bindconfirm="handleTagsConfirm" value="{{tags}}"
+          multiple />
+        <t-dropdown-item 
+        label="{{areaLabel}}" id="dropdown-item-2">
+          <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{area}}"
+            bindchange="onChangeAreaFilter" />
+          <view class="area-tree-button-container">
+            <t-button theme="primary" block variant="outline" onTap="defaultTap" data-id="dropdown-item-2">重置</t-button>
+            <t-button theme="primary" block onTap="primaryTap" data-id="dropdown-item-2">确认</t-button>
+          </view>
+        </t-dropdown-item>
+      </t-dropdown-menu>
+    </view>
+  </view>
+  <view wx:elif="{{currentTab === 2}}">
+    <t-dropdown-menu >
+      <t-dropdown-item label="{{sourceLabel}}" optionsColumns="2" options="{{sourceOptions}}"
+        bindchange="handleSourceChange" bindreset="handleSourceReset" bindconfirm="handleSourceConfirm"
+        label="{{filter.source ? options[filter.source].label : '店铺来源'}}" value="{{source}}" multiple />
+      <t-dropdown-item label="{{styleLabel}}" optionsColumns="2" options="{{styleOptions}}"
+        bindchange="handleStyleChange" bindreset="handleStyleReset" bindconfirm="handleStyleConfirm" value="{{style}}"
+        multiple />
+    </t-dropdown-menu>
+  </view>
+  <view wx:elif="{{currentTab === 3}}">
+    <t-dropdown-menu>
+      <t-dropdown-item label="{{styleLabel}}" optionsColumns="2" options="{{styleOptions}}"
+        bindchange="handleStyleChange" bindreset="handleStyleReset" bindconfirm="handleStyleConfirm" value="{{style}}"
+        multiple />
+      <t-dropdown-item label="{{sizeLabel}}" optionsColumns="3" options="{{sizeOptions}}" bindchange="handleSizeChange"
+        bindreset="handleSizeReset" bindconfirm="handleSizeConfirm" value="{{size}}" multiple />
+      <t-dropdown-item label="{{deliveryTimeLabel}}" optionsColumns="3" options="{{deliveryTimeOptions}}"
+        bindchange="handleDeliveryTimeChange" bindreset="handleDeliveryTimeReset"
+        bindconfirm="handleDeliveryTimeConfirm" value="{{deliveryTime}}" multiple />
+    </t-dropdown-menu>
+  </view>
+
+  <view wx:elif="{{currentTab === 4}}">
+    <view>
+      <t-dropdown-menu>
+        <t-dropdown-item label="{{styleLabel}}" optionsColumns="2" options="{{styleOptions}}"
+          bindchange="handleStyleChange" bindreset="handleStyleReset" bindconfirm="handleStyleConfirm" value="{{style}}"
+          multiple />
+        <t-dropdown-item label="{{dynastyLabel}}" optionsColumns="3" options="{{dynastyOptions}}"
+          bindchange="handleDynastyChange" bindreset="handleDynastyReset" bindconfirm="handleDynastyConfirm"
+          value="{{dynasty}}" multiple />
+      </t-dropdown-menu>
+    </view>
+  </view>
+
+  <view wx:elif="{{currentTab === 5}}">
+    <view class="filter-container">
+      <t-dropdown-menu>
+        <t-dropdown-item options="{{actypeList}}" label="{{actypeLabel}}"
+          value="{{filter.actype}}" bindchange="onChangeTypeFilter" multiple
+          optionsColumns="3"
+          bindchange="onChangeTypeFilter" bindreset="handleTypeFilterReset" bindconfirm="handleTypeFilterConfirm"
+          />
+        <t-dropdown-item options="{{statusList}}"
+          label="{{ilter.status ? statusList[filter.status].label : '活动状态'}}                                "
+          value="{{filter.status}}" bindchange="onChangeStatusFilter" />
+        <t-dropdown-item       label="{{areaLabel}}" id="dropdown-item-3">
+          <t-tree-select a:if="{{provinceList.length}}" options="{{provinceList}}" value="{{area}}"
+            bindchange="onChangeAreaFilter" />
+          <view class="area-tree-button-container">
+            <t-button theme="primary" block variant="outline" onTap="defaultTap" data-id="dropdown-item-3">重置</t-button>
+            <t-button theme="primary" block onTap="primaryTap" data-id="dropdown-item-3">确认</t-button>
+          </view>
+        </t-dropdown-item>
+      </t-dropdown-menu>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<navbar title="{{style_name}}" />
+<view class="population-detail">
+  <view class="card-theme">
+
+
+    <view  wx:if="{{isLoadingSwiper}}" class="skeleton-container">
+      <t-skeleton theme="image" rowCol="{{rowColsImage}}"   loading animation="gradient" ></t-skeleton>
+    </view>
+    <view class="swiper-container"
+    wx:if="{{!isLoadingSwiper}}"
+    >
+      <swiper
+        wx:if="{{swiperList.length}}"
+        current="{{current}}"
+        autoplay="{{true}}"
+        duration="{{duration}}"
+        interval="{{interval}}"
+        bindchange="onChange"
+        class="my-swiper"
+        indicator-dots="true"
+      >
+        <block wx:for="{{swiperList}}" wx:key="index">
+          <swiper-item class="swiper-item">
+            <image
+              src="{{item}}"
+              class="swiper-image"
+              mode="aspectFill"
+              bindtap="previewImage"
+            />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view wx:if="{{isLoadingContent}}">
+      <!-- 三行骨架屏，每行右侧是图片，左侧是文本 -->
+      <block wx:for="{{[1,2,3]}}" wx:key="{{item}}">
+        <view class="group">
+          <t-skeleton class="group-content" rowCol="{{rowColsContent}}" loading animation="gradient"></t-skeleton>
+        </view>
+      </block>
+    </view>
+    <view wx:if="{{!isLoadingContent}}">
+
+      <view class="container1">
+        <product-details product="{{product}}" config="{{config}}"></product-details>
+      </view>
+      <view class="population-detail-content">
+        <view class="population-detail-content-shop">
+          选自店铺：{{ shop_name }}
+        </view>
+        <view class="population-detail-content-detail-label">详情：</view>
+        <rich-text nodes="{{detail}}" style="word-break: break-all;" onTap="tap"></rich-text>
+      </view>
+      
+    </view>
+
+    <view  style="height:60px;">
+      <t-footer text="Copyright © 九霞裾. All Rights Reserved."></t-footer>
+    </view>
+   
+  </view>

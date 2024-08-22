@@ -20,23 +20,25 @@ aPage({
   },
     //分享给好友
     onShareAppMessage() {
+      const app = getApp(); // 获取全局应用实例
+  
       const promise = new Promise(resolve => {
-        setTimeout(() => {
-          resolve({
-            title: '九霞裾'
-          })
-        }, 20)
-      })
+        app.generateShareInfo().then(shareInfo => {
+          // 在这里处理生成的分享信息
+          resolve(shareInfo);
+        });
+      });
+  
       return {
         title: '九霞裾',
-        path: '/pages/home',
-        promise 
-      }
+        path: '/pages/home', // 这个值会被 promise 里面的 pathWithArgs 覆盖
+        promise
+      };
     },
     //转发到朋友圈
-    onShareTimeline:function(){
-      return{
-        title:'快来看看'
+    onShareTimeline: function () {
+      return {
+        title: '快来看看'
       }
     },
 

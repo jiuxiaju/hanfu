@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+
+    "t-footer": "tdesign-miniprogram/footer/footer",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton"
+  },
+  "navigationStyle": "custom"
+}

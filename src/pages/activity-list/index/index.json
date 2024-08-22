@@ -1,0 +1,15 @@
+{
+  "defaultTitle": "活动",
+  "usingComponents": {
+    "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+    "t-tree-select": "tdesign-miniprogram/tree-select/tree-select",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-sticky": "tdesign-miniprogram/sticky/sticky",
+    "card": "/components/card/card",
+    "card-list": "/components/cardList/index",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+            "tips":"/pages/tips/index"
+  }
+}

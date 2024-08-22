@@ -1,0 +1,16 @@
+{
+    "usingComponents": {
+      "t-tabs": "tdesign-miniprogram/tabs/tabs",
+      "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+      "t-image": "tdesign-miniprogram/image/image",
+      "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+      "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+      "card-list": "/components/cardList/index",
+        "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+        "dynamic": "/components/dynamic/index",
+
+       "t-footer": "tdesign-miniprogram/footer/footer",
+        "meun": "/pages/menu/index"
+    },
+     "navigationStyle": "custom"
+  }

@@ -1,5 +1,6 @@
 import { dbTest } from './database'
 const _ = dbTest.command
+const currentTimestamp = new Date().getTime(); // 获取当前时间戳
 const collection = dbTest.collection('activity_set')
 const collectionHomeImages = dbTest.collection('home_images')
 const collectionArticle = dbTest.collection('article')
@@ -12,20 +13,28 @@ const getBannerImgs = () =>
     })
     .get()
     .then((res) => res.data)
-
 // 查询前2条活动
 export const getActivities = async (params: any) => {
   const res = collection
-    .where({})
+  //   .where(
+  //     _.or([
+  //       {
+  //         startTime: _.gt(currentTimestamp)
+  //       },
+  //       {
+  //         startTime: _.lte(currentTimestamp),
+  //         endTime: _.gt(currentTimestamp)
+  //       }
+  //     ])
+  // )
     .orderBy('startTime', 'desc')
-    .limit(2)
+    .limit(0)
     .get()
     .then((res) => {
       return res.data
     })
   return res
 }
-
 // 获取推荐文章
 const getRecommendArticles = () => {
   return Promise.all([

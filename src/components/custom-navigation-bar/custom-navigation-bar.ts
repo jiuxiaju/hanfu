@@ -41,12 +41,18 @@ aComponent({
       }
     },
     onJump2Search() {
+      console.log('onJump2Search triggered');
       if (this.$page.route !== 'pages/search/search') {
         my.navigateTo({ url: '/pages/search/search' })
       }
     },
-    onNavigateBack() {
-      my.navigateBack()
+    onNavigateBack(event) {
+      console.log('onNavigateBack triggered');
+      // 阻止事件冒泡
+      if (event && event.stopPropagation) {
+        event.stopPropagation();
+      }
+      my.navigateBack();
     },
     onSearch(e) {
       this.props.onSearch(e.detail.value)

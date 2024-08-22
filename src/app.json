@@ -1,19 +1,25 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/shop/shop",
+    "pages/home/index",
+    "pages/shop/index/index",
+    "pages/shop/offline-detail/index",
+    "pages/shop/online-detail/index",
+    "pages/shop/style/index",
+    "pages/population-list/index/index",
+    "pages/population-list/detail/index",
+    "pages/activity-list/index/index",
+    "pages/activity-list/detail/index",
+    "pages/cards/index",
+    "pages/product-details/index",
     "pages/my/my",
-    "pages/sports/sports",
-    "pages/population-list/population-list",
-    "pages/pageNotFound/pageNotFound",
-    "pages/todos/todos",
-    "pages/add-todo/add-todo",
+    "pages/sports/index",
     "pages/article/detail",
-    "pages/population/detail",
-    "pages/activity/detail",
-    "pages/activity-list/activity-list",
+    "pages/menu/index",
     "pages/search/search",
-    "pages/my/center"
+    "pages/my/center",
+    "pages/result/result",
+    "pages/tips/index",
+    "pages/navbar/index"
   ],
   "window": {
     "backgroundColor": "#F9F9F9",
@@ -26,13 +32,13 @@
     "backgroundColor": "#FFFFFF",
     "items": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/home/index",
         "name": "首页",
         "icon": "assets/home-active.png",
         "activeIcon": "assets/home-active.png"
-      },
+      },  
       {
-        "pagePath": "pages/shop/shop",
+        "pagePath": "pages/shop/index/index",
         "name": "店铺",
         "icon": "assets/shop-active.png",
         "activeIcon": "assets/shop-active.png"
@@ -45,6 +51,10 @@
       }
     ]
   },
-  "lazyCodeLoading": "requiredComponents",
-  "embeddedAppIdList": ["wx8abaf00ee8c3202e"]
+  "embeddedAppIdList": [
+    "wx8abaf00ee8c3202e"
+  ],
+  "usingComponents": {
+    "navbar": "/pages/navbar/index"
+  }
 }

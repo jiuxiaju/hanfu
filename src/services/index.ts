@@ -10,7 +10,6 @@ const map: any = {
   '/home/getActivities': home.getActivities,
   '/home/getArticles': home.getRecommendArticles,
   '/article/detail': article.getArticleById,
-  '/population/detail': population.getPopulationById,
   '/activity/detail': activity.getActivityById,
   '/my/center/detail': mine.getMyCenterdetailById,
   '/sports/getSports': sports.getSportsInfo,

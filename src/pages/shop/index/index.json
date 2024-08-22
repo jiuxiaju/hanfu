@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-dropdown-menu": "tdesign-miniprogram/dropdown-menu/dropdown-menu",
+    "t-dropdown-item": "tdesign-miniprogram/dropdown-item/dropdown-item",
+    "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+    "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+    "offline": "/pages/shop/offline-list/index",
+    "t-loading": "tdesign-miniprogram/loading/loading",
+    "online": "/pages/shop/online-list/index",
+    "back-top": "../../components/backTop/backTop",
+    "meun": "/pages/menu/index"
+  },
+  "defaultTitle": "店铺"
+}

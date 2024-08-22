@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "活动详情",
+  "usingComponents": {
+    "t-footer": "tdesign-miniprogram/footer/footer"
+  },
+  "navigationStyle": "custom"
+}
